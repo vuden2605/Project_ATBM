@@ -29,7 +29,10 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AdminForm adminForm = new AdminForm();
+            this.Hide();
+            adminForm.ShowDialog();
+            this.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
