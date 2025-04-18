@@ -1,4 +1,6 @@
-﻿namespace Project_ATBM
+﻿using Oracle.ManagedDataAccess.Client;
+
+namespace Project_ATBM
 {
     public partial class LoginForm : Form
     {
@@ -31,6 +33,20 @@
         {
             AdminForm adminForm = new AdminForm();
             this.Hide();
+            string connectionString = "User Id=sys;Password=vuden2605;Data Source=localhost:1521/XEPDB1;DBA Privilege=SYSDBA;";
+
+            using (OracleConnection conn = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MessageBox.Show("Kết nối Oracle thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kết nối thất bại: " + ex.Message);
+                }
+            }
             adminForm.ShowDialog();
             this.Show();
         }
