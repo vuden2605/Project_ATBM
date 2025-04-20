@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             button2 = new Button();
-            button1 = new Button();
+            btnLogIn = new Button();
             panel3 = new Panel();
             textBox2 = new TextBox();
             label2 = new Label();
@@ -45,7 +45,7 @@
             // panel1
             // 
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnLogIn);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(36, 36);
@@ -64,15 +64,15 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // button1
+            // btnLogIn
             // 
-            button1.Location = new Point(397, 140);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Đăng nhập";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnLogIn.Location = new Point(397, 140);
+            btnLogIn.Name = "btnLogIn";
+            btnLogIn.Size = new Size(94, 29);
+            btnLogIn.TabIndex = 2;
+            btnLogIn.Text = "Đăng nhập";
+            btnLogIn.UseVisualStyleBackColor = true;
+            btnLogIn.Click += btnLogIn_Click;
             // 
             // panel3
             // 
@@ -159,6 +159,6 @@
         private TextBox textBox2;
         private TextBox textBox1;
         private Button button2;
-        private Button button1;
+        private Button btnLogIn;
     }
 }

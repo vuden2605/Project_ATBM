@@ -29,11 +29,11 @@ namespace Project_ATBM
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogIn_Click(object sender, EventArgs e)
         {
             AdminForm adminForm = new AdminForm();
             this.Hide();
-            string connectionString = "User Id=sys;Password=vuden2605;Data Source=localhost:1521/XEPDB1;DBA Privilege=SYSDBA;";
+            string connectionString = "User Id=sys;Password=vu123456;Data Source=192.168.230.1:1521/XEPDB1;DBA Privilege=SYSDBA;";
 
             using (OracleConnection conn = new OracleConnection(connectionString))
             {
