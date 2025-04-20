@@ -55,12 +55,13 @@
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.ActiveCaption;
             button2.Location = new Point(497, 140);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 3;
             button2.Text = "Thoát";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button1
