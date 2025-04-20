@@ -33,7 +33,7 @@ namespace Project_ATBM
         {
             AdminForm adminForm = new AdminForm();
             this.Hide();
-            string connectionString = "User Id=sys;Password=vuden2605;Data Source=localhost:1521/XEPDB1;DBA Privilege=SYSDBA;";
+            string connectionString = "User Id=sys;Password=viet123456;Data Source=localhost:1521/XEPDB1;DBA Privilege=SYSDBA;";
 
             using (OracleConnection conn = new OracleConnection(connectionString))
             {

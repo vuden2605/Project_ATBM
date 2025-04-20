@@ -26,5 +26,10 @@ namespace Project_ATBM
         {
 
         }
+
+        private void GrantPrivilegeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
