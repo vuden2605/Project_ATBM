@@ -4,16 +4,28 @@
     <Compile Update="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GrantPrivilegeForm.cs">
+    <Compile Update="CreateRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CreateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GrantRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GrantUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GrantRoleToUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RoleForm.cs">
+    <Compile Update="UpdateRoleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserForm.cs">
+    <Compile Update="UpdateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
