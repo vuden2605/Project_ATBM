@@ -249,5 +249,43 @@ namespace Project_ATBM
         {
 
         }
+
+        private void btnFilterUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string username = textBox3.Text.ToUpper();
+                string query = $"SELECT * FROM dba_users WHERE username LIKE :username";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":username", "%" + username + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void btnFilterRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rolename = textBox4.Text.ToUpper();
+                string query = "SELECT * FROM dba_roles WHERE role LIKE :rolename";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":rolename", "%" + rolename + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
     }
 }
