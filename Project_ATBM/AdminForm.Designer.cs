@@ -33,12 +33,20 @@
             button4 = new Button();
             tabControl2 = new TabControl();
             tabPage8 = new TabPage();
+            panel4 = new Panel();
+            btnFilterUser = new Button();
+            textBox3 = new TextBox();
+            label3 = new Label();
             panel1 = new Panel();
             btnDeleteUser = new Button();
             btnUpdateUser = new Button();
             btnCreateUser = new Button();
             dataGridView1 = new DataGridView();
             tabPage10 = new TabPage();
+            panel5 = new Panel();
+            btnFilterRole = new Button();
+            textBox4 = new TextBox();
+            label4 = new Label();
             btnDeleteRole = new Button();
             btnUpdateRole = new Button();
             btnCreateRole = new Button();
@@ -98,17 +106,15 @@
             btnRevokeToRole = new Button();
             btnGrantToRole = new Button();
             dataGridView8 = new DataGridView();
-            panel4 = new Panel();
-            button5 = new Button();
-            textBox3 = new TextBox();
-            label3 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
             tabPage8.SuspendLayout();
+            panel4.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage10.SuspendLayout();
+            panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             tabPage2.SuspendLayout();
             tabControl3.SuspendLayout();
@@ -130,7 +136,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -144,7 +149,7 @@
             tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1049, 578);
+            tabControl1.Size = new Size(1131, 595);
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             // 
@@ -156,7 +161,7 @@
             tabPage1.Margin = new Padding(2, 2, 4, 2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(1041, 545);
+            tabPage1.Size = new Size(1123, 562);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "User & Role";
             tabPage1.UseVisualStyleBackColor = true;
@@ -180,7 +185,7 @@
             tabControl2.Margin = new Padding(2);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(981, 469);
+            tabControl2.Size = new Size(1006, 469);
             tabControl2.SizeMode = TabSizeMode.Fixed;
             tabControl2.TabIndex = 2;
             tabControl2.SelectedIndexChanged += tabControl2_SelectedIndexChanged;
@@ -194,10 +199,50 @@
             tabPage8.Margin = new Padding(2);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(2);
-            tabPage8.Size = new Size(973, 436);
+            tabPage8.Size = new Size(998, 436);
             tabPage8.TabIndex = 0;
             tabPage8.Text = "USER";
             tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(btnFilterUser);
+            panel4.Controls.Add(textBox3);
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(702, 252);
+            panel4.Margin = new Padding(2);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(262, 157);
+            panel4.TabIndex = 6;
+            // 
+            // btnFilterUser
+            // 
+            btnFilterUser.Location = new Point(170, 98);
+            btnFilterUser.Margin = new Padding(2);
+            btnFilterUser.Name = "btnFilterUser";
+            btnFilterUser.Size = new Size(92, 35);
+            btnFilterUser.TabIndex = 2;
+            btnFilterUser.Text = "Tìm kiếm";
+            btnFilterUser.UseVisualStyleBackColor = true;
+            btnFilterUser.Click += btnFilterUser_Click;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(7, 56);
+            textBox3.Margin = new Padding(2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(253, 27);
+            textBox3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(7, 23);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(106, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Nhập tên User:";
             // 
             // panel1
             // 
@@ -207,7 +252,7 @@
             panel1.Location = new Point(702, 12);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(223, 236);
+            panel1.Size = new Size(260, 236);
             panel1.TabIndex = 5;
             // 
             // btnDeleteUser
@@ -256,6 +301,7 @@
             // 
             // tabPage10
             // 
+            tabPage10.Controls.Add(panel5);
             tabPage10.Controls.Add(btnDeleteRole);
             tabPage10.Controls.Add(btnUpdateRole);
             tabPage10.Controls.Add(btnCreateRole);
@@ -264,10 +310,50 @@
             tabPage10.Margin = new Padding(2);
             tabPage10.Name = "tabPage10";
             tabPage10.Padding = new Padding(2);
-            tabPage10.Size = new Size(932, 431);
+            tabPage10.Size = new Size(998, 436);
             tabPage10.TabIndex = 2;
             tabPage10.Text = "ROLE";
             tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(btnFilterRole);
+            panel5.Controls.Add(textBox4);
+            panel5.Controls.Add(label4);
+            panel5.Location = new Point(698, 254);
+            panel5.Margin = new Padding(2);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(262, 157);
+            panel5.TabIndex = 7;
+            // 
+            // btnFilterRole
+            // 
+            btnFilterRole.Location = new Point(168, 102);
+            btnFilterRole.Margin = new Padding(2);
+            btnFilterRole.Name = "btnFilterRole";
+            btnFilterRole.Size = new Size(92, 35);
+            btnFilterRole.TabIndex = 2;
+            btnFilterRole.Text = "Tìm kiếm";
+            btnFilterRole.UseVisualStyleBackColor = true;
+            btnFilterRole.Click += btnFilterRole_Click;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(7, 56);
+            textBox4.Margin = new Padding(2);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(253, 27);
+            textBox4.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(7, 23);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(107, 20);
+            label4.TabIndex = 0;
+            label4.Text = "Nhập tên Role:";
             // 
             // btnDeleteRole
             // 
@@ -328,7 +414,7 @@
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(1041, 545);
+            tabPage2.Size = new Size(1123, 562);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Dánh sách user/role";
             tabPage2.UseVisualStyleBackColor = true;
@@ -477,7 +563,7 @@
             tabPage3.Location = new Point(4, 29);
             tabPage3.Margin = new Padding(2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1041, 545);
+            tabPage3.Size = new Size(1123, 562);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Thông tin quyền";
             tabPage3.UseVisualStyleBackColor = true;
@@ -706,7 +792,7 @@
             tabPage4.Location = new Point(4, 29);
             tabPage4.Margin = new Padding(2);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(963, 531);
+            tabPage4.Size = new Size(1123, 562);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Quản lý quyền";
             tabPage4.UseVisualStyleBackColor = true;
@@ -836,50 +922,11 @@
             dataGridView8.Size = new Size(671, 394);
             dataGridView8.TabIndex = 1;
             // 
-            // panel4
-            // 
-            panel4.Controls.Add(button5);
-            panel4.Controls.Add(textBox3);
-            panel4.Controls.Add(label3);
-            panel4.Location = new Point(687, 252);
-            panel4.Margin = new Padding(2);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(262, 157);
-            panel4.TabIndex = 6;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(155, 98);
-            button5.Margin = new Padding(2);
-            button5.Name = "button5";
-            button5.Size = new Size(92, 35);
-            button5.TabIndex = 2;
-            button5.Text = "Tìm kiếm";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(7, 56);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(258, 27);
-            textBox3.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(7, 23);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 20);
-            label3.TabIndex = 0;
-            label3.Text = "Nhập tên User:";
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1049, 578);
+            ClientSize = new Size(1131, 595);
             Controls.Add(tabControl1);
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -889,9 +936,13 @@
             tabPage1.ResumeLayout(false);
             tabControl2.ResumeLayout(false);
             tabPage8.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabPage10.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             tabPage2.ResumeLayout(false);
             tabControl3.ResumeLayout(false);
@@ -915,8 +966,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
             tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView8).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -993,8 +1042,12 @@
         private Button btnGrantToRole;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private Panel panel4;
-        private Button button5;
+        private Button btnFilterUser;
         private TextBox textBox3;
         private Label label3;
+        private Panel panel5;
+        private Button btnFilterRole;
+        private TextBox textBox4;
+        private Label label4;
     }
 }
