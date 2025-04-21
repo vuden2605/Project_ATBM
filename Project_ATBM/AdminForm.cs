@@ -17,31 +17,15 @@ namespace Project_ATBM
             InitializeComponent();
         }
 
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            UserForm userForm = new UserForm();
-            userForm.ShowDialog();
-        }
 
-        private void roleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            RoleForm roleForm = new RoleForm();
-            roleForm.ShowDialog();
-        }
+
 
         private void thuHồiQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void cấpQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            GrantPrivilegeForm grantPrivilegeForm = new GrantPrivilegeForm();
-            grantPrivilegeForm.ShowDialog();
-        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -83,9 +67,9 @@ namespace Project_ATBM
 
             if (result == DialogResult.Yes)
             {
+                // hàm delete chuyền vào user muốn xóa đã được chọn trong griddata
                 //DeleteUser();
                 MessageBox.Show("Đã xóa user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // có thể bỏ thông báo vào hàm delete
             }
         }
 
@@ -100,9 +84,9 @@ namespace Project_ATBM
 
             if (result == DialogResult.Yes)
             {
+                // hàm delete chuyền vào role muốn xóa đã được chọn trong griddata
                 //DeleteRole();
                 MessageBox.Show("Đã xóa role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // có thể bỏ thông báo vào hàm delete
             }
         }
 
@@ -132,5 +116,101 @@ namespace Project_ATBM
             CreateRoleForm createRoleForm = new CreateRoleForm();
             createRoleForm.ShowDialog();
         }
+
+        private void GrantUser_Click(object sender, EventArgs e)
+        {
+            GrantUserForm grantUserForm = new GrantUserForm();
+            grantUserForm.ShowDialog();
+        }
+
+        private void GrantRoleToUser_Click(object sender, EventArgs e)
+        {
+            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm();
+            grantRoleToUserForm.ShowDialog();
+        }
+
+        private void RevokeUser_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có muốn thu hồi quyền của user này không?",
+                "Xác nhận thu hồi quyền",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    bool isRevokeSuccessful = RevokeUserPrivileges();
+
+                    if (isRevokeSuccessful)
+                    {
+                        MessageBox.Show("Thu hồi quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thu hồi quyền thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private bool RevokeUserPrivileges()
+        {
+
+            return true;
+        }
+
+        private void btnGrantToRole_Click(object sender, EventArgs e)
+        {
+            GrantRoleForm grantRoleForm = new GrantRoleForm();
+            grantRoleForm.ShowDialog();
+        }
+
+        private void btnRevokeToRole_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có muốn thu hồi quyền của role này không?",
+                "Xác nhận thu hồi quyền",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Example: Call a method to handle the revocation logic
+                    bool isRevokeSuccessful = RevokeRolePrivileges();
+
+                    if (isRevokeSuccessful)
+                    {
+                        MessageBox.Show("Thu hồi quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thu hồi quyền thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // Example method to handle role privilege revocation logic
+        private bool RevokeRolePrivileges()
+        {
+            // Implement the logic to revoke role privileges here
+            // This could involve database operations or other logic
+            return true; // Placeholder for actual implementation
+        }
+
+
     }
 }

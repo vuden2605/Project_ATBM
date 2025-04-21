@@ -54,11 +54,59 @@
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
+            tabControl3 = new TabControl();
+            tabPage9 = new TabPage();
+            dataGridView3 = new DataGridView();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column9 = new DataGridViewTextBoxColumn();
+            Column10 = new DataGridViewTextBoxColumn();
+            tabPage11 = new TabPage();
+            dataGridView4 = new DataGridView();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             tabPage3 = new TabPage();
+            button2 = new Button();
+            tabControl4 = new TabControl();
+            tabPage12 = new TabPage();
+            panel2 = new Panel();
+            btnSearchUser = new Button();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            dataGridView5 = new DataGridView();
+            Column11 = new DataGridViewTextBoxColumn();
+            Column12 = new DataGridViewTextBoxColumn();
+            Column13 = new DataGridViewTextBoxColumn();
+            Column14 = new DataGridViewTextBoxColumn();
+            Column15 = new DataGridViewTextBoxColumn();
+            tabPage13 = new TabPage();
+            panel3 = new Panel();
+            btnSearchRole = new Button();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            dataGridView6 = new DataGridView();
+            Column16 = new DataGridViewTextBoxColumn();
+            Column17 = new DataGridViewTextBoxColumn();
+            Column18 = new DataGridViewTextBoxColumn();
+            Column19 = new DataGridViewTextBoxColumn();
+            Column20 = new DataGridViewTextBoxColumn();
             tabPage4 = new TabPage();
+            button3 = new Button();
+            tabControl5 = new TabControl();
             tabPage5 = new TabPage();
+            RevokeUser = new Button();
+            GrantRoleToUser = new Button();
+            GrantUser = new Button();
+            dataGridView7 = new DataGridView();
             tabPage6 = new TabPage();
-            tabPage7 = new TabPage();
+            btnRevokeToRole = new Button();
+            btnGrantToRole = new Button();
+            dataGridView8 = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -67,6 +115,26 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            tabPage2.SuspendLayout();
+            tabControl3.SuspendLayout();
+            tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
+            tabPage3.SuspendLayout();
+            tabControl4.SuspendLayout();
+            tabPage12.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
+            tabPage13.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
+            tabPage4.SuspendLayout();
+            tabControl5.SuspendLayout();
+            tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
+            tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -75,15 +143,12 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
-            tabControl1.Controls.Add(tabPage5);
-            tabControl1.Controls.Add(tabPage6);
-            tabControl1.Controls.Add(tabPage7);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1570, 889);
-            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.Size = new Size(1578, 903);
+            tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -94,7 +159,7 @@
             tabPage1.Margin = new Padding(3, 3, 6, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1554, 835);
+            tabPage1.Size = new Size(1562, 849);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "User & Role";
             tabPage1.UseVisualStyleBackColor = true;
@@ -309,64 +374,491 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(tabControl3);
+            tabPage2.Controls.Add(button1);
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1554, 835);
+            tabPage2.Size = new Size(1562, 849);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Dánh sách user/role";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            tabControl3.Controls.Add(tabPage9);
+            tabControl3.Controls.Add(tabPage11);
+            tabControl3.Location = new Point(34, 30);
+            tabControl3.Name = "tabControl3";
+            tabControl3.SelectedIndex = 0;
+            tabControl3.Size = new Size(1527, 743);
+            tabControl3.TabIndex = 7;
+            // 
+            // tabPage9
+            // 
+            tabPage9.Controls.Add(dataGridView3);
+            tabPage9.Location = new Point(8, 46);
+            tabPage9.Name = "tabPage9";
+            tabPage9.Padding = new Padding(3);
+            tabPage9.Size = new Size(1511, 689);
+            tabPage9.TabIndex = 0;
+            tabPage9.Text = "User";
+            tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { Column6, Column7, Column8, Column9, Column10 });
+            dataGridView3.Location = new Point(56, 42);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 82;
+            dataGridView3.Size = new Size(1047, 629);
+            dataGridView3.TabIndex = 1;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "cột 1";
+            Column6.MinimumWidth = 10;
+            Column6.Name = "Column6";
+            Column6.Width = 200;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "cột 2";
+            Column7.MinimumWidth = 10;
+            Column7.Name = "Column7";
+            Column7.Width = 200;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "cột 3";
+            Column8.MinimumWidth = 10;
+            Column8.Name = "Column8";
+            Column8.Width = 200;
+            // 
+            // Column9
+            // 
+            Column9.HeaderText = "cột 4";
+            Column9.MinimumWidth = 10;
+            Column9.Name = "Column9";
+            Column9.Width = 200;
+            // 
+            // Column10
+            // 
+            Column10.HeaderText = "cột 5";
+            Column10.MinimumWidth = 10;
+            Column10.Name = "Column10";
+            Column10.Width = 200;
+            // 
+            // tabPage11
+            // 
+            tabPage11.Controls.Add(dataGridView4);
+            tabPage11.Location = new Point(8, 46);
+            tabPage11.Name = "tabPage11";
+            tabPage11.Padding = new Padding(3);
+            tabPage11.Size = new Size(1511, 689);
+            tabPage11.TabIndex = 1;
+            tabPage11.Text = "Role";
+            tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
+            dataGridView4.Location = new Point(118, 35);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.RowHeadersWidth = 82;
+            dataGridView4.Size = new Size(1047, 629);
+            dataGridView4.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "cột 1";
+            dataGridViewTextBoxColumn6.MinimumWidth = 10;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "cột 2";
+            dataGridViewTextBoxColumn7.MinimumWidth = 10;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "cột 3";
+            dataGridViewTextBoxColumn8.MinimumWidth = 10;
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "cột 4";
+            dataGridViewTextBoxColumn9.MinimumWidth = 10;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.HeaderText = "cột 5";
+            dataGridViewTextBoxColumn10.MinimumWidth = 10;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.Width = 200;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1287, 777);
+            button1.Name = "button1";
+            button1.Size = new Size(266, 72);
+            button1.TabIndex = 6;
+            button1.Text = "Đăng xuất";
+            button1.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button2);
+            tabPage3.Controls.Add(tabControl4);
             tabPage3.Location = new Point(8, 46);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1554, 835);
+            tabPage3.Size = new Size(1562, 849);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
+            tabPage3.Text = "Thông tin quyền";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(1288, 761);
+            button2.Name = "button2";
+            button2.Size = new Size(266, 72);
+            button2.TabIndex = 7;
+            button2.Text = "Đăng xuất";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // tabControl4
+            // 
+            tabControl4.Controls.Add(tabPage12);
+            tabControl4.Controls.Add(tabPage13);
+            tabControl4.Location = new Point(15, 20);
+            tabControl4.Name = "tabControl4";
+            tabControl4.SelectedIndex = 0;
+            tabControl4.Size = new Size(1547, 725);
+            tabControl4.TabIndex = 0;
+            // 
+            // tabPage12
+            // 
+            tabPage12.Controls.Add(panel2);
+            tabPage12.Controls.Add(dataGridView5);
+            tabPage12.Location = new Point(8, 46);
+            tabPage12.Name = "tabPage12";
+            tabPage12.Padding = new Padding(3);
+            tabPage12.Size = new Size(1531, 671);
+            tabPage12.TabIndex = 0;
+            tabPage12.Text = "User";
+            tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnSearchUser);
+            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(1065, 360);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(459, 295);
+            panel2.TabIndex = 1;
+            // 
+            // btnSearchUser
+            // 
+            btnSearchUser.Location = new Point(277, 152);
+            btnSearchUser.Name = "btnSearchUser";
+            btnSearchUser.Size = new Size(149, 56);
+            btnSearchUser.TabIndex = 2;
+            btnSearchUser.Text = "Tìm kiếm";
+            btnSearchUser.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(12, 90);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(416, 39);
+            textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(173, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Nhập tên User:";
+            // 
+            // dataGridView5
+            // 
+            dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { Column11, Column12, Column13, Column14, Column15 });
+            dataGridView5.Location = new Point(18, 14);
+            dataGridView5.Name = "dataGridView5";
+            dataGridView5.RowHeadersWidth = 82;
+            dataGridView5.Size = new Size(1043, 639);
+            dataGridView5.TabIndex = 0;
+            // 
+            // Column11
+            // 
+            Column11.HeaderText = "cột 1";
+            Column11.MinimumWidth = 10;
+            Column11.Name = "Column11";
+            Column11.Width = 200;
+            // 
+            // Column12
+            // 
+            Column12.HeaderText = "cột 2";
+            Column12.MinimumWidth = 10;
+            Column12.Name = "Column12";
+            Column12.Width = 200;
+            // 
+            // Column13
+            // 
+            Column13.HeaderText = "cột 3";
+            Column13.MinimumWidth = 10;
+            Column13.Name = "Column13";
+            Column13.Width = 200;
+            // 
+            // Column14
+            // 
+            Column14.HeaderText = "cột 4";
+            Column14.MinimumWidth = 10;
+            Column14.Name = "Column14";
+            Column14.Width = 200;
+            // 
+            // Column15
+            // 
+            Column15.HeaderText = "cột 5";
+            Column15.MinimumWidth = 10;
+            Column15.Name = "Column15";
+            Column15.Width = 200;
+            // 
+            // tabPage13
+            // 
+            tabPage13.Controls.Add(panel3);
+            tabPage13.Controls.Add(dataGridView6);
+            tabPage13.Location = new Point(8, 46);
+            tabPage13.Name = "tabPage13";
+            tabPage13.Padding = new Padding(3);
+            tabPage13.Size = new Size(1531, 671);
+            tabPage13.TabIndex = 1;
+            tabPage13.Text = "Role";
+            tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btnSearchRole);
+            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(1066, 311);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(466, 354);
+            panel3.TabIndex = 1;
+            // 
+            // btnSearchRole
+            // 
+            btnSearchRole.Location = new Point(257, 222);
+            btnSearchRole.Name = "btnSearchRole";
+            btnSearchRole.Size = new Size(187, 45);
+            btnSearchRole.TabIndex = 3;
+            btnSearchRole.Text = "Tìm kiếm";
+            btnSearchRole.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(20, 151);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(418, 39);
+            textBox2.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(20, 88);
+            label2.Name = "label2";
+            label2.Size = new Size(172, 32);
+            label2.TabIndex = 1;
+            label2.Text = "Nhập tên Role:";
+            // 
+            // dataGridView6
+            // 
+            dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView6.Columns.AddRange(new DataGridViewColumn[] { Column16, Column17, Column18, Column19, Column20 });
+            dataGridView6.Location = new Point(15, 26);
+            dataGridView6.Name = "dataGridView6";
+            dataGridView6.RowHeadersWidth = 82;
+            dataGridView6.Size = new Size(1043, 639);
+            dataGridView6.TabIndex = 0;
+            // 
+            // Column16
+            // 
+            Column16.HeaderText = "cột 1";
+            Column16.MinimumWidth = 10;
+            Column16.Name = "Column16";
+            Column16.Width = 200;
+            // 
+            // Column17
+            // 
+            Column17.HeaderText = "cột 2";
+            Column17.MinimumWidth = 10;
+            Column17.Name = "Column17";
+            Column17.Width = 200;
+            // 
+            // Column18
+            // 
+            Column18.HeaderText = "cột 3";
+            Column18.MinimumWidth = 10;
+            Column18.Name = "Column18";
+            Column18.Width = 200;
+            // 
+            // Column19
+            // 
+            Column19.HeaderText = "cột 4";
+            Column19.MinimumWidth = 10;
+            Column19.Name = "Column19";
+            Column19.Width = 200;
+            // 
+            // Column20
+            // 
+            Column20.HeaderText = "cột 5";
+            Column20.MinimumWidth = 10;
+            Column20.Name = "Column20";
+            Column20.Width = 200;
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(button3);
+            tabPage4.Controls.Add(tabControl5);
             tabPage4.Location = new Point(8, 46);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1554, 835);
+            tabPage4.Size = new Size(1562, 849);
             tabPage4.TabIndex = 3;
-            tabPage4.Text = "tabPage4";
+            tabPage4.Text = "Quản lý quyền";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1287, 747);
+            button3.Name = "button3";
+            button3.Size = new Size(266, 72);
+            button3.TabIndex = 8;
+            button3.Text = "Đăng xuất";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // tabControl5
+            // 
+            tabControl5.Controls.Add(tabPage5);
+            tabControl5.Controls.Add(tabPage6);
+            tabControl5.Location = new Point(26, 15);
+            tabControl5.Name = "tabControl5";
+            tabControl5.SelectedIndex = 0;
+            tabControl5.Size = new Size(1535, 708);
+            tabControl5.TabIndex = 0;
             // 
             // tabPage5
             // 
+            tabPage5.Controls.Add(RevokeUser);
+            tabPage5.Controls.Add(GrantRoleToUser);
+            tabPage5.Controls.Add(GrantUser);
+            tabPage5.Controls.Add(dataGridView7);
             tabPage5.Location = new Point(8, 46);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1554, 835);
-            tabPage5.TabIndex = 4;
-            tabPage5.Text = "tabPage5";
+            tabPage5.Padding = new Padding(3);
+            tabPage5.Size = new Size(1519, 654);
+            tabPage5.TabIndex = 0;
+            tabPage5.Text = "User";
             tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // RevokeUser
+            // 
+            RevokeUser.Location = new Point(1212, 363);
+            RevokeUser.Name = "RevokeUser";
+            RevokeUser.Size = new Size(274, 77);
+            RevokeUser.TabIndex = 3;
+            RevokeUser.Text = "Thu hồi quyền";
+            RevokeUser.UseVisualStyleBackColor = true;
+            RevokeUser.Click += RevokeUser_Click;
+            // 
+            // GrantRoleToUser
+            // 
+            GrantRoleToUser.Location = new Point(1209, 219);
+            GrantRoleToUser.Name = "GrantRoleToUser";
+            GrantRoleToUser.Size = new Size(274, 77);
+            GrantRoleToUser.TabIndex = 2;
+            GrantRoleToUser.Text = "Cấp Role";
+            GrantRoleToUser.UseVisualStyleBackColor = true;
+            GrantRoleToUser.Click += GrantRoleToUser_Click;
+            // 
+            // GrantUser
+            // 
+            GrantUser.Location = new Point(1209, 88);
+            GrantUser.Name = "GrantUser";
+            GrantUser.Size = new Size(274, 77);
+            GrantUser.TabIndex = 1;
+            GrantUser.Text = "Cấp quyền";
+            GrantUser.UseVisualStyleBackColor = true;
+            GrantUser.Click += GrantUser_Click;
+            // 
+            // dataGridView7
+            // 
+            dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView7.Location = new Point(17, 15);
+            dataGridView7.Name = "dataGridView7";
+            dataGridView7.RowHeadersWidth = 82;
+            dataGridView7.Size = new Size(1090, 631);
+            dataGridView7.TabIndex = 0;
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(btnRevokeToRole);
+            tabPage6.Controls.Add(btnGrantToRole);
+            tabPage6.Controls.Add(dataGridView8);
             tabPage6.Location = new Point(8, 46);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(1554, 835);
-            tabPage6.TabIndex = 5;
-            tabPage6.Text = "tabPage6";
+            tabPage6.Padding = new Padding(3);
+            tabPage6.Size = new Size(1519, 654);
+            tabPage6.TabIndex = 1;
+            tabPage6.Text = "Role";
             tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
+            // btnRevokeToRole
             // 
-            tabPage7.Location = new Point(8, 46);
-            tabPage7.Name = "tabPage7";
-            tabPage7.Size = new Size(1554, 835);
-            tabPage7.TabIndex = 6;
-            tabPage7.Text = "tabPage7";
-            tabPage7.UseVisualStyleBackColor = true;
+            btnRevokeToRole.Location = new Point(1184, 400);
+            btnRevokeToRole.Name = "btnRevokeToRole";
+            btnRevokeToRole.Size = new Size(274, 77);
+            btnRevokeToRole.TabIndex = 4;
+            btnRevokeToRole.Text = "Thu hồi quyền";
+            btnRevokeToRole.UseVisualStyleBackColor = true;
+            btnRevokeToRole.Click += btnRevokeToRole_Click;
+            // 
+            // btnGrantToRole
+            // 
+            btnGrantToRole.Location = new Point(1184, 199);
+            btnGrantToRole.Name = "btnGrantToRole";
+            btnGrantToRole.Size = new Size(274, 77);
+            btnGrantToRole.TabIndex = 2;
+            btnGrantToRole.Text = "Cấp quyền";
+            btnGrantToRole.UseVisualStyleBackColor = true;
+            btnGrantToRole.Click += btnGrantToRole_Click;
+            // 
+            // dataGridView8
+            // 
+            dataGridView8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView8.Location = new Point(6, 6);
+            dataGridView8.Name = "dataGridView8";
+            dataGridView8.RowHeadersWidth = 82;
+            dataGridView8.Size = new Size(1090, 631);
+            dataGridView8.TabIndex = 1;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1570, 889);
+            ClientSize = new Size(1578, 903);
             Controls.Add(tabControl1);
             Margin = new Padding(5);
             Name = "AdminForm";
@@ -380,6 +872,28 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            tabPage2.ResumeLayout(false);
+            tabControl3.ResumeLayout(false);
+            tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            tabPage11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabControl4.ResumeLayout(false);
+            tabPage12.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
+            tabPage13.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView6).EndInit();
+            tabPage4.ResumeLayout(false);
+            tabControl5.ResumeLayout(false);
+            tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
+            tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView8).EndInit();
             ResumeLayout(false);
         }
 
@@ -390,9 +904,6 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private TabPage tabPage4;
-        private TabPage tabPage5;
-        private TabPage tabPage6;
-        private TabPage tabPage7;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
@@ -416,5 +927,56 @@
         private Button btnDeleteUser;
         private Button btnUpdateUser;
         private Button btnCreateUser;
+        private TabControl tabControl3;
+        private TabPage tabPage9;
+        private DataGridView dataGridView3;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private TabPage tabPage11;
+        private Button button1;
+        private DataGridView dataGridView4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private Button button2;
+        private TabControl tabControl4;
+        private TabPage tabPage12;
+        private Panel panel2;
+        private DataGridView dataGridView5;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn Column14;
+        private DataGridViewTextBoxColumn Column15;
+        private TabPage tabPage13;
+        private Label label1;
+        private Button btnSearchUser;
+        private TextBox textBox1;
+        private DataGridView dataGridView6;
+        private DataGridViewTextBoxColumn Column16;
+        private DataGridViewTextBoxColumn Column17;
+        private DataGridViewTextBoxColumn Column18;
+        private DataGridViewTextBoxColumn Column19;
+        private DataGridViewTextBoxColumn Column20;
+        private Panel panel3;
+        private Button btnSearchRole;
+        private TextBox textBox2;
+        private Label label2;
+        private TabControl tabControl5;
+        private TabPage tabPage5;
+        private TabPage tabPage6;
+        private Button button3;
+        private Button GrantUser;
+        private DataGridView dataGridView7;
+        private Button RevokeUser;
+        private Button GrantRoleToUser;
+        private DataGridView dataGridView8;
+        private Button btnRevokeToRole;
+        private Button btnGrantToRole;
     }
 }

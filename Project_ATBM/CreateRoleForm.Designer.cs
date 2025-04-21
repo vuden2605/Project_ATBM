@@ -93,15 +93,17 @@
             DoneCreateRole.UseVisualStyleBackColor = true;
             DoneCreateRole.Click += button1_Click;
             // 
-            // CreateRoleFor_
+            // CreateRoleForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(759, 355);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "CreateRoleFor_";
+            Name = "CreateRoleForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tạo Role";
+            Load += CreateRoleForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

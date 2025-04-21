@@ -67,6 +67,7 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(502, 88);
             panel5.TabIndex = 2;
+            panel5.Paint += panel5_Paint;
             // 
             // CanCelUpdateRole
             // 
@@ -130,6 +131,7 @@
             textBox2.Size = new Size(343, 39);
             textBox2.TabIndex = 2;
             textBox2.UseSystemPasswordChar = true;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label3
             // 
@@ -172,6 +174,7 @@
             ClientSize = new Size(909, 532);
             Controls.Add(panel1);
             Name = "UpdateRoleForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Chỉnh sửa role";
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);

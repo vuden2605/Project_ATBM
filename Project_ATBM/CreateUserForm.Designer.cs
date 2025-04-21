@@ -172,6 +172,7 @@
             ClientSize = new Size(853, 521);
             Controls.Add(panel1);
             Name = "CreateUserForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tạo User";
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);

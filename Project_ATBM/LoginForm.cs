@@ -40,11 +40,11 @@ namespace Project_ATBM
                 try
                 {
                     conn.Open();
-                    MessageBox.Show("Kết nối Oracle thành công!");
+                    MessageBox.Show("Kết nối đến cơ sở dữ liệu Oracle thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Kết nối thất bại: " + ex.Message);
+                    MessageBox.Show($"Không thể kết nối đến cơ sở dữ liệu. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             adminForm.ShowDialog();

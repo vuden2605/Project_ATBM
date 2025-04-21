@@ -174,6 +174,7 @@
             ClientSize = new Size(851, 528);
             Controls.Add(panel1);
             Name = "UpdateUserForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Chỉnh sửa User";
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
