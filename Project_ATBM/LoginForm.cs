@@ -33,22 +33,43 @@ namespace Project_ATBM
         {
             AdminForm adminForm = new AdminForm();
             this.Hide();
-            string connectionString = "User Id=sys;Password=viet123456;Data Source=localhost:1521/XEPDB1;DBA Privilege=SYSDBA;";
+            string username = textBox1.Text;
+            string password = textBox2.Text;
+            if (username == null)
+            {
+                MessageBox.Show("Tên đăng nhập không được để trống.");
+            }
+            if (password == null)
+            {
+                MessageBox.Show("Mật khẩu không được để trống.");
+            }
+
+            string connectionString = $"User Id= {username};Password={password};Data Source=localhost:1521/XE";
 
             using (OracleConnection conn = new OracleConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    MessageBox.Show("Kết nối đến cơ sở dữ liệu Oracle thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (username == "admin_qldh")
+                    {
+                        adminForm.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                                
+                    }
+                   
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Không thể kết nối đến cơ sở dữ liệu. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Đăng nhập thất bại. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Show();
                 }
             }
-            adminForm.ShowDialog();
-            this.Show();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
