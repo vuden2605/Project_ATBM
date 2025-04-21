@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,18 +45,15 @@ namespace Project_ATBM
 
             try
             {
-                // Example: Call a method to create the user
-                bool isCreated = CreateUser(userName, password);
-
-                if (isCreated)
-                {
-                    MessageBox.Show("Tạo user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Tạo user thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                OracleCommand cmd1 = new OracleCommand("ALTER SESSION SET \"_ORACLE_SCRIPT\"=TRUE", LoginForm.conn);
+                cmd1.ExecuteNonQuery();
+                OracleCommand cmd = new OracleCommand("CreateUser", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_username", OracleDbType.NVarchar2).Value = userName;
+                cmd.Parameters.Add("p_password", OracleDbType.NVarchar2).Value = password;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Tạo user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -64,12 +62,10 @@ namespace Project_ATBM
         }
 
         // Example method to handle user creation logic
-        private bool CreateUser(string userName, string password)
-        {
-            // Implement the logic to create the user here
-            // This could involve database operations or other logic
-            return true; // Placeholder for actual implementation
-        }
+        //private bool CreateUser(string userName, string password)
+        //{
+            
+        //}
 
 
         private void CanCelCreateUser_Click(object sender, EventArgs e)
