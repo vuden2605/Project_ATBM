@@ -54,17 +54,19 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(35, 32);
+            panel1.Location = new Point(22, 20);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(734, 449);
+            panel1.Size = new Size(452, 281);
             panel1.TabIndex = 0;
             // 
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(339, 324);
+            checkBox2.Location = new Point(209, 202);
+            checkBox2.Margin = new Padding(2, 2, 2, 2);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(287, 36);
+            checkBox2.Size = new Size(179, 24);
             checkBox2.TabIndex = 7;
             checkBox2.Text = "Grant to columns level";
             checkBox2.UseVisualStyleBackColor = true;
@@ -73,58 +75,65 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(338, 266);
+            checkBox1.Location = new Point(208, 166);
+            checkBox1.Margin = new Padding(2, 2, 2, 2);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(242, 36);
+            checkBox1.Size = new Size(153, 24);
             checkBox1.TabIndex = 6;
             checkBox1.Text = "With grant opition";
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(338, 196);
+            textBox3.Location = new Point(208, 122);
+            textBox3.Margin = new Padding(2, 2, 2, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(351, 39);
+            textBox3.Size = new Size(218, 27);
             textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(338, 103);
+            textBox2.Location = new Point(208, 64);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(351, 39);
+            textBox2.Size = new Size(218, 27);
             textBox2.TabIndex = 4;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(338, 26);
+            textBox1.Location = new Point(208, 16);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(351, 39);
+            textBox1.Size = new Size(218, 27);
             textBox1.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(9, 199);
+            label3.Location = new Point(6, 124);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(131, 32);
+            label3.Size = new Size(79, 20);
             label3.TabIndex = 2;
             label3.Text = "Tên quyền:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 110);
+            label2.Location = new Point(6, 69);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(118, 32);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 1;
             label2.Text = "Tên bảng:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(9, 33);
+            label1.Location = new Point(6, 21);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(111, 32);
+            label1.Size = new Size(68, 20);
             label1.TabIndex = 0;
             label1.Text = "Tên User:";
             // 
@@ -132,16 +141,18 @@
             // 
             panel2.Controls.Add(btnCancelGrant);
             panel2.Controls.Add(btnSucessGrant);
-            panel2.Location = new Point(373, 503);
+            panel2.Location = new Point(230, 314);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(351, 51);
+            panel2.Size = new Size(216, 32);
             panel2.TabIndex = 1;
             // 
             // btnCancelGrant
             // 
-            btnCancelGrant.Location = new Point(216, 3);
+            btnCancelGrant.Location = new Point(133, 2);
+            btnCancelGrant.Margin = new Padding(2, 2, 2, 2);
             btnCancelGrant.Name = "btnCancelGrant";
-            btnCancelGrant.Size = new Size(135, 46);
+            btnCancelGrant.Size = new Size(83, 29);
             btnCancelGrant.TabIndex = 1;
             btnCancelGrant.Text = "Cancel";
             btnCancelGrant.UseVisualStyleBackColor = true;
@@ -149,9 +160,10 @@
             // 
             // btnSucessGrant
             // 
-            btnSucessGrant.Location = new Point(0, 2);
+            btnSucessGrant.Location = new Point(0, 1);
+            btnSucessGrant.Margin = new Padding(2, 2, 2, 2);
             btnSucessGrant.Name = "btnSucessGrant";
-            btnSucessGrant.Size = new Size(135, 46);
+            btnSucessGrant.Size = new Size(83, 29);
             btnSucessGrant.TabIndex = 0;
             btnSucessGrant.Text = "OK";
             btnSucessGrant.UseVisualStyleBackColor = true;
@@ -159,11 +171,13 @@
             // 
             // GrantUserForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AcceptButton = btnSucessGrant;
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(811, 584);
+            ClientSize = new Size(499, 365);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "GrantUserForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cấp quyền cho User";

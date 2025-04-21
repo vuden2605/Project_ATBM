@@ -29,7 +29,7 @@ namespace Project_ATBM
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogIn_Click(object sender, EventArgs e)
         {
             AdminForm adminForm = new AdminForm();
             this.Hide();
@@ -72,7 +72,7 @@ namespace Project_ATBM
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancelLogIn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

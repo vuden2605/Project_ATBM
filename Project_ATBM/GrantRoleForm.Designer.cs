@@ -52,17 +52,19 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(43, 12);
+            panel1.Location = new Point(26, 8);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(734, 430);
+            panel1.Size = new Size(452, 269);
             panel1.TabIndex = 1;
             // 
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(338, 283);
+            checkBox2.Location = new Point(208, 177);
+            checkBox2.Margin = new Padding(2, 2, 2, 2);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(287, 36);
+            checkBox2.Size = new Size(179, 24);
             checkBox2.TabIndex = 7;
             checkBox2.Text = "Grant to columns level";
             checkBox2.UseVisualStyleBackColor = true;
@@ -70,49 +72,55 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(338, 196);
+            textBox3.Location = new Point(208, 122);
+            textBox3.Margin = new Padding(2, 2, 2, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(351, 39);
+            textBox3.Size = new Size(218, 27);
             textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(338, 103);
+            textBox2.Location = new Point(208, 64);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(351, 39);
+            textBox2.Size = new Size(218, 27);
             textBox2.TabIndex = 4;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(338, 26);
+            textBox1.Location = new Point(208, 16);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(351, 39);
+            textBox1.Size = new Size(218, 27);
             textBox1.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(9, 199);
+            label3.Location = new Point(6, 124);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(131, 32);
+            label3.Size = new Size(79, 20);
             label3.TabIndex = 2;
             label3.Text = "Tên quyền:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 110);
+            label2.Location = new Point(6, 69);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(118, 32);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 1;
             label2.Text = "Tên bảng:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(9, 33);
+            label1.Location = new Point(6, 21);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(110, 32);
+            label1.Size = new Size(69, 20);
             label1.TabIndex = 0;
             label1.Text = "Tên Role:";
             // 
@@ -120,16 +128,18 @@
             // 
             panel5.Controls.Add(CanCelGrantToRole);
             panel5.Controls.Add(DoneGrantToRole);
-            panel5.Location = new Point(244, 448);
+            panel5.Location = new Point(150, 280);
+            panel5.Margin = new Padding(2, 2, 2, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(502, 88);
+            panel5.Size = new Size(309, 55);
             panel5.TabIndex = 3;
             // 
             // CanCelGrantToRole
             // 
-            CanCelGrantToRole.Location = new Point(331, 18);
+            CanCelGrantToRole.Location = new Point(204, 11);
+            CanCelGrantToRole.Margin = new Padding(2, 2, 2, 2);
             CanCelGrantToRole.Name = "CanCelGrantToRole";
-            CanCelGrantToRole.Size = new Size(157, 39);
+            CanCelGrantToRole.Size = new Size(97, 24);
             CanCelGrantToRole.TabIndex = 1;
             CanCelGrantToRole.Text = "Cancel";
             CanCelGrantToRole.UseVisualStyleBackColor = true;
@@ -137,9 +147,10 @@
             // 
             // DoneGrantToRole
             // 
-            DoneGrantToRole.Location = new Point(137, 18);
+            DoneGrantToRole.Location = new Point(84, 11);
+            DoneGrantToRole.Margin = new Padding(2, 2, 2, 2);
             DoneGrantToRole.Name = "DoneGrantToRole";
-            DoneGrantToRole.Size = new Size(157, 39);
+            DoneGrantToRole.Size = new Size(97, 24);
             DoneGrantToRole.TabIndex = 0;
             DoneGrantToRole.Text = "OK";
             DoneGrantToRole.UseVisualStyleBackColor = true;
@@ -147,11 +158,13 @@
             // 
             // GrantRoleForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AcceptButton = DoneGrantToRole;
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(810, 548);
+            ClientSize = new Size(498, 342);
             Controls.Add(panel5);
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "GrantRoleForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GrantRoleForm";

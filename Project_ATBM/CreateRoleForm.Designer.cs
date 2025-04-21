@@ -42,24 +42,27 @@
             // 
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(67, 94);
+            panel1.Location = new Point(41, 59);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(634, 103);
+            panel1.Size = new Size(390, 64);
             panel1.TabIndex = 0;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(196, 28);
+            textBox1.Location = new Point(121, 18);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(422, 39);
+            textBox1.Size = new Size(261, 27);
             textBox1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 35);
+            label1.Location = new Point(13, 22);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(131, 32);
+            label1.Size = new Size(83, 20);
             label1.TabIndex = 0;
             label1.Text = "Role Name";
             label1.Click += label1_Click;
@@ -68,16 +71,18 @@
             // 
             panel2.Controls.Add(CancelCreateRole);
             panel2.Controls.Add(DoneCreateRole);
-            panel2.Location = new Point(249, 212);
+            panel2.Location = new Point(153, 132);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(452, 71);
+            panel2.Size = new Size(278, 44);
             panel2.TabIndex = 1;
             // 
             // CancelCreateRole
             // 
-            CancelCreateRole.Location = new Point(273, 16);
+            CancelCreateRole.Location = new Point(168, 10);
+            CancelCreateRole.Margin = new Padding(2, 2, 2, 2);
             CancelCreateRole.Name = "CancelCreateRole";
-            CancelCreateRole.Size = new Size(163, 52);
+            CancelCreateRole.Size = new Size(100, 32);
             CancelCreateRole.TabIndex = 1;
             CancelCreateRole.Text = "Cancel";
             CancelCreateRole.UseVisualStyleBackColor = true;
@@ -85,21 +90,24 @@
             // 
             // DoneCreateRole
             // 
-            DoneCreateRole.Location = new Point(14, 16);
+            DoneCreateRole.Location = new Point(9, 10);
+            DoneCreateRole.Margin = new Padding(2, 2, 2, 2);
             DoneCreateRole.Name = "DoneCreateRole";
-            DoneCreateRole.Size = new Size(163, 52);
+            DoneCreateRole.Size = new Size(100, 32);
             DoneCreateRole.TabIndex = 0;
-            DoneCreateRole.Text = "Oke";
+            DoneCreateRole.Text = "Ok";
             DoneCreateRole.UseVisualStyleBackColor = true;
             DoneCreateRole.Click += button1_Click;
             // 
             // CreateRoleForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AcceptButton = DoneCreateRole;
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(759, 355);
+            ClientSize = new Size(467, 222);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "CreateRoleForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tạo Role";
