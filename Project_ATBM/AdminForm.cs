@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,10 +16,9 @@ namespace Project_ATBM
         public AdminForm()
         {
             InitializeComponent();
+            load_data_users();
         }
-
-
-
+        private OracleConnection conNow;
 
         private void thuHồiQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -46,8 +46,22 @@ namespace Project_ATBM
         {
 
         }
-
-
+        private void load_data_users()
+        {
+            try
+            {
+                string query = "SELECT username,user_id,password,created FROM dba_users";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -210,7 +224,25 @@ namespace Project_ATBM
             // This could involve database operations or other logic
             return true; // Placeholder for actual implementation
         }
-
-
+        private void load_data_roles ()
+        {
+            try
+            {
+                string query = "SELECT * FROM dba_roles";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_data_roles();
+        }
     }
 }

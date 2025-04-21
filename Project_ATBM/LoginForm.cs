@@ -8,6 +8,7 @@ namespace Project_ATBM
         {
             InitializeComponent();
         }
+        public static OracleConnection conn;
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
@@ -31,46 +32,49 @@ namespace Project_ATBM
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            AdminForm adminForm = new AdminForm();
-            this.Hide();
-            string username = textBox1.Text;
-            string password = textBox2.Text;
-            if (username == null)
+            string username = textBox1.Text.Trim();
+            string password = textBox2.Text.Trim();
+
+            if (username==null)
             {
                 MessageBox.Show("Tên đăng nhập không được để trống.");
+                return;
             }
-            if (password == null)
+            if (password==null)
             {
                 MessageBox.Show("Mật khẩu không được để trống.");
+                return;
             }
 
-            string connectionString = $"User Id= {username};Password={password};Data Source=localhost:1521/XE";
+            string connectionString = $"User Id={username};Password={password};Data Source=localhost:1521/XE";
 
-            using (OracleConnection conn = new OracleConnection(connectionString))
+            conn = new OracleConnection(connectionString);
+
+            try
             {
-                try
+                conn.Open();
+                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+
+                if (username == "admin_qldh")
                 {
-                    conn.Open();
-                    MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (username == "admin_qldh")
-                    {
-                        adminForm.ShowDialog();
-                        this.Show();
-                    }
-                    else
-                    {
-                                
-                    }
-                   
+                    AdminForm adminForm = new AdminForm();
+                    adminForm.ShowDialog();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Đăng nhập thất bại. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Show();
+                    // Load form khác theo role nếu cần
                 }
+
+                this.Show();
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đăng nhập thất bại. Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnCancelLogIn_Click(object sender, EventArgs e)
         {
