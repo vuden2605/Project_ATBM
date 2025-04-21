@@ -224,7 +224,7 @@ namespace Project_ATBM
             // This could involve database operations or other logic
             return true; // Placeholder for actual implementation
         }
-        private void load_data_roles ()
+        private void load_data_roles()
         {
             try
             {
@@ -243,6 +243,11 @@ namespace Project_ATBM
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
             load_data_roles();
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

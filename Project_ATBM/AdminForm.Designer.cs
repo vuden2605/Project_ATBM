@@ -43,6 +43,7 @@
             btnUpdateRole = new Button();
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
             tabControl3 = new TabControl();
             tabPage9 = new TabPage();
@@ -97,7 +98,10 @@
             btnRevokeToRole = new Button();
             btnGrantToRole = new Button();
             dataGridView8 = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            panel4 = new Panel();
+            button5 = new Button();
+            textBox3 = new TextBox();
+            label3 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -126,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -139,7 +144,7 @@
             tabControl1.Margin = new Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(971, 564);
+            tabControl1.Size = new Size(1049, 578);
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             // 
@@ -151,7 +156,7 @@
             tabPage1.Margin = new Padding(2, 2, 4, 2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2);
-            tabPage1.Size = new Size(963, 531);
+            tabPage1.Size = new Size(1041, 545);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "User & Role";
             tabPage1.UseVisualStyleBackColor = true;
@@ -175,20 +180,21 @@
             tabControl2.Margin = new Padding(2);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(940, 464);
+            tabControl2.Size = new Size(981, 469);
             tabControl2.SizeMode = TabSizeMode.Fixed;
             tabControl2.TabIndex = 2;
             tabControl2.SelectedIndexChanged += tabControl2_SelectedIndexChanged;
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(panel4);
             tabPage8.Controls.Add(panel1);
             tabPage8.Controls.Add(dataGridView1);
             tabPage8.Location = new Point(4, 29);
             tabPage8.Margin = new Padding(2);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(2);
-            tabPage8.Size = new Size(932, 431);
+            tabPage8.Size = new Size(973, 436);
             tabPage8.TabIndex = 0;
             tabPage8.Text = "USER";
             tabPage8.UseVisualStyleBackColor = true;
@@ -307,6 +313,13 @@
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 1;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn1.HeaderText = "ROLE";
+            dataGridViewTextBoxColumn1.MinimumWidth = 10;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
             // tabPage2
             // 
             tabPage2.Controls.Add(tabControl3);
@@ -315,7 +328,7 @@
             tabPage2.Margin = new Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2);
-            tabPage2.Size = new Size(963, 531);
+            tabPage2.Size = new Size(1041, 545);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Dánh sách user/role";
             tabPage2.UseVisualStyleBackColor = true;
@@ -464,7 +477,7 @@
             tabPage3.Location = new Point(4, 29);
             tabPage3.Margin = new Padding(2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(963, 531);
+            tabPage3.Size = new Size(1041, 545);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Thông tin quyền";
             tabPage3.UseVisualStyleBackColor = true;
@@ -823,22 +836,55 @@
             dataGridView8.Size = new Size(671, 394);
             dataGridView8.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
+            // panel4
             // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn1.HeaderText = "ROLE";
-            dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            panel4.Controls.Add(button5);
+            panel4.Controls.Add(textBox3);
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(687, 252);
+            panel4.Margin = new Padding(2);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(262, 157);
+            panel4.TabIndex = 6;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(155, 98);
+            button5.Margin = new Padding(2);
+            button5.Name = "button5";
+            button5.Size = new Size(92, 35);
+            button5.TabIndex = 2;
+            button5.Text = "Tìm kiếm";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(7, 56);
+            textBox3.Margin = new Padding(2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(258, 27);
+            textBox3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(7, 23);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(106, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Nhập tên User:";
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(971, 564);
+            ClientSize = new Size(1049, 578);
             Controls.Add(tabControl1);
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang admin";
+            Load += AdminForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabControl2.ResumeLayout(false);
@@ -869,6 +915,8 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
             tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView8).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -944,5 +992,9 @@
         private Button btnRevokeToRole;
         private Button btnGrantToRole;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private Panel panel4;
+        private Button button5;
+        private TextBox textBox3;
+        private Label label3;
     }
 }
