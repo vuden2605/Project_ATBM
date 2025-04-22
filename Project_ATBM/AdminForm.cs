@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_ATBM
@@ -20,23 +21,6 @@ namespace Project_ATBM
             load_data_users();
         }
         private OracleConnection conNow;
-
-        private void thuHồiQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -102,7 +86,7 @@ namespace Project_ATBM
                         MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                
+
                 else
                 {
                     MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -289,7 +273,14 @@ namespace Project_ATBM
         }
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_data_roles();
+            if (tabControl2.SelectedIndex == 0)
+            {
+                load_data_users();
+            }
+            if (tabControl2.SelectedIndex == 1)
+            {
+                load_data_roles();
+            }
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -333,6 +324,74 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
+        }
+
+        private void dataGridView6_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+        private void load_info_privilege_user()
+        {
+            try
+            {
+                string query = " SELECT grantee, owner, table_name, grantor, privilege FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT USERNAME FROM DBA_USERS) ORDER BY GRANTEE ";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView5.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+        private void load_info_privilege_role()
+        {
+            try
+            {
+                string query = " SELECT grantee, owner, table_name, grantor, privilege FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT ROLE FROM DBA_ROLES) ORDER BY GRANTEE ";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView6.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabControl4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl4.SelectedIndex == 0)
+            {
+                load_info_privilege_user();
+            }
+            else if (tabControl4.SelectedIndex == 1)
+            {
+                load_info_privilege_role();
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                load_data_users();
+            }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                load_info_privilege_user();
+            }
+           
+                
+           
+
         }
     }
 }

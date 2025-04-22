@@ -51,7 +51,6 @@
             btnUpdateRole = new Button();
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
             tabControl3 = new TabControl();
             tabPage9 = new TabPage();
@@ -78,22 +77,12 @@
             textBox1 = new TextBox();
             label1 = new Label();
             dataGridView5 = new DataGridView();
-            Column11 = new DataGridViewTextBoxColumn();
-            Column12 = new DataGridViewTextBoxColumn();
-            Column13 = new DataGridViewTextBoxColumn();
-            Column14 = new DataGridViewTextBoxColumn();
-            Column15 = new DataGridViewTextBoxColumn();
             tabPage13 = new TabPage();
             panel3 = new Panel();
             btnSearchRole = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
             dataGridView6 = new DataGridView();
-            Column16 = new DataGridViewTextBoxColumn();
-            Column17 = new DataGridViewTextBoxColumn();
-            Column18 = new DataGridViewTextBoxColumn();
-            Column19 = new DataGridViewTextBoxColumn();
-            Column20 = new DataGridViewTextBoxColumn();
             tabPage4 = new TabPage();
             button3 = new Button();
             tabControl5 = new TabControl();
@@ -152,6 +141,7 @@
             tabControl1.Size = new Size(1131, 595);
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -391,20 +381,12 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1 });
             dataGridView2.Location = new Point(0, 2);
             dataGridView2.Margin = new Padding(2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn1.HeaderText = "ROLE";
-            dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // tabPage2
             // 
@@ -582,12 +564,13 @@
             // 
             tabControl4.Controls.Add(tabPage12);
             tabControl4.Controls.Add(tabPage13);
-            tabControl4.Location = new Point(9, 12);
+            tabControl4.Location = new Point(5, 19);
             tabControl4.Margin = new Padding(2);
             tabControl4.Name = "tabControl4";
             tabControl4.SelectedIndex = 0;
             tabControl4.Size = new Size(952, 453);
             tabControl4.TabIndex = 0;
+            tabControl4.SelectedIndexChanged += tabControl4_SelectedIndexChanged;
             // 
             // tabPage12
             // 
@@ -607,10 +590,10 @@
             panel2.Controls.Add(btnSearchUser);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(655, 225);
+            panel2.Location = new Point(657, 211);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(282, 184);
+            panel2.Size = new Size(280, 198);
             panel2.TabIndex = 1;
             // 
             // btnSearchUser
@@ -644,48 +627,13 @@
             // dataGridView5
             // 
             dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { Column11, Column12, Column13, Column14, Column15 });
             dataGridView5.Location = new Point(11, 9);
             dataGridView5.Margin = new Padding(2);
             dataGridView5.Name = "dataGridView5";
             dataGridView5.RowHeadersWidth = 82;
             dataGridView5.Size = new Size(642, 399);
             dataGridView5.TabIndex = 0;
-            // 
-            // Column11
-            // 
-            Column11.HeaderText = "cột 1";
-            Column11.MinimumWidth = 10;
-            Column11.Name = "Column11";
-            Column11.Width = 200;
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "cột 2";
-            Column12.MinimumWidth = 10;
-            Column12.Name = "Column12";
-            Column12.Width = 200;
-            // 
-            // Column13
-            // 
-            Column13.HeaderText = "cột 3";
-            Column13.MinimumWidth = 10;
-            Column13.Name = "Column13";
-            Column13.Width = 200;
-            // 
-            // Column14
-            // 
-            Column14.HeaderText = "cột 4";
-            Column14.MinimumWidth = 10;
-            Column14.Name = "Column14";
-            Column14.Width = 200;
-            // 
-            // Column15
-            // 
-            Column15.HeaderText = "cột 5";
-            Column15.MinimumWidth = 10;
-            Column15.Name = "Column15";
-            Column15.Width = 200;
+            dataGridView5.CellContentClick += dataGridView5_CellContentClick;
             // 
             // tabPage13
             // 
@@ -705,10 +653,10 @@
             panel3.Controls.Add(btnSearchRole);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(656, 194);
+            panel3.Location = new Point(656, 206);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(287, 221);
+            panel3.Size = new Size(287, 209);
             panel3.TabIndex = 1;
             // 
             // btnSearchRole
@@ -742,48 +690,13 @@
             // dataGridView6
             // 
             dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView6.Columns.AddRange(new DataGridViewColumn[] { Column16, Column17, Column18, Column19, Column20 });
             dataGridView6.Location = new Point(9, 16);
             dataGridView6.Margin = new Padding(2);
             dataGridView6.Name = "dataGridView6";
             dataGridView6.RowHeadersWidth = 82;
             dataGridView6.Size = new Size(642, 399);
             dataGridView6.TabIndex = 0;
-            // 
-            // Column16
-            // 
-            Column16.HeaderText = "cột 1";
-            Column16.MinimumWidth = 10;
-            Column16.Name = "Column16";
-            Column16.Width = 200;
-            // 
-            // Column17
-            // 
-            Column17.HeaderText = "cột 2";
-            Column17.MinimumWidth = 10;
-            Column17.Name = "Column17";
-            Column17.Width = 200;
-            // 
-            // Column18
-            // 
-            Column18.HeaderText = "cột 3";
-            Column18.MinimumWidth = 10;
-            Column18.Name = "Column18";
-            Column18.Width = 200;
-            // 
-            // Column19
-            // 
-            Column19.HeaderText = "cột 4";
-            Column19.MinimumWidth = 10;
-            Column19.Name = "Column19";
-            Column19.Width = 200;
-            // 
-            // Column20
-            // 
-            Column20.HeaderText = "cột 5";
-            Column20.MinimumWidth = 10;
-            Column20.Name = "Column20";
-            Column20.Width = 200;
+            dataGridView6.CellContentClick += dataGridView6_CellContentClick;
             // 
             // tabPage4
             // 
@@ -1007,24 +920,8 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private Button button2;
         private TabControl tabControl4;
-        private TabPage tabPage12;
-        private Panel panel2;
-        private DataGridView dataGridView5;
-        private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
-        private DataGridViewTextBoxColumn Column14;
-        private DataGridViewTextBoxColumn Column15;
         private TabPage tabPage13;
-        private Label label1;
-        private Button btnSearchUser;
-        private TextBox textBox1;
         private DataGridView dataGridView6;
-        private DataGridViewTextBoxColumn Column16;
-        private DataGridViewTextBoxColumn Column17;
-        private DataGridViewTextBoxColumn Column18;
-        private DataGridViewTextBoxColumn Column19;
-        private DataGridViewTextBoxColumn Column20;
         private Panel panel3;
         private Button btnSearchRole;
         private TextBox textBox2;
@@ -1040,7 +937,6 @@
         private DataGridView dataGridView8;
         private Button btnRevokeToRole;
         private Button btnGrantToRole;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private Panel panel4;
         private Button btnFilterUser;
         private TextBox textBox3;
@@ -1049,5 +945,11 @@
         private Button btnFilterRole;
         private TextBox textBox4;
         private Label label4;
+        private TabPage tabPage12;
+        private Panel panel2;
+        private Button btnSearchUser;
+        private TextBox textBox1;
+        private Label label1;
+        private DataGridView dataGridView5;
     }
 }
