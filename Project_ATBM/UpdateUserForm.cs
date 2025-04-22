@@ -13,12 +13,14 @@ namespace Project_ATBM
 {
     public partial class UpdateUserForm : Form
     {
-        public UpdateUserForm()
+        public UpdateUserForm(string userName)
         {
             InitializeComponent();
+            textBox1.Text = userName;
+
         }
 
-        
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -45,8 +47,8 @@ namespace Project_ATBM
 
             try
             {
-                
-                OracleCommand cmd = new OracleCommand("UpdateUser",LoginForm.conn);
+
+                OracleCommand cmd = new OracleCommand("UpdateUser", LoginForm.conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("p_username", OracleDbType.NVarchar2).Value = userName;
                 cmd.Parameters.Add("p_new_password", password);
@@ -68,6 +70,11 @@ namespace Project_ATBM
         private void CanCelUpdateUser_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

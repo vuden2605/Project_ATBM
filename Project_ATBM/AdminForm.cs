@@ -151,14 +151,16 @@ namespace Project_ATBM
 
         private void btnUpdateRole_Click(object sender, EventArgs e)
         {
-            UpdateRoleForm updateRoleForm = new UpdateRoleForm();
+            string roleName = dataGridView2.CurrentRow.Cells["role"].Value.ToString();
+            UpdateRoleForm updateRoleForm = new UpdateRoleForm(roleName);
             updateRoleForm.ShowDialog();
 
         }
 
         private void btnUpdateUser_Click(object sender, EventArgs e)
         {
-            UpdateUserForm updateUserForm = new UpdateUserForm();
+            string userName = dataGridView1.CurrentRow.Cells["username"].Value.ToString();
+            UpdateUserForm updateUserForm = new UpdateUserForm(userName);
             updateUserForm.ShowDialog();
         }
 

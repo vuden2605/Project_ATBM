@@ -55,7 +55,7 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(10, 8);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(506, 314);
             panel1.TabIndex = 0;
@@ -65,7 +65,7 @@
             panel5.Controls.Add(CanCelUpdateUser);
             panel5.Controls.Add(DoneUpdateUser);
             panel5.Location = new Point(126, 243);
-            panel5.Margin = new Padding(2, 2, 2, 2);
+            panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
             panel5.Size = new Size(309, 55);
             panel5.TabIndex = 2;
@@ -73,7 +73,7 @@
             // CanCelUpdateUser
             // 
             CanCelUpdateUser.Location = new Point(198, 11);
-            CanCelUpdateUser.Margin = new Padding(2, 2, 2, 2);
+            CanCelUpdateUser.Margin = new Padding(2);
             CanCelUpdateUser.Name = "CanCelUpdateUser";
             CanCelUpdateUser.Size = new Size(97, 24);
             CanCelUpdateUser.TabIndex = 1;
@@ -84,7 +84,7 @@
             // DoneUpdateUser
             // 
             DoneUpdateUser.Location = new Point(83, 11);
-            DoneUpdateUser.Margin = new Padding(2, 2, 2, 2);
+            DoneUpdateUser.Margin = new Padding(2);
             DoneUpdateUser.Name = "DoneUpdateUser";
             DoneUpdateUser.Size = new Size(97, 24);
             DoneUpdateUser.TabIndex = 0;
@@ -97,7 +97,7 @@
             panel3.Controls.Add(textBox3);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(35, 96);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(400, 56);
             panel3.TabIndex = 1;
@@ -105,7 +105,7 @@
             // textBox3
             // 
             textBox3.Location = new Point(174, 15);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(213, 27);
             textBox3.TabIndex = 3;
@@ -127,7 +127,7 @@
             panel4.Controls.Add(textBox2);
             panel4.Controls.Add(label3);
             panel4.Location = new Point(35, 166);
-            panel4.Margin = new Padding(2, 2, 2, 2);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(400, 56);
             panel4.TabIndex = 1;
@@ -135,7 +135,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(174, 16);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(213, 27);
             textBox2.TabIndex = 2;
@@ -156,7 +156,7 @@
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(35, 22);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(400, 56);
             panel2.TabIndex = 0;
@@ -164,10 +164,11 @@
             // textBox1
             // 
             textBox1.Location = new Point(174, 16);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(213, 27);
             textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -187,7 +188,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(524, 330);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "UpdateUserForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chỉnh sửa User";

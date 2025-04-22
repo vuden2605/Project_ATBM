@@ -14,9 +14,10 @@ namespace Project_ATBM
 {
     public partial class UpdateRoleForm : Form
     {
-        public UpdateRoleForm()
+        public UpdateRoleForm(string roleName)
         {
             InitializeComponent();
+            textBox1.Text = roleName;
         }
 
         private void DoneUpdateRole_Click(object sender, EventArgs e)
