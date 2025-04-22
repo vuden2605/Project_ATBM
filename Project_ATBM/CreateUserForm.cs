@@ -45,8 +45,6 @@ namespace Project_ATBM
 
             try
             {
-                OracleCommand cmd1 = new OracleCommand("ALTER SESSION SET \"_ORACLE_SCRIPT\"=TRUE", LoginForm.conn);
-                cmd1.ExecuteNonQuery();
                 OracleCommand cmd = new OracleCommand("CreateUser", LoginForm.conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("p_username", OracleDbType.NVarchar2).Value = userName;

@@ -53,6 +53,8 @@ namespace Project_ATBM
             try
             {
                 conn.Open();
+                OracleCommand cmd = new OracleCommand("ALTER SESSION SET \"_ORACLE_SCRIPT\"=TRUE", LoginForm.conn);
+                cmd.ExecuteNonQuery();
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();

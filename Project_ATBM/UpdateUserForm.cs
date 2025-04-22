@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,7 @@ namespace Project_ATBM
 
         private void DoneUpdateUser_Click(object sender, EventArgs e)
         {
-            string userName = textBox1.Text;//////////User đc chọn từ grid data không cần nhập
+            string userName = textBox1.Text;
             string password = textBox3.Text;
             string confirmPassword = textBox2.Text;
 
@@ -44,18 +45,17 @@ namespace Project_ATBM
 
             try
             {
-                // Example: Call a method to update the user
-                bool isUpdated = UpdateUser(userName, password);
+                
+                OracleCommand cmd = new OracleCommand("UpdateUser",LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_username", OracleDbType.NVarchar2).Value = userName;
+                cmd.Parameters.Add("p_new_password", password);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                AdminForm adminForm = new AdminForm();
+                adminForm.ShowDialog();
 
-                if (isUpdated)
-                {
-                    MessageBox.Show("Cập nhật user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật user thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             catch (Exception ex)
             {
@@ -64,14 +64,6 @@ namespace Project_ATBM
         }
 
         // Example method to handle user update logic
-        private bool UpdateUser(string userName, string password)
-        {
-            // Implement the logic to update the user here
-            // This could involve database operations or other logic
-            return true; // Placeholder for actual implementation
-        }
-
-
 
         private void CanCelUpdateUser_Click(object sender, EventArgs e)
         {
