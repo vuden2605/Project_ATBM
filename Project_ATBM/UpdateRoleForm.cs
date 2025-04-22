@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_ATBM
 {
@@ -35,17 +37,16 @@ namespace Project_ATBM
             try
             {
                 // Example: Call a method to update the role
-                bool isUpdated = UpdateRole(roleName, password);
-
-                if (isUpdated)
-                {
-                    MessageBox.Show("Cập nhật role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật role thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                OracleCommand cmd = new OracleCommand("UpdateRole", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_rolename", OracleDbType.NVarchar2).Value = roleName;
+                cmd.Parameters.Add("p_password", password);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                AdminForm adminForm = new AdminForm();
+                adminForm.ShowDialog();
+                
             }
             catch (Exception ex)
             {
@@ -54,14 +55,7 @@ namespace Project_ATBM
         }
 
         // Example method to handle role update logic
-        private bool UpdateRole(string roleName, string password)
-        {
-            // Implement the logic to update the role here
-            // This could involve database operations or other logic
-            return true; // Placeholder for actual implementation
-        }
-
-
+       
 
         private void CanCelUpdateRole_Click(object sender, EventArgs e)
         {
