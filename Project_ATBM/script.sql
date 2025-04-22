@@ -93,23 +93,13 @@ END;
 /
 
 --update role
-CREATE OR REPLACE PROCEDURE UpdateRolePassword (
+CREATE OR REPLACE PROCEDURE UpdateRole(
     p_rolename IN NVARCHAR2,
     p_new_password IN NVARCHAR2
 )
 AS
     v_count NUMBER;
 BEGIN
-    -- Kiểm tra role có tồn tại không
-    SELECT COUNT(*) INTO v_count
-    FROM dba_roles
-    WHERE UPPER(role) = UPPER(p_rolename);
-    
-    IF v_count = 0 THEN
-        RAISE_APPLICATION_ERROR(-20005, 'Role không tồn tại.');
-        RETURN;
-    END IF;
-
     -- Cập nhật mật khẩu cho role
     EXECUTE IMMEDIATE 'ALTER ROLE ' || p_rolename || ' IDENTIFIED BY "' || p_new_password || '"';
 END;
