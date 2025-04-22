@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_ATBM
 {
@@ -81,9 +82,31 @@ namespace Project_ATBM
 
             if (result == DialogResult.Yes)
             {
-                // hàm delete chuyền vào user muốn xóa đã được chọn trong griddata
-                //DeleteUser();
-                MessageBox.Show("Đã xóa user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dataGridView1.CurrentRow != null)
+                {
+                    try
+                    {
+                        // Lấy giá trị từ cột "username" trong dòng đang được chọn
+                        string userName = dataGridView1.CurrentRow.Cells["username"].Value.ToString();
+                        OracleCommand cmd = new OracleCommand("DeleteUser", LoginForm.conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("p_username", OracleDbType.NVarchar2).Value = userName;
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Xóa user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                        AdminForm adminForm = new AdminForm();
+                        adminForm.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
