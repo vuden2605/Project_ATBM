@@ -43,13 +43,6 @@ BEGIN
     IF v_count = 0 THEN
         RAISE_APPLICATION_ERROR(-20002, 'User không tồn tại.');
     ELSE
-        -- Thu hồi các role đã cấp (nếu cần)
-        BEGIN
-            EXECUTE IMMEDIATE 'REVOKE CONNECT FROM "' || p_username || '"';
-        EXCEPTION
-            WHEN OTHERS THEN
-                NULL; -- Bỏ qua nếu chưa được cấp hoặc lỗi nhỏ
-        END;
         -- Xóa user và toàn bộ schema
         EXECUTE IMMEDIATE 'DROP USER "' || p_username || '" CASCADE';
     END IF;
