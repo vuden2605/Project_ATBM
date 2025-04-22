@@ -5,6 +5,8 @@ GRANT CREATE USER TO admin_qldh;
 GRANT DROP USER TO admin_qldh;
 GRANT CONNECT TO ADMIN_QLDH WITH ADMIN OPTION;
 GRANT ALTER USER TO ADMIN_QLDH;
+GRANT CREATE ROLE TO ADMIN_QLDH;
+GRANT GRANT ANY ROLE TO ADMIN_QLDH;
 CONNECT admin_qldh/admin_qldh@localhost:1521/XE;
 -- create user
 CREATE OR REPLACE PROCEDURE CreateUser (
@@ -68,6 +70,48 @@ BEGIN
     -- Cập nhật mật khẩu cho user
         EXECUTE IMMEDIATE 'ALTER USER ' || p_username || ' IDENTIFIED BY "' || p_new_password || '"';
     END IF;
+END;
+/
+
+
+CREATE OR REPLACE PROCEDURE CreateRole (
+    p_rolename IN NVARCHAR2
+)
+AS
+    v_count NUMBER;
+BEGIN
+    EXECUTE IMMEDIATE 'CREATE ROLE ' || p_rolename;
+END;
+CREATE OR REPLACE PROCEDURE DeleteRole (
+    p_rolename IN NVARCHAR2
+)
+AS
+    v_count NUMBER;
+BEGIN
+    EXECUTE IMMEDIATE 'DROP ROLE ' || p_rolename;
+END;
+/
+
+--update role
+CREATE OR REPLACE PROCEDURE UpdateRolePassword (
+    p_rolename IN NVARCHAR2,
+    p_new_password IN NVARCHAR2
+)
+AS
+    v_count NUMBER;
+BEGIN
+    -- Kiểm tra role có tồn tại không
+    SELECT COUNT(*) INTO v_count
+    FROM dba_roles
+    WHERE UPPER(role) = UPPER(p_rolename);
+    
+    IF v_count = 0 THEN
+        RAISE_APPLICATION_ERROR(-20005, 'Role không tồn tại.');
+        RETURN;
+    END IF;
+
+    -- Cập nhật mật khẩu cho role
+    EXECUTE IMMEDIATE 'ALTER ROLE ' || p_rolename || ' IDENTIFIED BY "' || p_new_password || '"';
 END;
 /
 

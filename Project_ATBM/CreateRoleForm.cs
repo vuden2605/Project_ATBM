@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_ATBM
 {
@@ -35,27 +37,19 @@ namespace Project_ATBM
             try
             {
                 // Example: Call a method to create the role
-                bool isCreated = CreateRole(roleName);
-
-                if (isCreated)
-                {
-                    MessageBox.Show("Tạo role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Tạo role thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                OracleCommand cmd = new OracleCommand("CreateRole",LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_rolename", OracleDbType.NVarchar2).Value = roleName;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Tạo role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                AdminForm adminForm = new AdminForm();
+                adminForm.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private bool CreateRole(string roleName)
-        {
-
-            return true;
         }
         private void CancelCreateRole_Click(object sender, EventArgs e)
         {

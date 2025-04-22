@@ -121,9 +121,31 @@ namespace Project_ATBM
 
             if (result == DialogResult.Yes)
             {
-                // hàm delete chuyền vào role muốn xóa đã được chọn trong griddata
-                //DeleteRole();
-                MessageBox.Show("Đã xóa role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dataGridView1.CurrentRow != null)
+                {
+                    try
+                    {
+                        // Lấy giá trị từ cột "username" trong dòng đang được chọn
+                        string roleName = dataGridView2.CurrentRow.Cells["role"].Value.ToString();
+                        OracleCommand cmd = new OracleCommand("DeleteRole", LoginForm.conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("p_rolename", OracleDbType.NVarchar2).Value = roleName;
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Xóa role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                        AdminForm adminForm = new AdminForm();
+                        adminForm.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
