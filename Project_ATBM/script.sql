@@ -106,3 +106,90 @@ END;
 /
 
 
+-- phân quyền cho user
+CREATE OR REPLACE PROCEDURE GrantForUser (
+    n_pri  IN VARCHAR2,
+    n_obj  IN VARCHAR2,
+    n_user IN VARCHAR2,
+    n_flag IN CHAR
+)
+AUTHID CURRENT_USER AS   
+BEGIN
+    IF n_flag = 'T' THEN
+        EXECUTE IMMEDIATE 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_user || ' WITH GRANT OPTION';
+    ELSE
+        EXECUTE IMMEDIATE 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_user;
+    END IF; 
+END;
+
+-- phân role cho user
+CREATE OR REPLACE PROCEDURE GrantRoleForUser (
+    n_role in varchar2,
+    n_user in varchar2
+)
+AUTHID CURRENT_USER AS  
+BEGIN
+     EXECUTE IMMEDIATE 'GRANT ' || n_role || ' TO ' || n_user;
+END;
+
+-- phân quyền cho role
+CREATE OR REPLACE PROCEDURE proc_GrantForRole (
+    n_pri in varchar2,
+    n_obj in varchar2,
+    n_role in varchar2)
+AUTHID CURRENT_USER AS   
+BEGIN
+    EXECUTE IMMEDIATE 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO '||n_role;
+END;
+
+-- thu hồi quyền của user
+CREATE OR REPLACE PROCEDURE RevokeFromUser (
+    n_pri in varchar2,
+    n_obj in varchar2,
+    n_user in varchar2
+)
+AUTHID CURRENT_USER AS   
+BEGIN
+    EXECUTE IMMEDIATE 'REVOKE ' || n_pri || ' ON ' || n_obj || ' FROM '||n_user;
+END;
+
+-- thu hồi quyền của role
+CREATE OR REPLACE PROCEDURE RevokeFromRole (
+    n_pri in varchar2,
+    n_obj in varchar2,
+    n_role in varchar2
+)
+AUTHID CURRENT_USER AS   
+BEGIN
+    EXECUTE IMMEDIATE 'REVOKE ' || n_pri || ' ON ' || n_obj || ' FROM '||n_role;
+END;
+
+-- thu hồi role của user
+CREATE OR REPLACE PROCEDURE RevokeRoleFromUser(
+    n_role in varchar2,
+    n_user in varchar2
+)
+AUTHID CURRENT_USER AS   
+BEGIN
+    EXECUTE IMMEDIATE 'REVOKE ' || n_role || ' FROM ' || n_user;
+END;
+
+-- thu hồi tất cả quyền của user
+CREATE OR REPLACE PROCEDURE RevokeAllFromUser(
+    n_obj in varchar2,
+    n_user in varchar2
+)
+AUTHID CURRENT_USER AS   
+BEGIN
+    EXECUTE IMMEDIATE 'REVOKE ALL ON ' || n_obj || ' FROM ' || n_user;
+END;
+
+--thu hồi tất cả quyền của role
+CREATE OR REPLACE PROCEDURE RevokeAllFromRole(
+    n_obj in varchar2,
+    n_role in varchar2
+)
+AUTHID CURRENT_USER AS   
+BEGIN
+    EXECUTE IMMEDIATE 'REVOKE ALL ON ' || n_obj || ' FROM ' || n_role;
+END;
