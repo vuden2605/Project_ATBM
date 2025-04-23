@@ -730,6 +730,7 @@
             tabControl5.SelectedIndex = 0;
             tabControl5.Size = new Size(945, 442);
             tabControl5.TabIndex = 0;
+            tabControl5.SelectedIndexChanged += tabControl5_SelectedIndexChanged;
             // 
             // tabPage5
             // 
@@ -788,6 +789,7 @@
             dataGridView7.RowHeadersWidth = 82;
             dataGridView7.Size = new Size(671, 394);
             dataGridView7.TabIndex = 0;
+            dataGridView7.CellContentClick += dataGridView7_CellContentClick;
             // 
             // tabPage6
             // 

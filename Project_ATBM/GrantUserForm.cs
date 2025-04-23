@@ -12,9 +12,11 @@ namespace Project_ATBM
 {
     public partial class GrantUserForm : Form
     {
-        public GrantUserForm()
+        public GrantUserForm(string userName)
         {
             InitializeComponent();
+            textBox1.Text = userName;
+            textBox1.ReadOnly = true;
         }
         private void btnSucessGrant_Click_2(object sender, EventArgs e)
         {
@@ -114,6 +116,9 @@ namespace Project_ATBM
             }
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

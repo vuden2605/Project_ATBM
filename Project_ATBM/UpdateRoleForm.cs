@@ -18,6 +18,7 @@ namespace Project_ATBM
         {
             InitializeComponent();
             textBox1.Text = roleName;
+            textBox1.ReadOnly = true;
         }
 
         private void DoneUpdateRole_Click(object sender, EventArgs e)

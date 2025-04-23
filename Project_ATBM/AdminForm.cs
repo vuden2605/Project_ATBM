@@ -35,7 +35,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "SELECT username,user_id,password,created FROM dba_users";
+                string query = "SELECT * FROM dba_users";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -164,7 +164,8 @@ namespace Project_ATBM
 
         private void GrantUser_Click(object sender, EventArgs e)
         {
-            GrantUserForm grantUserForm = new GrantUserForm();
+            string userName = dataGridView7.CurrentRow.Cells["username"].Value.ToString();
+            GrantUserForm grantUserForm = new GrantUserForm(userName);
             grantUserForm.ShowDialog();
         }
 
@@ -333,7 +334,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = " SELECT grantee, owner, table_name, grantor, privilege FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT USERNAME FROM DBA_USERS) ORDER BY GRANTEE ";
+                string query = " SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT USERNAME FROM DBA_USERS) ORDER BY GRANTEE ";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -349,7 +350,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = " SELECT grantee, owner, table_name, grantor, privilege FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT ROLE FROM DBA_ROLES) ORDER BY GRANTEE ";
+                string query = " SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT ROLE FROM DBA_ROLES) ORDER BY GRANTEE ";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -388,9 +389,60 @@ namespace Project_ATBM
             {
                 load_info_privilege_user();
             }
-           
-                
-           
+            if (tabControl1.SelectedIndex == 3)
+            {
+                load_data_users1();
+            }
+
+
+
+        }
+
+        private void tabControl5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl5.SelectedIndex == 0)
+            {
+                load_data_users1();
+            }
+            if (tabControl5.SelectedIndex == 1)
+            {
+                load_data_roles1();
+            }
+        }
+        private void load_data_roles1()
+        {
+            try
+            {
+                string query = "SELECT * FROM dba_roles";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView8.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+        private void load_data_users1()
+        {
+            try
+            {
+                string query = "SELECT * FROM dba_users";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView7.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+        private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

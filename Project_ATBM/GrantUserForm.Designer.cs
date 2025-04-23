@@ -55,7 +55,7 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(22, 20);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(452, 281);
             panel1.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             checkBox2.AutoSize = true;
             checkBox2.Location = new Point(209, 202);
-            checkBox2.Margin = new Padding(2, 2, 2, 2);
+            checkBox2.Margin = new Padding(2);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(179, 24);
             checkBox2.TabIndex = 7;
@@ -76,7 +76,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(208, 166);
-            checkBox1.Margin = new Padding(2, 2, 2, 2);
+            checkBox1.Margin = new Padding(2);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(153, 24);
             checkBox1.TabIndex = 6;
@@ -86,7 +86,7 @@
             // textBox3
             // 
             textBox3.Location = new Point(208, 122);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(218, 27);
             textBox3.TabIndex = 5;
@@ -94,7 +94,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(208, 64);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(218, 27);
             textBox2.TabIndex = 4;
@@ -102,10 +102,11 @@
             // textBox1
             // 
             textBox1.Location = new Point(208, 16);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(218, 27);
             textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
@@ -142,7 +143,7 @@
             panel2.Controls.Add(btnCancelGrant);
             panel2.Controls.Add(btnSucessGrant);
             panel2.Location = new Point(230, 314);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(216, 32);
             panel2.TabIndex = 1;
@@ -150,7 +151,7 @@
             // btnCancelGrant
             // 
             btnCancelGrant.Location = new Point(133, 2);
-            btnCancelGrant.Margin = new Padding(2, 2, 2, 2);
+            btnCancelGrant.Margin = new Padding(2);
             btnCancelGrant.Name = "btnCancelGrant";
             btnCancelGrant.Size = new Size(83, 29);
             btnCancelGrant.TabIndex = 1;
@@ -161,7 +162,7 @@
             // btnSucessGrant
             // 
             btnSucessGrant.Location = new Point(0, 1);
-            btnSucessGrant.Margin = new Padding(2, 2, 2, 2);
+            btnSucessGrant.Margin = new Padding(2);
             btnSucessGrant.Name = "btnSucessGrant";
             btnSucessGrant.Size = new Size(83, 29);
             btnSucessGrant.TabIndex = 0;
@@ -177,7 +178,7 @@
             ClientSize = new Size(499, 365);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "GrantUserForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cấp quyền cho User";
