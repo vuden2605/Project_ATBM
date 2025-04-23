@@ -334,7 +334,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = " SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT USERNAME FROM DBA_USERS) ORDER BY GRANTEE ";
+                string query = " SELECT * FROM DBA_TAB_PRIVS ";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -346,11 +346,43 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+        private void load_info_privilege_col_user()
+        {
+            try
+            {
+                string query = " SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS)";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView5.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+        private void load_info_privilege_col_role()
+        {
+            try
+            {
+                string query = " SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) ";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView6.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
         private void load_info_privilege_role()
         {
             try
             {
-                string query = " SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN(SELECT ROLE FROM DBA_ROLES) ORDER BY GRANTEE ";
+                string query = " SELECT * FROM ROLE_TAB_PRIVS  ";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -444,6 +476,122 @@ namespace Project_ATBM
         private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string grantee = textBox5.Text.ToUpper();
+                string query = $"SELECT GRANTEE, OWNER, TABLE_NAME, PRIVILEGE, GRANTABLE, GRANTOR FROM DBA_TAB_PRIVS  WHERE grantee LIKE :grentee";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":grantee", "%" + grantee + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView7.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string role = textBox6.Text.ToUpper();
+                string query = $"SELECT ROLE, TABLE_NAME, OWNER, PRIVILEGE, GRANTABLE FROM ROLE_TAB_PRIVS  WHERE role LIKE :role";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":role", "%" + role + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView8.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            load_info_privilege_user();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            load_info_privilege_col_user();
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            load_info_privilege_role();
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            load_info_privilege_col_role();
+
+        }
+
+        private void btnSearchRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string ROLE = textBox2.Text.ToUpper();
+                string query = "";
+                if (radioButton4.Checked)
+                {
+                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE";
+                }
+                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) AND ROLE LIKE :ROLE"; }
+                ;
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView6.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string GRANTEE = textBox1.Text.ToUpper();
+                string query = "";
+                if (radioButton1.Checked)
+                {
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE LIKE :GRANTEE";
+                }
+                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE"; }
+                ;
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":GRANTEE", "%" + GRANTEE + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView5.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
         }
     }
 }
