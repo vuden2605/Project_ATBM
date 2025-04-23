@@ -164,7 +164,7 @@ namespace Project_ATBM
 
         private void GrantUser_Click(object sender, EventArgs e)
         {
-            string userName = dataGridView7.CurrentRow.Cells["username"].Value.ToString();
+            string userName = dataGridView7.CurrentRow.Cells["grantee"].Value.ToString();
             GrantUserForm grantUserForm = new GrantUserForm(userName);
             grantUserForm.ShowDialog();
         }
@@ -413,7 +413,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "SELECT * FROM dba_roles";
+                string query = "SELECT ROLE, TABLE_NAME, OWNER, PRIVILEGE, GRANTABLE FROM ROLE_TAB_PRIVS";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -429,7 +429,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "SELECT * FROM dba_users";
+                string query = "SELECT GRANTEE, OWNER, TABLE_NAME, PRIVILEGE, GRANTABLE, GRANTOR FROM DBA_TAB_PRIVS ";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
