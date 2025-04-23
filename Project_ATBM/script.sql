@@ -108,18 +108,29 @@ END;
 
 -- phân quyền cho user
 CREATE OR REPLACE PROCEDURE GrantForUser (
-    n_pri  IN VARCHAR2,
-    n_obj  IN VARCHAR2,
-    n_user IN VARCHAR2,
-    n_flag IN CHAR
+    n_pri     IN VARCHAR2,
+    n_obj     IN VARCHAR2,
+    n_user    IN VARCHAR2,
+    n_column  IN VARCHAR2,
+    n_flag    IN CHAR
 )
 AUTHID CURRENT_USER AS   
+    v_sql VARCHAR2(1000);
 BEGIN
-    IF n_flag = 'T' THEN
-        EXECUTE IMMEDIATE 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_user || ' WITH GRANT OPTION';
+    IF (n_pri IN ('SELECT', 'UPDATE')) AND n_column IS NOT NULL THEN
+        -- Grant trên cột
+        v_sql := 'GRANT ' || n_pri || ' (' || n_column || ') ON ' || n_obj || ' TO ' || n_user;
     ELSE
-        EXECUTE IMMEDIATE 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_user;
-    END IF; 
+        -- Grant trên toàn table
+        v_sql := 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_user;
+    END IF;
+
+    -- Thêm WITH GRANT OPTION nếu có
+    IF n_flag = 'T' THEN
+        v_sql := v_sql || ' WITH GRANT OPTION';
+    END IF;
+
+    EXECUTE IMMEDIATE v_sql;
 END;
 
 -- phân role cho user
@@ -133,14 +144,26 @@ BEGIN
 END;
 
 -- phân quyền cho role
-CREATE OR REPLACE PROCEDURE proc_GrantForRole (
-    n_pri in varchar2,
-    n_obj in varchar2,
-    n_role in varchar2)
-AUTHID CURRENT_USER AS   
+CREATE OR REPLACE PROCEDURE GrantForRole (
+    n_pri     IN VARCHAR2,
+    n_obj     IN VARCHAR2,
+    n_role    IN VARCHAR2,
+    n_column  IN VARCHAR2
+)
+AUTHID CURRENT_USER AS
+    v_sql VARCHAR2(1000);
 BEGIN
-    EXECUTE IMMEDIATE 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO '||n_role;
+    IF (n_pri IN ('SELECT', 'UPDATE')) AND n_column IS NOT NULL THEN
+        -- Grant trên cột
+        v_sql := 'GRANT ' || n_pri || ' (' || n_column || ') ON ' || n_obj || ' TO ' || n_role;
+    ELSE
+        -- Grant toàn bảng
+        v_sql := 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_role;
+    END IF;
+
 END;
+
+
 
 -- thu hồi quyền của user
 CREATE OR REPLACE PROCEDURE RevokeFromUser (
