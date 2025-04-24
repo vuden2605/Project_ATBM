@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Project_ATBM
 {
     public partial class GrantRoleToUserForm : Form
     {
-        public GrantRoleToUserForm()
+        public GrantRoleToUserForm(string userName)
         {
             InitializeComponent();
+            textBox1.Text = userName;
+
         }
 
         private void btnSuccessGrantR_U_Click(object sender, EventArgs e)
@@ -22,16 +25,20 @@ namespace Project_ATBM
             string userName = textBox1.Text;
             string roleName = textBox2.Text;
 
-            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(roleName))
+            if (string.IsNullOrWhiteSpace(roleName))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin User và Role!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
                 // Logic to grant the role to the user
-                GrantRoleToUser(userName, roleName);
+                OracleCommand cmd = new OracleCommand("GrantRoleForUser", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("n_role",roleName);
+                cmd.Parameters.Add("n_user",userName);
+                cmd.ExecuteNonQuery();
                 MessageBox.Show("Cấp role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
@@ -40,11 +47,7 @@ namespace Project_ATBM
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void GrantRoleToUser(string userName, string roleName)
-        {
-            // Implement the logic to grant the role to the user here
-            // This could involve database operations or other logic
-        }
+        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
