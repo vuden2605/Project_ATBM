@@ -160,9 +160,10 @@
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(2, 2, 2, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1828, 1047);
+            tabControl1.Size = new Size(1125, 654);
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
@@ -171,20 +172,21 @@
             // 
             tabPage1.Controls.Add(button4);
             tabPage1.Controls.Add(tabControl2);
-            tabPage1.Location = new Point(8, 46);
-            tabPage1.Margin = new Padding(3, 3, 6, 3);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Margin = new Padding(2, 2, 4, 2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1812, 993);
+            tabPage1.Padding = new Padding(2, 2, 2, 2);
+            tabPage1.Size = new Size(1117, 621);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "User & Role";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(1242, 757);
+            button4.Location = new Point(764, 473);
+            button4.Margin = new Padding(2, 2, 2, 2);
             button4.Name = "button4";
-            button4.Size = new Size(266, 72);
+            button4.Size = new Size(164, 45);
             button4.TabIndex = 5;
             button4.Text = "Đăng xuất";
             button4.UseVisualStyleBackColor = true;
@@ -194,10 +196,11 @@
             // 
             tabControl2.Controls.Add(tabPage8);
             tabControl2.Controls.Add(tabPage10);
-            tabControl2.Location = new Point(21, 19);
+            tabControl2.Location = new Point(13, 12);
+            tabControl2.Margin = new Padding(2, 2, 2, 2);
             tabControl2.Name = "tabControl2";
             tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(1635, 750);
+            tabControl2.Size = new Size(1006, 469);
             tabControl2.SizeMode = TabSizeMode.Fixed;
             tabControl2.TabIndex = 2;
             tabControl2.SelectedIndexChanged += tabControl2_SelectedIndexChanged;
@@ -207,10 +210,11 @@
             tabPage8.Controls.Add(panel4);
             tabPage8.Controls.Add(panel1);
             tabPage8.Controls.Add(dataGridView1);
-            tabPage8.Location = new Point(8, 46);
+            tabPage8.Location = new Point(4, 29);
+            tabPage8.Margin = new Padding(2, 2, 2, 2);
             tabPage8.Name = "tabPage8";
-            tabPage8.Padding = new Padding(3);
-            tabPage8.Size = new Size(1619, 696);
+            tabPage8.Padding = new Padding(2, 2, 2, 2);
+            tabPage8.Size = new Size(998, 436);
             tabPage8.TabIndex = 0;
             tabPage8.Text = "USER";
             tabPage8.UseVisualStyleBackColor = true;
@@ -220,16 +224,18 @@
             panel4.Controls.Add(btnFilterUser);
             panel4.Controls.Add(textBox3);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(1141, 403);
+            panel4.Location = new Point(702, 252);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(426, 251);
+            panel4.Size = new Size(262, 157);
             panel4.TabIndex = 6;
             // 
             // btnFilterUser
             // 
-            btnFilterUser.Location = new Point(276, 157);
+            btnFilterUser.Location = new Point(170, 98);
+            btnFilterUser.Margin = new Padding(2, 2, 2, 2);
             btnFilterUser.Name = "btnFilterUser";
-            btnFilterUser.Size = new Size(150, 56);
+            btnFilterUser.Size = new Size(92, 35);
             btnFilterUser.TabIndex = 2;
             btnFilterUser.Text = "Tìm kiếm";
             btnFilterUser.UseVisualStyleBackColor = true;
@@ -237,17 +243,19 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(11, 90);
+            textBox3.Location = new Point(7, 56);
+            textBox3.Margin = new Padding(2, 2, 2, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(409, 39);
+            textBox3.Size = new Size(253, 27);
             textBox3.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 37);
+            label3.Location = new Point(7, 23);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(173, 32);
+            label3.Size = new Size(106, 20);
             label3.TabIndex = 0;
             label3.Text = "Nhập tên User:";
             // 
@@ -256,16 +264,18 @@
             panel1.Controls.Add(btnDeleteUser);
             panel1.Controls.Add(btnUpdateUser);
             panel1.Controls.Add(btnCreateUser);
-            panel1.Location = new Point(1141, 19);
+            panel1.Location = new Point(702, 12);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(422, 378);
+            panel1.Size = new Size(260, 236);
             panel1.TabIndex = 5;
             // 
             // btnDeleteUser
             // 
-            btnDeleteUser.Location = new Point(63, 146);
+            btnDeleteUser.Location = new Point(39, 91);
+            btnDeleteUser.Margin = new Padding(2, 2, 2, 2);
             btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(266, 72);
+            btnDeleteUser.Size = new Size(164, 45);
             btnDeleteUser.TabIndex = 4;
             btnDeleteUser.Text = "Xóa User";
             btnDeleteUser.UseVisualStyleBackColor = true;
@@ -273,9 +283,10 @@
             // 
             // btnUpdateUser
             // 
-            btnUpdateUser.Location = new Point(63, 282);
+            btnUpdateUser.Location = new Point(39, 176);
+            btnUpdateUser.Margin = new Padding(2, 2, 2, 2);
             btnUpdateUser.Name = "btnUpdateUser";
-            btnUpdateUser.Size = new Size(266, 72);
+            btnUpdateUser.Size = new Size(164, 45);
             btnUpdateUser.TabIndex = 3;
             btnUpdateUser.Text = "Sửa User";
             btnUpdateUser.UseVisualStyleBackColor = true;
@@ -283,9 +294,10 @@
             // 
             // btnCreateUser
             // 
-            btnCreateUser.Location = new Point(63, 26);
+            btnCreateUser.Location = new Point(39, 16);
+            btnCreateUser.Margin = new Padding(2, 2, 2, 2);
             btnCreateUser.Name = "btnCreateUser";
-            btnCreateUser.Size = new Size(266, 72);
+            btnCreateUser.Size = new Size(164, 45);
             btnCreateUser.TabIndex = 2;
             btnCreateUser.Text = "Tạo User";
             btnCreateUser.UseVisualStyleBackColor = true;
@@ -294,10 +306,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 0);
+            dataGridView1.Location = new Point(4, 0);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1084, 654);
+            dataGridView1.Size = new Size(667, 409);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -308,10 +321,11 @@
             tabPage10.Controls.Add(btnUpdateRole);
             tabPage10.Controls.Add(btnCreateRole);
             tabPage10.Controls.Add(dataGridView2);
-            tabPage10.Location = new Point(8, 46);
+            tabPage10.Location = new Point(4, 29);
+            tabPage10.Margin = new Padding(2, 2, 2, 2);
             tabPage10.Name = "tabPage10";
-            tabPage10.Padding = new Padding(3);
-            tabPage10.Size = new Size(1619, 696);
+            tabPage10.Padding = new Padding(2, 2, 2, 2);
+            tabPage10.Size = new Size(998, 436);
             tabPage10.TabIndex = 2;
             tabPage10.Text = "ROLE";
             tabPage10.UseVisualStyleBackColor = true;
@@ -321,16 +335,18 @@
             panel5.Controls.Add(btnFilterRole);
             panel5.Controls.Add(textBox4);
             panel5.Controls.Add(label4);
-            panel5.Location = new Point(1134, 406);
+            panel5.Location = new Point(698, 254);
+            panel5.Margin = new Padding(2, 2, 2, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(426, 251);
+            panel5.Size = new Size(262, 157);
             panel5.TabIndex = 7;
             // 
             // btnFilterRole
             // 
-            btnFilterRole.Location = new Point(273, 163);
+            btnFilterRole.Location = new Point(168, 102);
+            btnFilterRole.Margin = new Padding(2, 2, 2, 2);
             btnFilterRole.Name = "btnFilterRole";
-            btnFilterRole.Size = new Size(150, 56);
+            btnFilterRole.Size = new Size(92, 35);
             btnFilterRole.TabIndex = 2;
             btnFilterRole.Text = "Tìm kiếm";
             btnFilterRole.UseVisualStyleBackColor = true;
@@ -338,25 +354,28 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(11, 90);
+            textBox4.Location = new Point(7, 56);
+            textBox4.Margin = new Padding(2, 2, 2, 2);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(409, 39);
+            textBox4.Size = new Size(253, 27);
             textBox4.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(11, 37);
+            label4.Location = new Point(7, 23);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(172, 32);
+            label4.Size = new Size(107, 20);
             label4.TabIndex = 0;
             label4.Text = "Nhập tên Role:";
             // 
             // btnDeleteRole
             // 
-            btnDeleteRole.Location = new Point(1204, 163);
+            btnDeleteRole.Location = new Point(741, 102);
+            btnDeleteRole.Margin = new Padding(2, 2, 2, 2);
             btnDeleteRole.Name = "btnDeleteRole";
-            btnDeleteRole.Size = new Size(266, 72);
+            btnDeleteRole.Size = new Size(164, 45);
             btnDeleteRole.TabIndex = 4;
             btnDeleteRole.Text = "Xóa Role";
             btnDeleteRole.UseVisualStyleBackColor = true;
@@ -364,9 +383,10 @@
             // 
             // btnUpdateRole
             // 
-            btnUpdateRole.Location = new Point(1204, 301);
+            btnUpdateRole.Location = new Point(741, 188);
+            btnUpdateRole.Margin = new Padding(2, 2, 2, 2);
             btnUpdateRole.Name = "btnUpdateRole";
-            btnUpdateRole.Size = new Size(266, 72);
+            btnUpdateRole.Size = new Size(164, 45);
             btnUpdateRole.TabIndex = 3;
             btnUpdateRole.Text = "Sửa Role";
             btnUpdateRole.UseVisualStyleBackColor = true;
@@ -374,9 +394,10 @@
             // 
             // btnCreateRole
             // 
-            btnCreateRole.Location = new Point(1204, 45);
+            btnCreateRole.Location = new Point(741, 28);
+            btnCreateRole.Margin = new Padding(2, 2, 2, 2);
             btnCreateRole.Name = "btnCreateRole";
-            btnCreateRole.Size = new Size(266, 72);
+            btnCreateRole.Size = new Size(164, 45);
             btnCreateRole.TabIndex = 2;
             btnCreateRole.Text = "Tạo Role";
             btnCreateRole.UseVisualStyleBackColor = true;
@@ -385,20 +406,22 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(0, 3);
+            dataGridView2.Location = new Point(0, 2);
+            dataGridView2.Margin = new Padding(2, 2, 2, 2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(1084, 654);
+            dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 1;
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(tabControl3);
             tabPage2.Controls.Add(button1);
-            tabPage2.Location = new Point(8, 46);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Margin = new Padding(2, 2, 2, 2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1812, 993);
+            tabPage2.Padding = new Padding(2, 2, 2, 2);
+            tabPage2.Size = new Size(1117, 621);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Dánh sách user/role";
             tabPage2.UseVisualStyleBackColor = true;
@@ -407,19 +430,21 @@
             // 
             tabControl3.Controls.Add(tabPage9);
             tabControl3.Controls.Add(tabPage11);
-            tabControl3.Location = new Point(34, 30);
+            tabControl3.Location = new Point(21, 19);
+            tabControl3.Margin = new Padding(2, 2, 2, 2);
             tabControl3.Name = "tabControl3";
             tabControl3.SelectedIndex = 0;
-            tabControl3.Size = new Size(1528, 742);
+            tabControl3.Size = new Size(940, 464);
             tabControl3.TabIndex = 7;
             // 
             // tabPage9
             // 
             tabPage9.Controls.Add(dataGridView3);
-            tabPage9.Location = new Point(8, 46);
+            tabPage9.Location = new Point(4, 29);
+            tabPage9.Margin = new Padding(2, 2, 2, 2);
             tabPage9.Name = "tabPage9";
-            tabPage9.Padding = new Padding(3);
-            tabPage9.Size = new Size(1512, 688);
+            tabPage9.Padding = new Padding(2, 2, 2, 2);
+            tabPage9.Size = new Size(932, 431);
             tabPage9.TabIndex = 0;
             tabPage9.Text = "User";
             tabPage9.UseVisualStyleBackColor = true;
@@ -428,10 +453,11 @@
             // 
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView3.Columns.AddRange(new DataGridViewColumn[] { Column6, Column7, Column8, Column9, Column10 });
-            dataGridView3.Location = new Point(55, 42);
+            dataGridView3.Location = new Point(34, 26);
+            dataGridView3.Margin = new Padding(2, 2, 2, 2);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 82;
-            dataGridView3.Size = new Size(1046, 629);
+            dataGridView3.Size = new Size(644, 393);
             dataGridView3.TabIndex = 1;
             // 
             // Column6
@@ -472,10 +498,11 @@
             // tabPage11
             // 
             tabPage11.Controls.Add(dataGridView4);
-            tabPage11.Location = new Point(8, 46);
+            tabPage11.Location = new Point(4, 29);
+            tabPage11.Margin = new Padding(2, 2, 2, 2);
             tabPage11.Name = "tabPage11";
-            tabPage11.Padding = new Padding(3);
-            tabPage11.Size = new Size(1512, 688);
+            tabPage11.Padding = new Padding(2, 2, 2, 2);
+            tabPage11.Size = new Size(932, 431);
             tabPage11.TabIndex = 1;
             tabPage11.Text = "Role";
             tabPage11.UseVisualStyleBackColor = true;
@@ -484,10 +511,11 @@
             // 
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView4.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
-            dataGridView4.Location = new Point(119, 35);
+            dataGridView4.Location = new Point(73, 22);
+            dataGridView4.Margin = new Padding(2, 2, 2, 2);
             dataGridView4.Name = "dataGridView4";
             dataGridView4.RowHeadersWidth = 82;
-            dataGridView4.Size = new Size(1046, 629);
+            dataGridView4.Size = new Size(644, 393);
             dataGridView4.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn6
@@ -527,9 +555,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1287, 778);
+            button1.Location = new Point(792, 486);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(266, 72);
+            button1.Size = new Size(164, 45);
             button1.TabIndex = 6;
             button1.Text = "Đăng xuất";
             button1.UseVisualStyleBackColor = true;
@@ -538,18 +567,20 @@
             // 
             tabPage3.Controls.Add(button2);
             tabPage3.Controls.Add(tabControl4);
-            tabPage3.Location = new Point(8, 46);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Margin = new Padding(2, 2, 2, 2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1812, 993);
+            tabPage3.Size = new Size(1117, 621);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Thông tin quyền";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
+
             button2.Location = new Point(1289, 921);
             button2.Name = "button2";
-            button2.Size = new Size(266, 72);
+            button2.Size = new Size(164, 45);
             button2.TabIndex = 7;
             button2.Text = "Đăng xuất";
             button2.UseVisualStyleBackColor = true;
@@ -558,10 +589,12 @@
             // 
             tabControl4.Controls.Add(tabPage12);
             tabControl4.Controls.Add(tabPage13);
-            tabControl4.Location = new Point(8, 30);
+            tabControl4.Location = new Point(5, 19);
+            tabControl4.Margin = new Padding(2, 2, 2, 2);
             tabControl4.Name = "tabControl4";
             tabControl4.SelectedIndex = 0;
             tabControl4.Size = new Size(1547, 896);
+
             tabControl4.TabIndex = 0;
             tabControl4.SelectedIndexChanged += tabControl4_SelectedIndexChanged;
             // 
@@ -571,10 +604,12 @@
             tabPage12.Controls.Add(panel8);
             tabPage12.Controls.Add(panel2);
             tabPage12.Controls.Add(dataGridView5);
-            tabPage12.Location = new Point(8, 46);
+            tabPage12.Location = new Point(4, 29);
+            tabPage12.Margin = new Padding(2, 2, 2, 2);
             tabPage12.Name = "tabPage12";
             tabPage12.Padding = new Padding(3);
             tabPage12.Size = new Size(1531, 842);
+
             tabPage12.TabIndex = 0;
             tabPage12.Text = "User";
             tabPage12.UseVisualStyleBackColor = true;
@@ -612,17 +647,19 @@
             // 
             panel8.Controls.Add(radioButton2);
             panel8.Controls.Add(radioButton1);
-            panel8.Location = new Point(1068, 17);
+            panel8.Location = new Point(657, 11);
+            panel8.Margin = new Padding(2, 2, 2, 2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(456, 317);
+            panel8.Size = new Size(281, 198);
             panel8.TabIndex = 2;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(53, 132);
+            radioButton2.Location = new Point(33, 82);
+            radioButton2.Margin = new Padding(2, 2, 2, 2);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(178, 36);
+            radioButton2.Size = new Size(111, 24);
             radioButton2.TabIndex = 1;
             radioButton2.TabStop = true;
             radioButton2.Text = "Trên column";
@@ -633,9 +670,10 @@
             // 
             radioButton1.AutoSize = true;
             radioButton1.Checked = true;
-            radioButton1.Location = new Point(52, 46);
+            radioButton1.Location = new Point(32, 29);
+            radioButton1.Margin = new Padding(2, 2, 2, 2);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(164, 36);
+            radioButton1.Size = new Size(104, 24);
             radioButton1.TabIndex = 0;
             radioButton1.TabStop = true;
             radioButton1.Text = "Trên object";
@@ -647,16 +685,18 @@
             panel2.Controls.Add(btnSearchUser);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(1068, 338);
+            panel2.Location = new Point(657, 211);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
             panel2.Size = new Size(455, 241);
             panel2.TabIndex = 1;
             // 
             // btnSearchUser
             // 
-            btnSearchUser.Location = new Point(276, 152);
+            btnSearchUser.Location = new Point(170, 95);
+            btnSearchUser.Margin = new Padding(2, 2, 2, 2);
             btnSearchUser.Name = "btnSearchUser";
-            btnSearchUser.Size = new Size(150, 56);
+            btnSearchUser.Size = new Size(92, 35);
             btnSearchUser.TabIndex = 2;
             btnSearchUser.Text = "Tìm kiếm";
             btnSearchUser.UseVisualStyleBackColor = true;
@@ -664,17 +704,19 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(11, 90);
+            textBox1.Location = new Point(7, 56);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(417, 39);
+            textBox1.Size = new Size(258, 27);
             textBox1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(11, 37);
+            label1.Location = new Point(7, 23);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(173, 32);
+            label1.Size = new Size(106, 20);
             label1.TabIndex = 0;
             label1.Text = "Nhập tên User:";
             label1.Click += label1_Click;
@@ -682,10 +724,13 @@
             // dataGridView5
             // 
             dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView5.Location = new Point(18, 14);
+            dataGridView5.Location = new Point(11, 9);
+            dataGridView5.Margin = new Padding(2, 2, 2, 2);
             dataGridView5.Name = "dataGridView5";
             dataGridView5.RowHeadersWidth = 82;
+
             dataGridView5.Size = new Size(1043, 809);
+
             dataGridView5.TabIndex = 0;
             dataGridView5.CellContentClick += dataGridView5_CellContentClick;
             // 
@@ -695,10 +740,13 @@
             tabPage13.Controls.Add(panel9);
             tabPage13.Controls.Add(panel3);
             tabPage13.Controls.Add(dataGridView6);
-            tabPage13.Location = new Point(8, 46);
+            tabPage13.Location = new Point(4, 29);
+            tabPage13.Margin = new Padding(2, 2, 2, 2);
             tabPage13.Name = "tabPage13";
+          
             tabPage13.Padding = new Padding(3);
             tabPage13.Size = new Size(1531, 842);
+
             tabPage13.TabIndex = 1;
             tabPage13.Text = "Role";
             tabPage13.UseVisualStyleBackColor = true;
@@ -735,18 +783,21 @@
             // panel9
             // 
             panel9.Controls.Add(radioButton4);
-            panel9.Location = new Point(1064, 53);
+            panel9.Location = new Point(655, 33);
+            panel9.Margin = new Padding(2, 2, 2, 2);
             panel9.Name = "panel9";
             panel9.Size = new Size(456, 255);
             panel9.TabIndex = 3;
             // 
+
             // radioButton4
             // 
             radioButton4.AutoSize = true;
             radioButton4.Checked = true;
-            radioButton4.Location = new Point(52, 46);
+            radioButton4.Location = new Point(32, 29);
+            radioButton4.Margin = new Padding(2, 2, 2, 2);
             radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(164, 36);
+            radioButton4.Size = new Size(104, 24);
             radioButton4.TabIndex = 0;
             radioButton4.TabStop = true;
             radioButton4.Text = "Trên object";
@@ -758,16 +809,19 @@
             panel3.Controls.Add(btnSearchRole);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(label2);
+
             panel3.Location = new Point(1065, 314);
+
             panel3.Name = "panel3";
-            panel3.Size = new Size(466, 288);
+            panel3.Size = new Size(287, 180);
             panel3.TabIndex = 1;
             // 
             // btnSearchRole
             // 
-            btnSearchRole.Location = new Point(257, 222);
+            btnSearchRole.Location = new Point(158, 139);
+            btnSearchRole.Margin = new Padding(2, 2, 2, 2);
             btnSearchRole.Name = "btnSearchRole";
-            btnSearchRole.Size = new Size(187, 45);
+            btnSearchRole.Size = new Size(115, 28);
             btnSearchRole.TabIndex = 3;
             btnSearchRole.Text = "Tìm kiếm";
             btnSearchRole.UseVisualStyleBackColor = true;
@@ -775,27 +829,32 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(20, 150);
+            textBox2.Location = new Point(12, 94);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(418, 39);
+            textBox2.Size = new Size(259, 27);
             textBox2.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(20, 88);
+            label2.Location = new Point(12, 55);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(172, 32);
+            label2.Size = new Size(107, 20);
             label2.TabIndex = 1;
             label2.Text = "Nhập tên Role:";
             // 
             // dataGridView6
             // 
             dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView6.Location = new Point(15, 26);
+            dataGridView6.Location = new Point(9, 16);
+            dataGridView6.Margin = new Padding(2, 2, 2, 2);
             dataGridView6.Name = "dataGridView6";
             dataGridView6.RowHeadersWidth = 82;
+
             dataGridView6.Size = new Size(1043, 810);
+
             dataGridView6.TabIndex = 0;
             dataGridView6.CellContentClick += dataGridView6_CellContentClick;
             // 
@@ -803,18 +862,20 @@
             // 
             tabPage4.Controls.Add(button3);
             tabPage4.Controls.Add(tabControl5);
-            tabPage4.Location = new Point(8, 46);
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Margin = new Padding(2, 2, 2, 2);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1812, 993);
+            tabPage4.Size = new Size(1117, 621);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Quản lý quyền";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(1391, 899);
+            button3.Location = new Point(856, 562);
+            button3.Margin = new Padding(2, 2, 2, 2);
             button3.Name = "button3";
-            button3.Size = new Size(266, 72);
+            button3.Size = new Size(164, 45);
             button3.TabIndex = 8;
             button3.Text = "Đăng xuất";
             button3.UseVisualStyleBackColor = true;
@@ -823,10 +884,11 @@
             // 
             tabControl5.Controls.Add(tabPage5);
             tabControl5.Controls.Add(tabPage6);
-            tabControl5.Location = new Point(26, 14);
+            tabControl5.Location = new Point(16, 9);
+            tabControl5.Margin = new Padding(2, 2, 2, 2);
             tabControl5.Name = "tabControl5";
             tabControl5.SelectedIndex = 0;
-            tabControl5.Size = new Size(1681, 879);
+            tabControl5.Size = new Size(1034, 549);
             tabControl5.TabIndex = 0;
             tabControl5.SelectedIndexChanged += tabControl5_SelectedIndexChanged;
             // 
@@ -837,10 +899,11 @@
             tabPage5.Controls.Add(GrantRoleToUser);
             tabPage5.Controls.Add(GrantUser);
             tabPage5.Controls.Add(dataGridView7);
-            tabPage5.Location = new Point(8, 46);
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Margin = new Padding(2, 2, 2, 2);
             tabPage5.Name = "tabPage5";
-            tabPage5.Padding = new Padding(3);
-            tabPage5.Size = new Size(1665, 825);
+            tabPage5.Padding = new Padding(2, 2, 2, 2);
+            tabPage5.Size = new Size(1026, 516);
             tabPage5.TabIndex = 0;
             tabPage5.Text = "User";
             tabPage5.UseVisualStyleBackColor = true;
@@ -850,16 +913,18 @@
             panel6.Controls.Add(button5);
             panel6.Controls.Add(textBox5);
             panel6.Controls.Add(label5);
-            panel6.Location = new Point(1212, 468);
+            panel6.Location = new Point(746, 292);
+            panel6.Margin = new Padding(2, 2, 2, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(439, 301);
+            panel6.Size = new Size(270, 188);
             panel6.TabIndex = 4;
             // 
             // button5
             // 
-            button5.Location = new Point(145, 189);
+            button5.Location = new Point(89, 118);
+            button5.Margin = new Padding(2, 2, 2, 2);
             button5.Name = "button5";
-            button5.Size = new Size(150, 56);
+            button5.Size = new Size(92, 35);
             button5.TabIndex = 2;
             button5.Text = "Tìm kiếm";
             button5.UseVisualStyleBackColor = true;
@@ -867,25 +932,28 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(11, 90);
+            textBox5.Location = new Point(7, 56);
+            textBox5.Margin = new Padding(2, 2, 2, 2);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(417, 39);
+            textBox5.Size = new Size(258, 27);
             textBox5.TabIndex = 1;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(11, 37);
+            label5.Location = new Point(7, 23);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(173, 32);
+            label5.Size = new Size(106, 20);
             label5.TabIndex = 0;
             label5.Text = "Nhập tên User:";
             // 
             // RevokeUser
             // 
-            RevokeUser.Location = new Point(1212, 363);
+            RevokeUser.Location = new Point(746, 227);
+            RevokeUser.Margin = new Padding(2, 2, 2, 2);
             RevokeUser.Name = "RevokeUser";
-            RevokeUser.Size = new Size(275, 77);
+            RevokeUser.Size = new Size(169, 48);
             RevokeUser.TabIndex = 3;
             RevokeUser.Text = "Thu hồi quyền";
             RevokeUser.UseVisualStyleBackColor = true;
@@ -893,9 +961,10 @@
             // 
             // GrantRoleToUser
             // 
-            GrantRoleToUser.Location = new Point(1209, 219);
+            GrantRoleToUser.Location = new Point(744, 137);
+            GrantRoleToUser.Margin = new Padding(2, 2, 2, 2);
             GrantRoleToUser.Name = "GrantRoleToUser";
-            GrantRoleToUser.Size = new Size(275, 77);
+            GrantRoleToUser.Size = new Size(169, 48);
             GrantRoleToUser.TabIndex = 2;
             GrantRoleToUser.Text = "Cấp Role";
             GrantRoleToUser.UseVisualStyleBackColor = true;
@@ -903,9 +972,10 @@
             // 
             // GrantUser
             // 
-            GrantUser.Location = new Point(1209, 88);
+            GrantUser.Location = new Point(744, 55);
+            GrantUser.Margin = new Padding(2, 2, 2, 2);
             GrantUser.Name = "GrantUser";
-            GrantUser.Size = new Size(275, 77);
+            GrantUser.Size = new Size(169, 48);
             GrantUser.TabIndex = 1;
             GrantUser.Text = "Cấp quyền";
             GrantUser.UseVisualStyleBackColor = true;
@@ -914,10 +984,11 @@
             // dataGridView7
             // 
             dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView7.Location = new Point(16, 14);
+            dataGridView7.Location = new Point(10, 9);
+            dataGridView7.Margin = new Padding(2, 2, 2, 2);
             dataGridView7.Name = "dataGridView7";
             dataGridView7.RowHeadersWidth = 82;
-            dataGridView7.Size = new Size(1090, 630);
+            dataGridView7.Size = new Size(671, 394);
             dataGridView7.TabIndex = 0;
             dataGridView7.CellContentClick += dataGridView7_CellContentClick;
             // 
@@ -927,10 +998,11 @@
             tabPage6.Controls.Add(btnRevokeToRole);
             tabPage6.Controls.Add(btnGrantToRole);
             tabPage6.Controls.Add(dataGridView8);
-            tabPage6.Location = new Point(8, 46);
+            tabPage6.Location = new Point(4, 29);
+            tabPage6.Margin = new Padding(2, 2, 2, 2);
             tabPage6.Name = "tabPage6";
-            tabPage6.Padding = new Padding(3);
-            tabPage6.Size = new Size(1665, 825);
+            tabPage6.Padding = new Padding(2, 2, 2, 2);
+            tabPage6.Size = new Size(1026, 516);
             tabPage6.TabIndex = 1;
             tabPage6.Text = "Role";
             tabPage6.UseVisualStyleBackColor = true;
@@ -940,16 +1012,18 @@
             panel7.Controls.Add(button6);
             panel7.Controls.Add(textBox6);
             panel7.Controls.Add(label6);
-            panel7.Location = new Point(1185, 518);
+            panel7.Location = new Point(729, 324);
+            panel7.Margin = new Padding(2, 2, 2, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(439, 301);
+            panel7.Size = new Size(270, 188);
             panel7.TabIndex = 5;
             // 
             // button6
             // 
-            button6.Location = new Point(145, 189);
+            button6.Location = new Point(89, 118);
+            button6.Margin = new Padding(2, 2, 2, 2);
             button6.Name = "button6";
-            button6.Size = new Size(150, 56);
+            button6.Size = new Size(92, 35);
             button6.TabIndex = 2;
             button6.Text = "Tìm kiếm";
             button6.UseVisualStyleBackColor = true;
@@ -957,25 +1031,28 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(11, 90);
+            textBox6.Location = new Point(7, 56);
+            textBox6.Margin = new Padding(2, 2, 2, 2);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(417, 39);
+            textBox6.Size = new Size(258, 27);
             textBox6.TabIndex = 1;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(11, 37);
+            label6.Location = new Point(7, 23);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(172, 32);
+            label6.Size = new Size(107, 20);
             label6.TabIndex = 0;
             label6.Text = "Nhập tên Role:";
             // 
             // btnRevokeToRole
             // 
-            btnRevokeToRole.Location = new Point(1185, 400);
+            btnRevokeToRole.Location = new Point(729, 250);
+            btnRevokeToRole.Margin = new Padding(2, 2, 2, 2);
             btnRevokeToRole.Name = "btnRevokeToRole";
-            btnRevokeToRole.Size = new Size(275, 77);
+            btnRevokeToRole.Size = new Size(169, 48);
             btnRevokeToRole.TabIndex = 4;
             btnRevokeToRole.Text = "Thu hồi quyền";
             btnRevokeToRole.UseVisualStyleBackColor = true;
@@ -983,9 +1060,10 @@
             // 
             // btnGrantToRole
             // 
-            btnGrantToRole.Location = new Point(1185, 198);
+            btnGrantToRole.Location = new Point(729, 124);
+            btnGrantToRole.Margin = new Padding(2, 2, 2, 2);
             btnGrantToRole.Name = "btnGrantToRole";
-            btnGrantToRole.Size = new Size(275, 77);
+            btnGrantToRole.Size = new Size(169, 48);
             btnGrantToRole.TabIndex = 2;
             btnGrantToRole.Text = "Cấp quyền";
             btnGrantToRole.UseVisualStyleBackColor = true;
@@ -994,19 +1072,20 @@
             // dataGridView8
             // 
             dataGridView8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView8.Location = new Point(6, 6);
+            dataGridView8.Location = new Point(4, 4);
+            dataGridView8.Margin = new Padding(2, 2, 2, 2);
             dataGridView8.Name = "dataGridView8";
             dataGridView8.RowHeadersWidth = 82;
-            dataGridView8.Size = new Size(1090, 630);
+            dataGridView8.Size = new Size(671, 394);
             dataGridView8.TabIndex = 1;
+            dataGridView8.CellContentClick += dataGridView8_CellContentClick;
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1828, 1047);
+            ClientSize = new Size(1125, 654);
             Controls.Add(tabControl1);
-            Margin = new Padding(5);
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang admin";

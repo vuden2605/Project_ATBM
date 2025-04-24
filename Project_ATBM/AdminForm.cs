@@ -35,7 +35,10 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "SELECT * FROM dba_users";
+                string query = "SELECT username, user_id, granted_role, created, authentication_type, last_login " +
+                "FROM dba_users du " +
+                "LEFT JOIN dba_role_privs drp ON drp.grantee = du.username";
+
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -171,7 +174,8 @@ namespace Project_ATBM
 
         private void GrantRoleToUser_Click(object sender, EventArgs e)
         {
-            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm();
+            string userName = dataGridView7.CurrentRow.Cells["grantee"].Value.ToString();
+            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName);
             grantRoleToUserForm.ShowDialog();
         }
 
@@ -294,7 +298,7 @@ namespace Project_ATBM
             try
             {
                 string username = textBox3.Text.ToUpper();
-                string query = $"SELECT * FROM dba_users WHERE username LIKE :username";
+                string query = "SELECT * FROM dba_users WHERE username LIKE :username";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":username", "%" + username + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
