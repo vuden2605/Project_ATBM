@@ -72,6 +72,9 @@
             button2 = new Button();
             tabControl4 = new TabControl();
             tabPage12 = new TabPage();
+            panel10 = new Panel();
+            button8 = new Button();
+            button7 = new Button();
             panel8 = new Panel();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
@@ -81,8 +84,10 @@
             label1 = new Label();
             dataGridView5 = new DataGridView();
             tabPage13 = new TabPage();
+            panel11 = new Panel();
+            button9 = new Button();
+            button10 = new Button();
             panel9 = new Panel();
-            radioButton3 = new RadioButton();
             radioButton4 = new RadioButton();
             panel3 = new Panel();
             btnSearchRole = new Button();
@@ -128,10 +133,12 @@
             tabPage3.SuspendLayout();
             tabControl4.SuspendLayout();
             tabPage12.SuspendLayout();
+            panel10.SuspendLayout();
             panel8.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
             tabPage13.SuspendLayout();
+            panel11.SuspendLayout();
             panel9.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
@@ -570,8 +577,8 @@
             // 
             // button2
             // 
-            button2.Location = new Point(793, 476);
-            button2.Margin = new Padding(2, 2, 2, 2);
+
+            button2.Location = new Point(1289, 921);
             button2.Name = "button2";
             button2.Size = new Size(164, 45);
             button2.TabIndex = 7;
@@ -586,23 +593,55 @@
             tabControl4.Margin = new Padding(2, 2, 2, 2);
             tabControl4.Name = "tabControl4";
             tabControl4.SelectedIndex = 0;
-            tabControl4.Size = new Size(952, 453);
+            tabControl4.Size = new Size(1547, 896);
+
             tabControl4.TabIndex = 0;
             tabControl4.SelectedIndexChanged += tabControl4_SelectedIndexChanged;
             // 
             // tabPage12
             // 
+            tabPage12.Controls.Add(panel10);
             tabPage12.Controls.Add(panel8);
             tabPage12.Controls.Add(panel2);
             tabPage12.Controls.Add(dataGridView5);
             tabPage12.Location = new Point(4, 29);
             tabPage12.Margin = new Padding(2, 2, 2, 2);
             tabPage12.Name = "tabPage12";
-            tabPage12.Padding = new Padding(2, 2, 2, 2);
-            tabPage12.Size = new Size(944, 420);
+            tabPage12.Padding = new Padding(3);
+            tabPage12.Size = new Size(1531, 842);
+
             tabPage12.TabIndex = 0;
             tabPage12.Text = "User";
             tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(button8);
+            panel10.Controls.Add(button7);
+            panel10.Location = new Point(1068, 595);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(458, 225);
+            panel10.TabIndex = 3;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(94, 126);
+            button8.Name = "button8";
+            button8.Size = new Size(289, 61);
+            button8.TabIndex = 1;
+            button8.Text = "Xóa tất cả quyền";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(94, 29);
+            button7.Name = "button7";
+            button7.Size = new Size(289, 61);
+            button7.TabIndex = 0;
+            button7.Text = "Xóa quyền được chọn";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // panel8
             // 
@@ -649,7 +688,7 @@
             panel2.Location = new Point(657, 211);
             panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(280, 198);
+            panel2.Size = new Size(455, 241);
             panel2.TabIndex = 1;
             // 
             // btnSearchUser
@@ -689,47 +728,68 @@
             dataGridView5.Margin = new Padding(2, 2, 2, 2);
             dataGridView5.Name = "dataGridView5";
             dataGridView5.RowHeadersWidth = 82;
-            dataGridView5.Size = new Size(642, 399);
+
+            dataGridView5.Size = new Size(1043, 809);
+
             dataGridView5.TabIndex = 0;
             dataGridView5.CellContentClick += dataGridView5_CellContentClick;
             // 
             // tabPage13
             // 
+            tabPage13.Controls.Add(panel11);
             tabPage13.Controls.Add(panel9);
             tabPage13.Controls.Add(panel3);
             tabPage13.Controls.Add(dataGridView6);
             tabPage13.Location = new Point(4, 29);
             tabPage13.Margin = new Padding(2, 2, 2, 2);
             tabPage13.Name = "tabPage13";
-            tabPage13.Padding = new Padding(2, 2, 2, 2);
-            tabPage13.Size = new Size(944, 420);
+          
+            tabPage13.Padding = new Padding(3);
+            tabPage13.Size = new Size(1531, 842);
+
             tabPage13.TabIndex = 1;
             tabPage13.Text = "Role";
             tabPage13.UseVisualStyleBackColor = true;
             // 
+            // panel11
+            // 
+            panel11.Controls.Add(button9);
+            panel11.Controls.Add(button10);
+            panel11.Location = new Point(1064, 608);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(458, 225);
+            panel11.TabIndex = 4;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(94, 126);
+            button9.Name = "button9";
+            button9.Size = new Size(289, 61);
+            button9.TabIndex = 1;
+            button9.Text = "Xóa tất cả quyền";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(94, 29);
+            button10.Name = "button10";
+            button10.Size = new Size(289, 61);
+            button10.TabIndex = 0;
+            button10.Text = "Xóa quyền được chọn";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
             // panel9
             // 
-            panel9.Controls.Add(radioButton3);
             panel9.Controls.Add(radioButton4);
             panel9.Location = new Point(655, 33);
             panel9.Margin = new Padding(2, 2, 2, 2);
             panel9.Name = "panel9";
-            panel9.Size = new Size(281, 198);
+            panel9.Size = new Size(456, 255);
             panel9.TabIndex = 3;
             // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(33, 82);
-            radioButton3.Margin = new Padding(2, 2, 2, 2);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(111, 24);
-            radioButton3.TabIndex = 1;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Trên column";
-            radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
-            // 
+
             // radioButton4
             // 
             radioButton4.AutoSize = true;
@@ -749,8 +809,9 @@
             panel3.Controls.Add(btnSearchRole);
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(656, 235);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+
+            panel3.Location = new Point(1065, 314);
+
             panel3.Name = "panel3";
             panel3.Size = new Size(287, 180);
             panel3.TabIndex = 1;
@@ -791,7 +852,9 @@
             dataGridView6.Margin = new Padding(2, 2, 2, 2);
             dataGridView6.Name = "dataGridView6";
             dataGridView6.RowHeadersWidth = 82;
-            dataGridView6.Size = new Size(642, 399);
+
+            dataGridView6.Size = new Size(1043, 810);
+
             dataGridView6.TabIndex = 0;
             dataGridView6.CellContentClick += dataGridView6_CellContentClick;
             // 
@@ -1048,12 +1111,14 @@
             tabPage3.ResumeLayout(false);
             tabControl4.ResumeLayout(false);
             tabPage12.ResumeLayout(false);
+            panel10.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
             tabPage13.ResumeLayout(false);
+            panel11.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel3.ResumeLayout(false);
@@ -1153,7 +1218,12 @@
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Panel panel9;
-        private RadioButton radioButton3;
         private RadioButton radioButton4;
+        private Panel panel10;
+        private Button button8;
+        private Button button7;
+        private Panel panel11;
+        private Button button9;
+        private Button button10;
     }
 }
