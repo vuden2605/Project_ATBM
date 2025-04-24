@@ -538,11 +538,7 @@ namespace Project_ATBM
 
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            load_info_privilege_col_role();
-
-        }
+       
 
         private void btnSearchRole_Click(object sender, EventArgs e)
         {
@@ -550,12 +546,9 @@ namespace Project_ATBM
             {
                 string ROLE = textBox2.Text.ToUpper();
                 string query = "";
-                if (radioButton4.Checked)
-                {
+              
                     query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE";
-                }
-                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) AND ROLE LIKE :ROLE"; }
-                ;
+               
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
@@ -587,6 +580,270 @@ namespace Project_ATBM
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dataGridView5.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (dataGridView5.CurrentRow != null)
+            {
+                try
+                {
+                    // Lấy giá trị từ các cột "GRANTEE", "TABLE_NAME", và "PRIVILEGE"
+                    string grantee = dataGridView5.CurrentRow.Cells["GRANTEE"].Value.ToString();
+                    string tableName = dataGridView5.CurrentRow.Cells["TABLE_NAME"].Value.ToString();
+                    string privilege = dataGridView5.CurrentRow.Cells["PRIVILEGE"].Value.ToString();
+
+                    // Hiển thị thông báo xác nhận
+                    DialogResult result = MessageBox.Show(
+                        $"Bạn có chắc chắn muốn thu hồi quyền '{privilege}' trên bảng '{tableName}' từ '{grantee}' không?",
+                        "Xác nhận thu hồi quyền",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Gọi thủ tục RevokeFromUser
+                        OracleCommand cmd = new OracleCommand("RevokeFromUser", LoginForm.conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("n_pri", OracleDbType.Varchar2).Value = privilege;
+                        cmd.Parameters.Add("n_obj", OracleDbType.Varchar2).Value = tableName;
+                        cmd.Parameters.Add("n_user", OracleDbType.Varchar2).Value = grantee;
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Thu hồi quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            // gọi lại tìm kiếm
+            try
+            {
+                string GRANTEE = textBox1.Text.ToUpper();
+                string query = "";
+                if (radioButton1.Checked)
+                {
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE LIKE :GRANTEE";
+                }
+                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE"; }
+                ;
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":GRANTEE", "%" + GRANTEE + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView5.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (dataGridView5.CurrentRow != null)
+            {
+                try
+                {
+                    // Lấy giá trị từ các cột "GRANTEE" và "TABLE_NAME"
+                    string grantee = dataGridView5.CurrentRow.Cells["GRANTEE"].Value.ToString();
+                    string tableName = dataGridView5.CurrentRow.Cells["TABLE_NAME"].Value.ToString();
+
+                    // Hiển thị thông báo xác nhận
+                    DialogResult result = MessageBox.Show(
+                        $"Bạn có chắc chắn muốn thu hồi tất cả quyền trên bảng '{tableName}' từ '{grantee}' không?",
+                        "Xác nhận thu hồi tất cả quyền",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Gọi thủ tục RevokeAllFromUser
+                        OracleCommand cmd = new OracleCommand("RevokeAllFromUser", LoginForm.conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("n_obj", OracleDbType.Varchar2).Value = tableName;
+                        cmd.Parameters.Add("n_user", OracleDbType.Varchar2).Value = grantee;
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Thu hồi tất cả quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // Gọi lại tìm kiếm để làm mới dữ liệu
+            try
+            {
+                string GRANTEE = textBox1.Text.ToUpper();
+                string query = "";
+                if (radioButton1.Checked)
+                {
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE LIKE :GRANTEE";
+                }
+                else
+                {
+                    query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE";
+                }
+
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":GRANTEE", "%" + GRANTEE + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView5.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (dataGridView6.CurrentRow != null)
+            {
+                try
+                {
+                    // Lấy giá trị từ các cột "GRANTEE", "TABLE_NAME", và "PRIVILEGE"
+                    string grantee = dataGridView6.CurrentRow.Cells["ROLE"].Value.ToString();
+                    string tableName = dataGridView6.CurrentRow.Cells["TABLE_NAME"].Value.ToString();
+                    string privilege = dataGridView6.CurrentRow.Cells["PRIVILEGE"].Value.ToString();
+
+                    // Hiển thị thông báo xác nhận
+                    DialogResult result = MessageBox.Show(
+                        $"Bạn có chắc chắn muốn thu hồi quyền '{privilege}' trên bảng '{tableName}' của  '{grantee}' không?",
+                        "Xác nhận thu hồi quyền",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Gọi thủ tục RevokeFromUser
+                        OracleCommand cmd = new OracleCommand("RevokeFromRole", LoginForm.conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("n_pri", OracleDbType.Varchar2).Value = privilege;
+                        cmd.Parameters.Add("n_obj", OracleDbType.Varchar2).Value = tableName;
+                        cmd.Parameters.Add("n_user", OracleDbType.Varchar2).Value = grantee;
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Thu hồi quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            //làm mới data
+            try
+            {
+                string ROLE = textBox2.Text.ToUpper();
+                string query = "";
+               
+                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE";
+               
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView6.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (dataGridView6.CurrentRow != null)
+            {
+                try
+                {
+                    // Lấy giá trị từ các cột "GRANTEE" và "TABLE_NAME"
+                    string grantee = dataGridView6.CurrentRow.Cells["ROLE"].Value.ToString();
+                    string tableName = dataGridView6.CurrentRow.Cells["TABLE_NAME"].Value.ToString();
+
+                    // Hiển thị thông báo xác nhận
+                    DialogResult result = MessageBox.Show(
+                        $"Bạn có chắc chắn muốn thu hồi tất cả quyền trên bảng '{tableName}' từ '{grantee}' không?",
+                        "Xác nhận thu hồi tất cả quyền",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Gọi thủ tục RevokeAllFromUser
+                        OracleCommand cmd = new OracleCommand("RevokeAllFromRole", LoginForm.conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("n_obj", OracleDbType.Varchar2).Value = tableName;
+                        cmd.Parameters.Add("n_user", OracleDbType.Varchar2).Value = grantee;
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Thu hồi tất cả quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // làm mới data
+            try
+            {
+                string ROLE = textBox2.Text.ToUpper();
+                string query = "";
+                if (radioButton4.Checked)
+                {
+                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE";
+                }
+                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) AND ROLE LIKE :ROLE"; }
+                ;
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView6.DataSource = dt;
             }
             catch (Exception ex)
             {
