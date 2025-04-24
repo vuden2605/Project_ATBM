@@ -570,7 +570,7 @@ namespace Project_ATBM
                 string query = "";
                 if (radioButton1.Checked)
                 {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE LIKE :GRANTEE";
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE";
                 }
                 else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE"; }
                 ;
@@ -636,7 +636,7 @@ namespace Project_ATBM
                 string query = "";
                 if (radioButton1.Checked)
                 {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE LIKE :GRANTEE";
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE";
                 }
                 else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE"; }
                 ;
@@ -702,7 +702,7 @@ namespace Project_ATBM
                 string query = "";
                 if (radioButton1.Checked)
                 {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE LIKE :GRANTEE";
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE";
                 }
                 else
                 {
