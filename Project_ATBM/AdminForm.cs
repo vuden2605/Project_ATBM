@@ -300,7 +300,11 @@ namespace Project_ATBM
             try
             {
                 string username = textBox3.Text.ToUpper();
-                string query = "SELECT * FROM dba_users WHERE username LIKE :username";
+                string query = "select distinct username,user_id,last_login, drp.granted_role " +
+                               "from dba_users du " +
+                               "left join dba_tab_privs dtp ON du.username = dtp.grantee " +
+                               "left join dba_role_privs drp ON drp.grantee = du.username " +
+                               "where dtp.owner = 'ADMIN_QLDH' AND username LIKE : username";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":username", "%" + username + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
@@ -627,9 +631,9 @@ namespace Project_ATBM
                 string query = "";
                 if (radioButton1.Checked)
                 {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE";
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' ";
                 }
-                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE"; }
+                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' "; }
                 ;
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":GRANTEE", "%" + GRANTEE + "%");
@@ -693,11 +697,11 @@ namespace Project_ATBM
                 string query = "";
                 if (radioButton1.Checked)
                 {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE ";
+                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' ";
                 }
                 else
                 {
-                    query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE";
+                    query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' ";
                 }
 
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
@@ -762,7 +766,7 @@ namespace Project_ATBM
                 string ROLE = textBox2.Text.ToUpper();
                 string query = "";
                
-                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE";
+                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH'";
                
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
@@ -825,9 +829,9 @@ namespace Project_ATBM
                 string query = "";
                 if (radioButton4.Checked)
                 {
-                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE";
+                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH' ";
                 }
-                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) AND ROLE LIKE :ROLE"; }
+                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) AND ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH' "; }
                 ;
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
