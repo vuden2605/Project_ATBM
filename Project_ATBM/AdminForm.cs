@@ -412,13 +412,10 @@ namespace Project_ATBM
             {
                 load_data_users();
             }
-            if (tabControl1.SelectedIndex == 2)
+         
+            if (tabControl1.SelectedIndex == 1)
             {
                 load_info_privilege_user();
-            }
-            if (tabControl1.SelectedIndex == 3)
-            {
-                load_data_users1();
             }
 
 
@@ -429,7 +426,7 @@ namespace Project_ATBM
         {
             if (tabControl5.SelectedIndex == 0)
             {
-                load_data_users1();
+                load_info_privilege_user();
             }
             if (tabControl5.SelectedIndex == 1)
             {
@@ -452,22 +449,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
-        private void load_data_users1()
-        {
-            try
-            {
-                string query = "SELECT GRANTEE, OWNER, TABLE_NAME, PRIVILEGE, GRANTABLE, GRANTOR FROM DBA_TAB_PRIVS ";
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView7.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
-        }
+        
         private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -533,17 +515,15 @@ namespace Project_ATBM
 
         }
 
-       
-
-        private void btnSearchRole_Click(object sender, EventArgs e)
+        private void load_role()
         {
             try
             {
                 string ROLE = textBox2.Text.ToUpper();
                 string query = "";
-              
-                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH' ";
-               
+
+                query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH' ";
+
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
@@ -556,9 +536,15 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
+       
 
-        private void btnSearchUser_Click(object sender, EventArgs e)
+        private void btnSearchRole_Click(object sender, EventArgs e)
         {
+            load_role();
+        }
+        private void load_user()
+        {
+
             try
             {
                 string GRANTEE = textBox1.Text.ToUpper();
@@ -580,6 +566,11 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
+        }
+
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            load_user();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -625,27 +616,8 @@ namespace Project_ATBM
                 MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             // gọi lại tìm kiếm
-            try
-            {
-                string GRANTEE = textBox1.Text.ToUpper();
-                string query = "";
-                if (radioButton1.Checked)
-                {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' ";
-                }
-                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' "; }
-                ;
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":GRANTEE", "%" + GRANTEE + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView5.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
+            load_user();
+
 
         }
 
@@ -691,30 +663,8 @@ namespace Project_ATBM
             }
 
             // Gọi lại tìm kiếm để làm mới dữ liệu
-            try
-            {
-                string GRANTEE = textBox1.Text.ToUpper();
-                string query = "";
-                if (radioButton1.Checked)
-                {
-                    query = $"SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' ";
-                }
-                else
-                {
-                    query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT USERNAME FROM DBA_USERS) AND GRANTEE LIKE :GRANTEE AND OWNER = 'ADMIN_QLDH' ";
-                }
+            load_user();
 
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":GRANTEE", "%" + GRANTEE + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView5.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -761,24 +711,8 @@ namespace Project_ATBM
             }
 
             //làm mới data
-            try
-            {
-                string ROLE = textBox2.Text.ToUpper();
-                string query = "";
-               
-                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH'";
-               
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView6.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
+            load_role();
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -822,28 +756,8 @@ namespace Project_ATBM
                 MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            // làm mới data
-            try
-            {
-                string ROLE = textBox2.Text.ToUpper();
-                string query = "";
-                if (radioButton4.Checked)
-                {
-                    query = $"SELECT * FROM ROLE_TAB_PRIVS WHERE ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH' ";
-                }
-                else { query = $"SELECT * FROM DBA_COL_PRIVS WHERE GRANTEE IN (SELECT ROLE FROM DBA_ROLES) AND ROLE LIKE :ROLE AND OWNER = 'ADMIN_QLDH' "; }
-                ;
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":ROLE", "%" + ROLE + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView6.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
+            load_role();
+
         }
     }
 }
