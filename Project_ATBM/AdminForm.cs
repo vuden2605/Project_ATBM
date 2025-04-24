@@ -217,11 +217,6 @@ namespace Project_ATBM
             return true;
         }
 
-        private void btnGrantToRole_Click(object sender, EventArgs e)
-        {
-            GrantRoleForm grantRoleForm = new GrantRoleForm();
-            grantRoleForm.ShowDialog();
-        }
 
         private void btnRevokeToRole_Click(object sender, EventArgs e)
         {
@@ -372,7 +367,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
- 
+
         private void load_info_privilege_role()
         {
             try
@@ -412,7 +407,7 @@ namespace Project_ATBM
             {
                 load_data_users();
             }
-         
+
             if (tabControl1.SelectedIndex == 1)
             {
                 load_info_privilege_user();
@@ -449,7 +444,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
-        
+
         private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -536,7 +531,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
-       
+
 
         private void btnSearchRole_Click(object sender, EventArgs e)
         {
@@ -758,6 +753,20 @@ namespace Project_ATBM
 
             load_role();
 
+        }
+
+        private void btnCapQuyen_Click(object sender, EventArgs e)
+        {
+            string userName = dataGridView1.CurrentRow.Cells["USERNAME"].Value.ToString();
+            GrantUserForm grantUserForm = new GrantUserForm(userName);
+            grantUserForm.ShowDialog();
+        }
+
+        private void btnCapQuyenRole_Click(object sender, EventArgs e)
+        {
+            string role = dataGridView2.CurrentRow.Cells["ROLE"].Value.ToString();
+            GrantRoleForm grantRoleForm = new GrantRoleForm(role);
+            grantRoleForm.ShowDialog();
         }
     }
 }

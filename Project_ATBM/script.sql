@@ -160,7 +160,8 @@ BEGIN
         -- Grant toàn bảng
         v_sql := 'GRANT ' || n_pri || ' ON ' || n_obj || ' TO ' || n_role;
     END IF;
-
+    -- Thực thi lệnh GRANT
+    EXECUTE IMMEDIATE v_sql;
 END;
 
 
