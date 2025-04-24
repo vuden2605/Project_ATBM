@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            lsbTable1 = new ListBox();
             checkBox2 = new CheckBox();
             checkBox1 = new CheckBox();
             textBox3 = new TextBox();
@@ -46,6 +47,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lsbTable1);
             panel1.Controls.Add(checkBox2);
             panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(textBox3);
@@ -59,6 +61,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(452, 281);
             panel1.TabIndex = 0;
+            // 
+            // lsbTable1
+            // 
+            lsbTable1.FormattingEnabled = true;
+            lsbTable1.Location = new Point(210, 100);
+            lsbTable1.Name = "lsbTable1";
+            lsbTable1.Size = new Size(214, 64);
+            lsbTable1.TabIndex = 8;
+            lsbTable1.Click += lsbTable1_Click;
             // 
             // checkBox2
             // 
@@ -98,6 +109,10 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(218, 27);
             textBox2.TabIndex = 4;
+            textBox2.TextChanged += textBox2_TextChanged;
+            textBox2.Enter += textBox2_Enter;
+            textBox2.KeyDown += textBox2_KeyDown;
+            textBox2.Leave += textBox2_Leave;
             // 
             // textBox1
             // 
@@ -172,7 +187,6 @@
             // 
             // GrantUserForm
             // 
-            AcceptButton = btnSucessGrant;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(499, 365);
@@ -202,5 +216,6 @@
         private Button btnCancelGrant;
         private Button btnSucessGrant;
         private CheckBox checkBox2;
+        private ListBox lsbTable1;
     }
 }
