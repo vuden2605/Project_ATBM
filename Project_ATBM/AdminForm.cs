@@ -37,9 +37,8 @@ namespace Project_ATBM
             {
                 string query = "select distinct username,user_id,last_login, drp.granted_role, du.created " +
                                "from dba_users du " +
-                               "left join dba_tab_privs dtp ON du.username = dtp.grantee " +
                                "left join dba_role_privs drp ON drp.grantee = du.username " +
-                               "where (dtp.owner = 'ADMIN_QLDH' OR dtp.owner IS NULL) AND du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') " +
+                               "where  du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') " +
                                "order by username";
 
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
@@ -267,7 +266,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "SELECT * FROM dba_roles";
+                string query = "select * from dba_roles where role_id > 107 and role_id < 1279991";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -373,7 +372,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
- 
+
         private void load_info_privilege_role()
         {
             try
@@ -413,7 +412,7 @@ namespace Project_ATBM
             {
                 load_data_users();
             }
-         
+
             if (tabControl1.SelectedIndex == 1)
             {
                 load_info_privilege_user();
@@ -450,7 +449,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
-        
+
         private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -537,7 +536,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
-       
+
 
         private void btnSearchRole_Click(object sender, EventArgs e)
         {
@@ -758,6 +757,11 @@ namespace Project_ATBM
             }
 
             load_role();
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
