@@ -176,7 +176,7 @@ namespace Project_ATBM
 
         private void GrantRoleToUser_Click(object sender, EventArgs e)
         {
-            string userName = dataGridView7.CurrentRow.Cells["grantee"].Value.ToString();
+            string userName = dataGridView1.CurrentRow.Cells["USERNAME"].Value.ToString();
             GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName);
             grantRoleToUserForm.ShowDialog();
         }

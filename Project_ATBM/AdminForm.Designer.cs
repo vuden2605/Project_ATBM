@@ -89,6 +89,7 @@
             btnCreateUser = new Button();
             dataGridView1 = new DataGridView();
             tabPage10 = new TabPage();
+            btnCapQuyenRole = new Button();
             panel5 = new Panel();
             btnFilterRole = new Button();
             textBox4 = new TextBox();
@@ -98,7 +99,7 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
-            btnCapQuyenRole = new Button();
+            btnRoleToUser = new Button();
             tabPage4.SuspendLayout();
             tabControl5.SuspendLayout();
             tabPage5.SuspendLayout();
@@ -340,7 +341,6 @@
             btnGrantToRole.TabIndex = 2;
             btnGrantToRole.Text = "Cấp quyền";
             btnGrantToRole.UseVisualStyleBackColor = true;
-            
             // 
             // dataGridView8
             // 
@@ -699,7 +699,7 @@
             panel4.Controls.Add(btnFilterUser);
             panel4.Controls.Add(textBox3);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(702, 268);
+            panel4.Location = new Point(700, 294);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(262, 134);
@@ -736,6 +736,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnRoleToUser);
             panel1.Controls.Add(btnCapQuyen);
             panel1.Controls.Add(btnDeleteUser);
             panel1.Controls.Add(btnUpdateUser);
@@ -743,7 +744,7 @@
             panel1.Location = new Point(702, 12);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(260, 252);
+            panel1.Size = new Size(260, 276);
             panel1.TabIndex = 5;
             // 
             // btnCapQuyen
@@ -816,6 +817,16 @@
             tabPage10.TabIndex = 2;
             tabPage10.Text = "ROLE";
             tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // btnCapQuyenRole
+            // 
+            btnCapQuyenRole.Location = new Point(747, 152);
+            btnCapQuyenRole.Name = "btnCapQuyenRole";
+            btnCapQuyenRole.Size = new Size(164, 45);
+            btnCapQuyenRole.TabIndex = 9;
+            btnCapQuyenRole.Text = "Cấp quyền";
+            btnCapQuyenRole.UseVisualStyleBackColor = true;
+            btnCapQuyenRole.Click += btnCapQuyenRole_Click;
             // 
             // panel5
             // 
@@ -915,15 +926,15 @@
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
-            // btnCapQuyenRole
+            // btnRoleToUser
             // 
-            btnCapQuyenRole.Location = new Point(747, 152);
-            btnCapQuyenRole.Name = "btnCapQuyenRole";
-            btnCapQuyenRole.Size = new Size(164, 45);
-            btnCapQuyenRole.TabIndex = 9;
-            btnCapQuyenRole.Text = "Cấp quyền";
-            btnCapQuyenRole.UseVisualStyleBackColor = true;
-            btnCapQuyenRole.Click += btnCapQuyenRole_Click;
+            btnRoleToUser.Location = new Point(39, 215);
+            btnRoleToUser.Name = "btnRoleToUser";
+            btnRoleToUser.Size = new Size(164, 45);
+            btnRoleToUser.TabIndex = 6;
+            btnRoleToUser.Text = "Cấp role";
+            btnRoleToUser.UseVisualStyleBackColor = true;
+            btnRoleToUser.Click += GrantRoleToUser_Click;
             // 
             // AdminForm
             // 
@@ -1049,5 +1060,6 @@
         private TabControl tabControl1;
         private Button btnCapQuyen;
         private Button btnCapQuyenRole;
+        private Button btnRoleToUser;
     }
 }

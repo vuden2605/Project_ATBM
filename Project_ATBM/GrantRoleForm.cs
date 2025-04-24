@@ -289,6 +289,7 @@ namespace Project_ATBM
             }
             
             MessageBox.Show("Cấp quyền thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         // Triển khai phương thức GrantPrivilege để gọi thủ tục PL/SQL GrantForRole

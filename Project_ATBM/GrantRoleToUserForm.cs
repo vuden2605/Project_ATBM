@@ -17,13 +17,58 @@ namespace Project_ATBM
         {
             InitializeComponent();
             textBox1.Text = userName;
-
+            LoadComboBoxData();
         }
+        private void LoadComboBoxData()
+        {
+            try
+            {
+                // Kiểm tra và mở kết nối nếu cần
+                if (LoginForm.conn.State != ConnectionState.Open)
+                {
+                    LoginForm.conn.Open();
+                }
 
+
+                string query = string.Empty;
+
+                query = "SELECT DISTINCT ROLE FROM ROLE_TAB_PRIVS WHERE OWNER = 'ADMIN_QLDH'";
+
+                // Thực thi câu truy vấn
+                using (OracleCommand cmd = new OracleCommand(query, LoginForm.conn))
+                using (OracleDataReader reader = cmd.ExecuteReader())
+                {
+                    // Xóa các mục cũ trong ComboBox trước khi thêm dữ liệu mới
+                    cmbRoles.Items.Clear();
+
+                    // Lặp qua các kết quả trả về và thêm vào ComboBox
+                    while (reader.Read())
+                    {
+                        // Thêm tên đối tượng vào ComboBox
+                        cmbRoles.Items.Add(reader.GetString(0));  // Lấy tên đối tượng từ cột đầu tiên
+                    }
+
+                    // Nếu có dữ liệu, chọn item đầu tiên (tuỳ chọn)
+                    if (cmbRoles.Items.Count > 0)
+                    {
+                        cmbRoles.SelectedIndex = 0;  // Chọn item đầu tiên trong ComboBox
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có dữ liệu để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                MessageBox.Show("Có lỗi xảy ra khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnSuccessGrantR_U_Click(object sender, EventArgs e)
         {
             string userName = textBox1.Text;
-            string roleName = textBox2.Text;
+            string roleName = cmbRoles.Text;
 
             if (string.IsNullOrWhiteSpace(roleName))
             {
