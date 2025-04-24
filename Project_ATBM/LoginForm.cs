@@ -59,7 +59,7 @@ namespace Project_ATBM
 
                 this.Hide();
 
-                if (username == "admin_qldh")
+                if (username.Contains("admin"))
                 {
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();

@@ -35,11 +35,11 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "select distinct username,user_id,last_login, drp.granted_role " +
+                string query = "select distinct username,user_id,last_login, drp.granted_role, du.created " +
                                "from dba_users du " +
-                               "left join dba_tab_privs dtp ON du.username = dtp.grantee " +
                                "left join dba_role_privs drp ON drp.grantee = du.username " +
-                               "where dtp.owner = 'ADMIN_QLDH'";
+                               "where  du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') " +
+                               "order by username";
 
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
@@ -261,7 +261,7 @@ namespace Project_ATBM
         {
             try
             {
-                string query = "SELECT * FROM dba_roles";
+                string query = "select * from dba_roles where role_id > 107 and role_id < 1279991";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -767,6 +767,7 @@ namespace Project_ATBM
             string role = dataGridView2.CurrentRow.Cells["ROLE"].Value.ToString();
             GrantRoleForm grantRoleForm = new GrantRoleForm(role);
             grantRoleForm.ShowDialog();
+
         }
     }
 }

@@ -424,6 +424,7 @@
             // 
             // button7
             // 
+
             button7.Location = new Point(63, 39);
             button7.Margin = new Padding(2);
             button7.Name = "button7";
@@ -475,14 +476,17 @@
             panel2.Controls.Add(btnSearchUser);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
+
             panel2.Location = new Point(657, 112);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(280, 216);
+
             panel2.TabIndex = 1;
             // 
             // btnSearchUser
             // 
+
             btnSearchUser.Location = new Point(173, 105);
             btnSearchUser.Margin = new Padding(2);
             btnSearchUser.Name = "btnSearchUser";
@@ -840,15 +844,16 @@
             panel5.TabIndex = 7;
             // 
             // btnFilterRole
+
             // 
-            btnFilterRole.Location = new Point(168, 102);
-            btnFilterRole.Margin = new Padding(2);
-            btnFilterRole.Name = "btnFilterRole";
-            btnFilterRole.Size = new Size(92, 35);
-            btnFilterRole.TabIndex = 2;
-            btnFilterRole.Text = "Tìm kiếm";
-            btnFilterRole.UseVisualStyleBackColor = true;
-            btnFilterRole.Click += btnFilterRole_Click;
+            btnFilterUser.Location = new Point(170, 98);
+            btnFilterUser.Margin = new Padding(2);
+            btnFilterUser.Name = "btnFilterUser";
+            btnFilterUser.Size = new Size(92, 35);
+            btnFilterUser.TabIndex = 2;
+            btnFilterUser.Text = "Tìm kiếm";
+            btnFilterUser.UseVisualStyleBackColor = true;
+            btnFilterUser.Click += btnFilterUser_Click;
             // 
             // textBox4
             // 
@@ -910,6 +915,7 @@
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 1;
+
             // 
             // tabControl1
             // 
