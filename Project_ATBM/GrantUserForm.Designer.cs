@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            checkBox2 = new CheckBox();
+            cmbTenDoiTuong = new ComboBox();
+            cmbLoaiDoiTuong = new ComboBox();
+            lblTenDoiTuong = new Label();
+            clbDanhSachCot = new CheckedListBox();
+            clbQuyenTruyCap = new CheckedListBox();
+            lblLoaiDoiTuong = new Label();
             checkBox1 = new CheckBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
             textBox1 = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             btnCancelGrant = new Button();
@@ -46,36 +47,79 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(checkBox2);
+            panel1.Controls.Add(cmbTenDoiTuong);
+            panel1.Controls.Add(cmbLoaiDoiTuong);
+            panel1.Controls.Add(lblTenDoiTuong);
+            panel1.Controls.Add(clbDanhSachCot);
+            panel1.Controls.Add(clbQuyenTruyCap);
+            panel1.Controls.Add(lblLoaiDoiTuong);
             panel1.Controls.Add(checkBox1);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(22, 20);
+            panel1.Location = new Point(15, 20);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(452, 281);
+            panel1.Size = new Size(708, 330);
             panel1.TabIndex = 0;
             // 
-            // checkBox2
+            // cmbTenDoiTuong
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(209, 202);
-            checkBox2.Margin = new Padding(2);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(179, 24);
-            checkBox2.TabIndex = 7;
-            checkBox2.Text = "Grant to columns level";
-            checkBox2.UseVisualStyleBackColor = true;
-            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
+            cmbTenDoiTuong.FormattingEnabled = true;
+            cmbTenDoiTuong.Location = new Point(119, 195);
+            cmbTenDoiTuong.Name = "cmbTenDoiTuong";
+            cmbTenDoiTuong.Size = new Size(218, 28);
+            cmbTenDoiTuong.TabIndex = 15;
+            // 
+            // cmbLoaiDoiTuong
+            // 
+            cmbLoaiDoiTuong.FormattingEnabled = true;
+            cmbLoaiDoiTuong.Items.AddRange(new object[] { "TABLE", "VIEW", "PROCEDURE", "FUNCTION" });
+            cmbLoaiDoiTuong.Location = new Point(119, 102);
+            cmbLoaiDoiTuong.Name = "cmbLoaiDoiTuong";
+            cmbLoaiDoiTuong.Size = new Size(218, 28);
+            cmbLoaiDoiTuong.TabIndex = 14;
+            cmbLoaiDoiTuong.SelectedIndexChanged += cmbLoaiDoiTuong_SelectedIndexChanged;
+            // 
+            // lblTenDoiTuong
+            // 
+            lblTenDoiTuong.AutoSize = true;
+            lblTenDoiTuong.Location = new Point(6, 198);
+            lblTenDoiTuong.Name = "lblTenDoiTuong";
+            lblTenDoiTuong.Size = new Size(105, 20);
+            lblTenDoiTuong.TabIndex = 13;
+            lblTenDoiTuong.Text = "Tên đối tượng:";
+            // 
+            // clbDanhSachCot
+            // 
+            clbDanhSachCot.FormattingEnabled = true;
+            clbDanhSachCot.Location = new Point(365, 138);
+            clbDanhSachCot.Name = "clbDanhSachCot";
+            clbDanhSachCot.Size = new Size(320, 158);
+            clbDanhSachCot.TabIndex = 12;
+            // 
+            // clbQuyenTruyCap
+            // 
+            clbQuyenTruyCap.FormattingEnabled = true;
+            clbQuyenTruyCap.Items.AddRange(new object[] { "SELECT", "INSERT", "UPDATE", "DELETE" });
+            clbQuyenTruyCap.Location = new Point(365, 18);
+            clbQuyenTruyCap.Name = "clbQuyenTruyCap";
+            clbQuyenTruyCap.Size = new Size(320, 114);
+            clbQuyenTruyCap.TabIndex = 11;
+            clbQuyenTruyCap.SelectedIndexChanged += clbQuyenTruyCap_SelectedIndexChanged;
+            // 
+            // lblLoaiDoiTuong
+            // 
+            lblLoaiDoiTuong.AutoSize = true;
+            lblLoaiDoiTuong.Location = new Point(6, 105);
+            lblLoaiDoiTuong.Name = "lblLoaiDoiTuong";
+            lblLoaiDoiTuong.Size = new Size(110, 20);
+            lblLoaiDoiTuong.TabIndex = 8;
+            lblLoaiDoiTuong.Text = "Loại đối tượng:";
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(208, 166);
+            checkBox1.Location = new Point(119, 272);
             checkBox1.Margin = new Padding(2);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(153, 24);
@@ -83,50 +127,14 @@
             checkBox1.Text = "With grant opition";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(208, 122);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(218, 27);
-            textBox3.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(208, 64);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(218, 27);
-            textBox2.TabIndex = 4;
-            // 
             // textBox1
             // 
-            textBox1.Location = new Point(208, 16);
+            textBox1.Location = new Point(119, 18);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(218, 27);
             textBox1.TabIndex = 3;
             textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 124);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(79, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Tên quyền:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 69);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(73, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Tên bảng:";
             // 
             // label1
             // 
@@ -142,7 +150,7 @@
             // 
             panel2.Controls.Add(btnCancelGrant);
             panel2.Controls.Add(btnSucessGrant);
-            panel2.Location = new Point(230, 314);
+            panel2.Location = new Point(484, 354);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(216, 32);
@@ -168,14 +176,14 @@
             btnSucessGrant.TabIndex = 0;
             btnSucessGrant.Text = "OK";
             btnSucessGrant.UseVisualStyleBackColor = true;
-            btnSucessGrant.Click += btnSucessGrant_Click_2;
+            btnSucessGrant.Click += btnSucessGrant_Click;
             // 
             // GrantUserForm
             // 
             AcceptButton = btnSucessGrant;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(499, 365);
+            ClientSize = new Size(734, 395);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(2);
@@ -191,16 +199,17 @@
         #endregion
 
         private Panel panel1;
-        private Label label3;
-        private Label label2;
         private Label label1;
         private Panel panel2;
         private CheckBox checkBox1;
-        private TextBox textBox3;
-        private TextBox textBox2;
         private TextBox textBox1;
         private Button btnCancelGrant;
         private Button btnSucessGrant;
-        private CheckBox checkBox2;
+        private Label lblLoaiDoiTuong;
+        private CheckedListBox clbDanhSachCot;
+        private CheckedListBox clbQuyenTruyCap;
+        private Label lblTenDoiTuong;
+        private ComboBox cmbTenDoiTuong;
+        private ComboBox cmbLoaiDoiTuong;
     }
 }

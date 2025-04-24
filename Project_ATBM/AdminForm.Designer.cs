@@ -83,11 +83,13 @@
             textBox3 = new TextBox();
             label3 = new Label();
             panel1 = new Panel();
+            btnCapQuyen = new Button();
             btnDeleteUser = new Button();
             btnUpdateUser = new Button();
             btnCreateUser = new Button();
             dataGridView1 = new DataGridView();
             tabPage10 = new TabPage();
+            btnCapQuyenRole = new Button();
             panel5 = new Panel();
             btnFilterRole = new Button();
             textBox4 = new TextBox();
@@ -97,6 +99,7 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
+            btnRoleToUser = new Button();
             tabPage4.SuspendLayout();
             tabControl5.SuspendLayout();
             tabPage5.SuspendLayout();
@@ -338,7 +341,6 @@
             btnGrantToRole.TabIndex = 2;
             btnGrantToRole.Text = "Cấp quyền";
             btnGrantToRole.UseVisualStyleBackColor = true;
-            btnGrantToRole.Click += btnGrantToRole_Click;
             // 
             // dataGridView8
             // 
@@ -403,15 +405,15 @@
             // 
             panel10.Controls.Add(button8);
             panel10.Controls.Add(button7);
-            panel10.Location = new Point(657, 372);
+            panel10.Location = new Point(657, 332);
             panel10.Margin = new Padding(2);
             panel10.Name = "panel10";
-            panel10.Size = new Size(282, 141);
+            panel10.Size = new Size(282, 193);
             panel10.TabIndex = 3;
             // 
             // button8
             // 
-            button8.Location = new Point(58, 79);
+            button8.Location = new Point(63, 103);
             button8.Margin = new Padding(2);
             button8.Name = "button8";
             button8.Size = new Size(178, 38);
@@ -422,7 +424,8 @@
             // 
             // button7
             // 
-            button7.Location = new Point(58, 18);
+
+            button7.Location = new Point(63, 39);
             button7.Margin = new Padding(2);
             button7.Name = "button7";
             button7.Size = new Size(178, 38);
@@ -438,13 +441,13 @@
             panel8.Location = new Point(657, 11);
             panel8.Margin = new Padding(2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(281, 198);
+            panel8.Size = new Size(281, 97);
             panel8.TabIndex = 2;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(33, 82);
+            radioButton2.Location = new Point(33, 58);
             radioButton2.Margin = new Padding(2);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(111, 24);
@@ -458,7 +461,7 @@
             // 
             radioButton1.AutoSize = true;
             radioButton1.Checked = true;
-            radioButton1.Location = new Point(32, 29);
+            radioButton1.Location = new Point(33, 15);
             radioButton1.Margin = new Padding(2);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(104, 24);
@@ -473,15 +476,18 @@
             panel2.Controls.Add(btnSearchUser);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(657, 211);
+
+            panel2.Location = new Point(657, 112);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(280, 151);
+            panel2.Size = new Size(280, 216);
+
             panel2.TabIndex = 1;
             // 
             // btnSearchUser
             // 
-            btnSearchUser.Location = new Point(170, 95);
+
+            btnSearchUser.Location = new Point(173, 105);
             btnSearchUser.Margin = new Padding(2);
             btnSearchUser.Name = "btnSearchUser";
             btnSearchUser.Size = new Size(92, 35);
@@ -697,15 +703,15 @@
             panel4.Controls.Add(btnFilterUser);
             panel4.Controls.Add(textBox3);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(702, 252);
+            panel4.Location = new Point(700, 294);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(262, 157);
+            panel4.Size = new Size(262, 134);
             panel4.TabIndex = 6;
             // 
             // btnFilterUser
             // 
-            btnFilterUser.Location = new Point(170, 98);
+            btnFilterUser.Location = new Point(168, 87);
             btnFilterUser.Margin = new Padding(2);
             btnFilterUser.Name = "btnFilterUser";
             btnFilterUser.Size = new Size(92, 35);
@@ -716,7 +722,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(7, 56);
+            textBox3.Location = new Point(7, 45);
             textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(253, 27);
@@ -725,7 +731,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(7, 23);
+            label3.Location = new Point(7, 13);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(106, 20);
@@ -734,18 +740,30 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnRoleToUser);
+            panel1.Controls.Add(btnCapQuyen);
             panel1.Controls.Add(btnDeleteUser);
             panel1.Controls.Add(btnUpdateUser);
             panel1.Controls.Add(btnCreateUser);
             panel1.Location = new Point(702, 12);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(260, 236);
+            panel1.Size = new Size(260, 276);
             panel1.TabIndex = 5;
+            // 
+            // btnCapQuyen
+            // 
+            btnCapQuyen.Location = new Point(39, 164);
+            btnCapQuyen.Name = "btnCapQuyen";
+            btnCapQuyen.Size = new Size(164, 45);
+            btnCapQuyen.TabIndex = 5;
+            btnCapQuyen.Text = "Cấp quyền";
+            btnCapQuyen.UseVisualStyleBackColor = true;
+            btnCapQuyen.Click += btnCapQuyen_Click;
             // 
             // btnDeleteUser
             // 
-            btnDeleteUser.Location = new Point(39, 91);
+            btnDeleteUser.Location = new Point(39, 65);
             btnDeleteUser.Margin = new Padding(2);
             btnDeleteUser.Name = "btnDeleteUser";
             btnDeleteUser.Size = new Size(164, 45);
@@ -756,7 +774,7 @@
             // 
             // btnUpdateUser
             // 
-            btnUpdateUser.Location = new Point(39, 176);
+            btnUpdateUser.Location = new Point(39, 114);
             btnUpdateUser.Margin = new Padding(2);
             btnUpdateUser.Name = "btnUpdateUser";
             btnUpdateUser.Size = new Size(164, 45);
@@ -789,6 +807,7 @@
             // 
             // tabPage10
             // 
+            tabPage10.Controls.Add(btnCapQuyenRole);
             tabPage10.Controls.Add(panel5);
             tabPage10.Controls.Add(btnDeleteRole);
             tabPage10.Controls.Add(btnUpdateRole);
@@ -803,6 +822,16 @@
             tabPage10.Text = "ROLE";
             tabPage10.UseVisualStyleBackColor = true;
             // 
+            // btnCapQuyenRole
+            // 
+            btnCapQuyenRole.Location = new Point(747, 152);
+            btnCapQuyenRole.Name = "btnCapQuyenRole";
+            btnCapQuyenRole.Size = new Size(164, 45);
+            btnCapQuyenRole.TabIndex = 9;
+            btnCapQuyenRole.Text = "Cấp quyền";
+            btnCapQuyenRole.UseVisualStyleBackColor = true;
+            btnCapQuyenRole.Click += btnCapQuyenRole_Click;
+            // 
             // panel5
             // 
             panel5.Controls.Add(btnFilterRole);
@@ -815,15 +844,16 @@
             panel5.TabIndex = 7;
             // 
             // btnFilterRole
+
             // 
-            btnFilterRole.Location = new Point(168, 102);
-            btnFilterRole.Margin = new Padding(2);
-            btnFilterRole.Name = "btnFilterRole";
-            btnFilterRole.Size = new Size(92, 35);
-            btnFilterRole.TabIndex = 2;
-            btnFilterRole.Text = "Tìm kiếm";
-            btnFilterRole.UseVisualStyleBackColor = true;
-            btnFilterRole.Click += btnFilterRole_Click;
+            btnFilterUser.Location = new Point(170, 98);
+            btnFilterUser.Margin = new Padding(2);
+            btnFilterUser.Name = "btnFilterUser";
+            btnFilterUser.Size = new Size(92, 35);
+            btnFilterUser.TabIndex = 2;
+            btnFilterUser.Text = "Tìm kiếm";
+            btnFilterUser.UseVisualStyleBackColor = true;
+            btnFilterUser.Click += btnFilterUser_Click;
             // 
             // textBox4
             // 
@@ -845,7 +875,7 @@
             // 
             // btnDeleteRole
             // 
-            btnDeleteRole.Location = new Point(741, 102);
+            btnDeleteRole.Location = new Point(747, 53);
             btnDeleteRole.Margin = new Padding(2);
             btnDeleteRole.Name = "btnDeleteRole";
             btnDeleteRole.Size = new Size(164, 45);
@@ -856,7 +886,7 @@
             // 
             // btnUpdateRole
             // 
-            btnUpdateRole.Location = new Point(741, 188);
+            btnUpdateRole.Location = new Point(747, 102);
             btnUpdateRole.Margin = new Padding(2);
             btnUpdateRole.Name = "btnUpdateRole";
             btnUpdateRole.Size = new Size(164, 45);
@@ -867,7 +897,7 @@
             // 
             // btnCreateRole
             // 
-            btnCreateRole.Location = new Point(741, 28);
+            btnCreateRole.Location = new Point(747, 4);
             btnCreateRole.Margin = new Padding(2);
             btnCreateRole.Name = "btnCreateRole";
             btnCreateRole.Size = new Size(164, 45);
@@ -885,7 +915,7 @@
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 1;
-            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
+
             // 
             // tabControl1
             // 
@@ -901,6 +931,16 @@
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            // 
+            // btnRoleToUser
+            // 
+            btnRoleToUser.Location = new Point(39, 215);
+            btnRoleToUser.Name = "btnRoleToUser";
+            btnRoleToUser.Size = new Size(164, 45);
+            btnRoleToUser.TabIndex = 6;
+            btnRoleToUser.Text = "Cấp role";
+            btnRoleToUser.UseVisualStyleBackColor = true;
+            btnRoleToUser.Click += GrantRoleToUser_Click;
             // 
             // AdminForm
             // 
@@ -1024,5 +1064,8 @@
         private Button btnCreateRole;
         private DataGridView dataGridView2;
         private TabControl tabControl1;
+        private Button btnCapQuyen;
+        private Button btnCapQuyenRole;
+        private Button btnRoleToUser;
     }
 }

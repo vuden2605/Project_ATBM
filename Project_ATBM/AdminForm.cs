@@ -176,7 +176,7 @@ namespace Project_ATBM
 
         private void GrantRoleToUser_Click(object sender, EventArgs e)
         {
-            string userName = dataGridView7.CurrentRow.Cells["grantee"].Value.ToString();
+            string userName = dataGridView1.CurrentRow.Cells["USERNAME"].Value.ToString();
             GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName);
             grantRoleToUserForm.ShowDialog();
         }
@@ -217,11 +217,6 @@ namespace Project_ATBM
             return true;
         }
 
-        private void btnGrantToRole_Click(object sender, EventArgs e)
-        {
-            GrantRoleForm grantRoleForm = new GrantRoleForm();
-            grantRoleForm.ShowDialog();
-        }
 
         private void btnRevokeToRole_Click(object sender, EventArgs e)
         {
@@ -760,8 +755,18 @@ namespace Project_ATBM
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnCapQuyen_Click(object sender, EventArgs e)
         {
+            string userName = dataGridView1.CurrentRow.Cells["USERNAME"].Value.ToString();
+            GrantUserForm grantUserForm = new GrantUserForm(userName);
+            grantUserForm.ShowDialog();
+        }
+
+        private void btnCapQuyenRole_Click(object sender, EventArgs e)
+        {
+            string role = dataGridView2.CurrentRow.Cells["ROLE"].Value.ToString();
+            GrantRoleForm grantRoleForm = new GrantRoleForm(role);
+            grantRoleForm.ShowDialog();
 
         }
     }

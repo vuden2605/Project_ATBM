@@ -29,41 +29,33 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            textBox2 = new TextBox();
             textBox1 = new TextBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             btnCancel = new Button();
             btnSuccessGrantR_U = new Button();
+            cmbRoles = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(cmbRoles);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(28, 28);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(439, 128);
             panel1.TabIndex = 0;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(179, 73);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(242, 27);
-            textBox2.TabIndex = 3;
-            // 
             // textBox1
             // 
             textBox1.Location = new Point(179, 15);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(242, 27);
             textBox1.TabIndex = 2;
@@ -93,7 +85,7 @@
             panel2.Controls.Add(btnCancel);
             panel2.Controls.Add(btnSuccessGrantR_U);
             panel2.Location = new Point(207, 176);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(241, 41);
             panel2.TabIndex = 1;
@@ -101,7 +93,7 @@
             // btnCancel
             // 
             btnCancel.Location = new Point(137, 3);
-            btnCancel.Margin = new Padding(2, 2, 2, 2);
+            btnCancel.Margin = new Padding(2);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(102, 33);
             btnCancel.TabIndex = 1;
@@ -112,13 +104,21 @@
             // btnSuccessGrantR_U
             // 
             btnSuccessGrantR_U.Location = new Point(4, 3);
-            btnSuccessGrantR_U.Margin = new Padding(2, 2, 2, 2);
+            btnSuccessGrantR_U.Margin = new Padding(2);
             btnSuccessGrantR_U.Name = "btnSuccessGrantR_U";
             btnSuccessGrantR_U.Size = new Size(102, 33);
             btnSuccessGrantR_U.TabIndex = 0;
             btnSuccessGrantR_U.Text = "Ok";
             btnSuccessGrantR_U.UseVisualStyleBackColor = true;
             btnSuccessGrantR_U.Click += btnSuccessGrantR_U_Click;
+            // 
+            // cmbRoles
+            // 
+            cmbRoles.FormattingEnabled = true;
+            cmbRoles.Location = new Point(179, 71);
+            cmbRoles.Name = "cmbRoles";
+            cmbRoles.Size = new Size(242, 28);
+            cmbRoles.TabIndex = 3;
             // 
             // GrantRoleToUserForm
             // 
@@ -128,7 +128,7 @@
             ClientSize = new Size(487, 242);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "GrantRoleToUserForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GrantRoleToUserForm";
@@ -144,10 +144,10 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox2;
         private TextBox textBox1;
         private Label label2;
         private Button btnCancel;
         private Button btnSuccessGrantR_U;
+        private ComboBox cmbRoles;
     }
 }
