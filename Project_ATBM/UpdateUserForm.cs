@@ -17,6 +17,7 @@ namespace Project_ATBM
         {
             InitializeComponent();
             textBox1.Text = userName;
+            textBox1.ReadOnly = true;
 
         }
 
@@ -55,8 +56,7 @@ namespace Project_ATBM
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                AdminForm adminForm = new AdminForm();
-                adminForm.ShowDialog();
+                
 
             }
             catch (Exception ex)
@@ -65,7 +65,6 @@ namespace Project_ATBM
             }
         }
 
-        // Example method to handle user update logic
 
         private void CanCelUpdateUser_Click(object sender, EventArgs e)
         {

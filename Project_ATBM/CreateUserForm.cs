@@ -13,9 +13,12 @@ namespace Project_ATBM
 {
     public partial class CreateUserForm : Form
     {
-        public CreateUserForm()
+        private AdminForm adminForm;
+
+        public CreateUserForm(AdminForm adminForm)
         {
             InitializeComponent();
+            this.adminForm = adminForm;
         }
 
         private void DoneCreateUser_Click(object sender, EventArgs e)
@@ -51,6 +54,7 @@ namespace Project_ATBM
                 cmd.Parameters.Add("p_password", OracleDbType.NVarchar2).Value = password;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Tạo user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                adminForm.load_data_users();
                 this.Close();
             }
             catch (Exception ex)
@@ -58,12 +62,6 @@ namespace Project_ATBM
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // Example method to handle user creation logic
-        //private bool CreateUser(string userName, string password)
-        //{
-            
-        //}
 
 
         private void CanCelCreateUser_Click(object sender, EventArgs e)

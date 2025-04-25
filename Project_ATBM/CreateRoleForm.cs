@@ -14,9 +14,12 @@ namespace Project_ATBM
 {
     public partial class CreateRoleForm : Form
     {
-        public CreateRoleForm()
+        private AdminForm adminForm;
+
+        public CreateRoleForm(AdminForm adminForm)
         {
             InitializeComponent();
+            this.adminForm = adminForm;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,15 +39,14 @@ namespace Project_ATBM
 
             try
             {
-                // Example: Call a method to create the role
                 OracleCommand cmd = new OracleCommand("CreateRole",LoginForm.conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("p_rolename", OracleDbType.NVarchar2).Value = roleName;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Tạo role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                adminForm.load_data_roles();
                 this.Close();
-                AdminForm adminForm = new AdminForm();
-                adminForm.ShowDialog();
+
             }
             catch (Exception ex)
             {

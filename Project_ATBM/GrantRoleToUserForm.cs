@@ -13,11 +13,13 @@ namespace Project_ATBM
 {
     public partial class GrantRoleToUserForm : Form
     {
-        public GrantRoleToUserForm(string userName)
+        private AdminForm adminForm;
+        public GrantRoleToUserForm(string userName, AdminForm adminForm)
         {
             InitializeComponent();
             textBox1.Text = userName;
             LoadComboBoxData();
+            this.adminForm = adminForm;
         }
         private void LoadComboBoxData()
         {
@@ -85,6 +87,7 @@ namespace Project_ATBM
                 cmd.Parameters.Add("n_user", userName);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cấp role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                adminForm.load_data_users();
                 this.Close();
             }
             catch (Exception ex)

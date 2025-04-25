@@ -20,7 +20,6 @@ namespace Project_ATBM
             InitializeComponent();
             load_data_users();
         }
-        private OracleConnection conNow;
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -31,7 +30,7 @@ namespace Project_ATBM
         {
 
         }
-        private void load_data_users()
+        public void load_data_users()
         {
             try
             {
@@ -39,7 +38,7 @@ namespace Project_ATBM
                                "from dba_users du " +
                                "left join dba_role_privs drp ON drp.grantee = du.username " +
                                "where du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') and username != 'ADMIN_QLDH' " +
-                               "order by du.created";
+                               "order by du.created desc";
 
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
@@ -80,9 +79,8 @@ namespace Project_ATBM
                         cmd.Parameters.Add("p_username", OracleDbType.NVarchar2).Value = userName;
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Xóa user thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                        AdminForm adminForm = new AdminForm();
-                        adminForm.ShowDialog();
+                        load_data_users();
+
                     }
                     catch (Exception ex)
                     {
@@ -119,9 +117,8 @@ namespace Project_ATBM
                         cmd.Parameters.Add("p_rolename", OracleDbType.NVarchar2).Value = roleName;
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Xóa role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                        AdminForm adminForm = new AdminForm();
-                        adminForm.ShowDialog();
+                        load_data_roles();
+
                     }
                     catch (Exception ex)
                     {
@@ -155,13 +152,13 @@ namespace Project_ATBM
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            CreateUserForm createUserForm = new CreateUserForm();
+            CreateUserForm createUserForm = new CreateUserForm(this);
             createUserForm.ShowDialog();
         }
 
         private void btnCreateRole_Click(object sender, EventArgs e)
         {
-            CreateRoleForm createRoleForm = new CreateRoleForm();
+            CreateRoleForm createRoleForm = new CreateRoleForm(this);
             createRoleForm.ShowDialog();
         }
 
@@ -170,15 +167,16 @@ namespace Project_ATBM
         private void GrantRoleToUser_Click(object sender, EventArgs e)
         {
             string userName = dataGridView1.CurrentRow.Cells["USERNAME"].Value.ToString();
-            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName);
+            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName,this);
             grantRoleToUserForm.ShowDialog();
         }
 
-        private void load_data_roles()
+       public void load_data_roles()
         {
             try
             {
-                string query = "select * from dba_roles where role_id > 107 and role_id < 1279991";
+                string query = "select * from dba_roles where role_id > 107 and role_id < 1279991 "
+                    +"order by role_id desc";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -442,7 +440,7 @@ namespace Project_ATBM
                 MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             // gọi lại tìm kiếm
-            load_user();
+            load_info_privilege_user();
 
 
         }
@@ -489,7 +487,7 @@ namespace Project_ATBM
             }
 
             // Gọi lại tìm kiếm để làm mới dữ liệu
-            load_user();
+            load_info_privilege_user();
 
         }
 
@@ -537,7 +535,7 @@ namespace Project_ATBM
             }
 
             //làm mới data
-            load_role();
+            load_info_privilege_role();
 
         }
 
@@ -582,7 +580,7 @@ namespace Project_ATBM
                 MessageBox.Show("Vui lòng chọn một dòng trong bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            load_role();
+            load_info_privilege_role();
 
         }
 
@@ -619,5 +617,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
+
+        
     }
 }

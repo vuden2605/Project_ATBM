@@ -73,7 +73,7 @@
             // 
             btnCancelLogIn.BackColor = Color.Red;
             btnCancelLogIn.ForeColor = SystemColors.ButtonHighlight;
-            btnCancelLogIn.Location = new Point(143, 369);
+            btnCancelLogIn.Location = new Point(154, 365);
             btnCancelLogIn.Margin = new Padding(0);
             btnCancelLogIn.Name = "btnCancelLogIn";
             btnCancelLogIn.Size = new Size(96, 41);
@@ -90,7 +90,7 @@
             btnLogIn.Location = new Point(27, 304);
             btnLogIn.Margin = new Padding(0);
             btnLogIn.Name = "btnLogIn";
-            btnLogIn.Size = new Size(329, 50);
+            btnLogIn.Size = new Size(342, 50);
             btnLogIn.TabIndex = 2;
             btnLogIn.Text = "Đăng nhập";
             btnLogIn.UseVisualStyleBackColor = false;
@@ -110,7 +110,7 @@
             textBox2.Location = new Point(3, 70);
             textBox2.MaxLength = 50000;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(329, 27);
+            textBox2.Size = new Size(342, 27);
             textBox2.TabIndex = 2;
             textBox2.UseSystemPasswordChar = true;
             textBox2.TextChanged += textBox2_TextChanged;

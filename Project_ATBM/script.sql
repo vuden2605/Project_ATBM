@@ -78,7 +78,6 @@ CREATE OR REPLACE PROCEDURE CreateRole (
     p_rolename IN NVARCHAR2
 )
 AS
-    v_count NUMBER;
 BEGIN
     EXECUTE IMMEDIATE 'CREATE ROLE ' || p_rolename;
 END;
@@ -86,7 +85,6 @@ CREATE OR REPLACE PROCEDURE DeleteRole (
     p_rolename IN NVARCHAR2
 )
 AS
-    v_count NUMBER;
 BEGIN
     EXECUTE IMMEDIATE 'DROP ROLE ' || p_rolename;
 END;
@@ -98,7 +96,6 @@ CREATE OR REPLACE PROCEDURE UpdateRole(
     p_new_password IN NVARCHAR2
 )
 AS
-    v_count NUMBER;
 BEGIN
     -- Cập nhật mật khẩu cho role
     EXECUTE IMMEDIATE 'ALTER ROLE ' || p_rolename || ' IDENTIFIED BY "' || p_new_password || '"';

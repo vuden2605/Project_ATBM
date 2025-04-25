@@ -46,9 +46,6 @@ namespace Project_ATBM
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cập nhật role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                AdminForm adminForm = new AdminForm();
-                adminForm.ShowDialog();
-                
             }
             catch (Exception ex)
             {
