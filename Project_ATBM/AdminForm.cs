@@ -64,9 +64,6 @@ namespace Project_ATBM
             if (result == DialogResult.OK)
             {
                 this.Hide(); 
-                LoginForm loginForm = new LoginForm();
-                loginForm.FormClosed += (s, args) => this.Close(); 
-                loginForm.Show();
             }
         }
 
