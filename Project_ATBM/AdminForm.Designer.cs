@@ -28,26 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabPage4 = new TabPage();
-            button3 = new Button();
-            tabControl5 = new TabControl();
-            tabPage5 = new TabPage();
-            panel6 = new Panel();
-            button5 = new Button();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            RevokeUser = new Button();
-            GrantRoleToUser = new Button();
-            GrantUser = new Button();
-            dataGridView7 = new DataGridView();
-            tabPage6 = new TabPage();
-            panel7 = new Panel();
-            button6 = new Button();
-            textBox6 = new TextBox();
-            label6 = new Label();
-            btnRevokeToRole = new Button();
-            btnGrantToRole = new Button();
-            dataGridView8 = new DataGridView();
             tabPage3 = new TabPage();
             button2 = new Button();
             tabControl4 = new TabControl();
@@ -99,14 +79,7 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
-            tabPage4.SuspendLayout();
-            tabControl5.SuspendLayout();
-            tabPage5.SuspendLayout();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
-            tabPage6.SuspendLayout();
-            panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
+            button1 = new Button();
             tabPage3.SuspendLayout();
             tabControl4.SuspendLayout();
             tabPage12.SuspendLayout();
@@ -130,226 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             tabControl1.SuspendLayout();
             SuspendLayout();
-            // 
-            // tabPage4
-            // 
-            tabPage4.Controls.Add(button3);
-            tabPage4.Controls.Add(tabControl5);
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Margin = new Padding(2);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1117, 621);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Quản lý quyền";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(856, 562);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(164, 45);
-            button3.TabIndex = 8;
-            button3.Text = "Đăng xuất";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // tabControl5
-            // 
-            tabControl5.Controls.Add(tabPage5);
-            tabControl5.Controls.Add(tabPage6);
-            tabControl5.Location = new Point(16, 9);
-            tabControl5.Margin = new Padding(2);
-            tabControl5.Name = "tabControl5";
-            tabControl5.SelectedIndex = 0;
-            tabControl5.Size = new Size(1034, 549);
-            tabControl5.TabIndex = 0;
-            tabControl5.SelectedIndexChanged += tabControl5_SelectedIndexChanged;
-            // 
-            // tabPage5
-            // 
-            tabPage5.Controls.Add(panel6);
-            tabPage5.Controls.Add(RevokeUser);
-            tabPage5.Controls.Add(GrantRoleToUser);
-            tabPage5.Controls.Add(GrantUser);
-            tabPage5.Controls.Add(dataGridView7);
-            tabPage5.Location = new Point(4, 29);
-            tabPage5.Margin = new Padding(2);
-            tabPage5.Name = "tabPage5";
-            tabPage5.Padding = new Padding(2);
-            tabPage5.Size = new Size(1026, 516);
-            tabPage5.TabIndex = 0;
-            tabPage5.Text = "User";
-            tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(button5);
-            panel6.Controls.Add(textBox5);
-            panel6.Controls.Add(label5);
-            panel6.Location = new Point(746, 292);
-            panel6.Margin = new Padding(2);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(270, 188);
-            panel6.TabIndex = 4;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(89, 118);
-            button5.Margin = new Padding(2);
-            button5.Name = "button5";
-            button5.Size = new Size(92, 35);
-            button5.TabIndex = 2;
-            button5.Text = "Tìm kiếm";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(7, 56);
-            textBox5.Margin = new Padding(2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(258, 27);
-            textBox5.TabIndex = 1;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(7, 23);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(106, 20);
-            label5.TabIndex = 0;
-            label5.Text = "Nhập tên User:";
-            // 
-            // RevokeUser
-            // 
-            RevokeUser.Location = new Point(746, 227);
-            RevokeUser.Margin = new Padding(2);
-            RevokeUser.Name = "RevokeUser";
-            RevokeUser.Size = new Size(169, 48);
-            RevokeUser.TabIndex = 3;
-            RevokeUser.Text = "Thu hồi quyền";
-            RevokeUser.UseVisualStyleBackColor = true;
-            RevokeUser.Click += RevokeUser_Click;
-            // 
-            // GrantRoleToUser
-            // 
-            GrantRoleToUser.Location = new Point(744, 137);
-            GrantRoleToUser.Margin = new Padding(2);
-            GrantRoleToUser.Name = "GrantRoleToUser";
-            GrantRoleToUser.Size = new Size(169, 48);
-            GrantRoleToUser.TabIndex = 2;
-            GrantRoleToUser.Text = "Cấp Role";
-            GrantRoleToUser.UseVisualStyleBackColor = true;
-            GrantRoleToUser.Click += GrantRoleToUser_Click;
-            // 
-            // GrantUser
-            // 
-            GrantUser.Location = new Point(744, 55);
-            GrantUser.Margin = new Padding(2);
-            GrantUser.Name = "GrantUser";
-            GrantUser.Size = new Size(169, 48);
-            GrantUser.TabIndex = 1;
-            GrantUser.Text = "Cấp quyền";
-            GrantUser.UseVisualStyleBackColor = true;
-            GrantUser.Click += GrantUser_Click;
-            // 
-            // dataGridView7
-            // 
-            dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView7.Location = new Point(10, 9);
-            dataGridView7.Margin = new Padding(2);
-            dataGridView7.Name = "dataGridView7";
-            dataGridView7.RowHeadersWidth = 82;
-            dataGridView7.Size = new Size(671, 394);
-            dataGridView7.TabIndex = 0;
-            dataGridView7.CellContentClick += dataGridView7_CellContentClick;
-            // 
-            // tabPage6
-            // 
-            tabPage6.Controls.Add(panel7);
-            tabPage6.Controls.Add(btnRevokeToRole);
-            tabPage6.Controls.Add(btnGrantToRole);
-            tabPage6.Controls.Add(dataGridView8);
-            tabPage6.Location = new Point(4, 29);
-            tabPage6.Margin = new Padding(2);
-            tabPage6.Name = "tabPage6";
-            tabPage6.Padding = new Padding(2);
-            tabPage6.Size = new Size(1026, 516);
-            tabPage6.TabIndex = 1;
-            tabPage6.Text = "Role";
-            tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(button6);
-            panel7.Controls.Add(textBox6);
-            panel7.Controls.Add(label6);
-            panel7.Location = new Point(729, 324);
-            panel7.Margin = new Padding(2);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(270, 188);
-            panel7.TabIndex = 5;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(89, 118);
-            button6.Margin = new Padding(2);
-            button6.Name = "button6";
-            button6.Size = new Size(92, 35);
-            button6.TabIndex = 2;
-            button6.Text = "Tìm kiếm";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(7, 56);
-            textBox6.Margin = new Padding(2);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(258, 27);
-            textBox6.TabIndex = 1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(7, 23);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(107, 20);
-            label6.TabIndex = 0;
-            label6.Text = "Nhập tên Role:";
-            // 
-            // btnRevokeToRole
-            // 
-            btnRevokeToRole.Location = new Point(729, 250);
-            btnRevokeToRole.Margin = new Padding(2);
-            btnRevokeToRole.Name = "btnRevokeToRole";
-            btnRevokeToRole.Size = new Size(169, 48);
-            btnRevokeToRole.TabIndex = 4;
-            btnRevokeToRole.Text = "Thu hồi quyền";
-            btnRevokeToRole.UseVisualStyleBackColor = true;
-            btnRevokeToRole.Click += btnRevokeToRole_Click;
-            // 
-            // btnGrantToRole
-            // 
-            btnGrantToRole.Location = new Point(729, 124);
-            btnGrantToRole.Margin = new Padding(2);
-            btnGrantToRole.Name = "btnGrantToRole";
-            btnGrantToRole.Size = new Size(169, 48);
-            btnGrantToRole.TabIndex = 2;
-            btnGrantToRole.Text = "Cấp quyền";
-            btnGrantToRole.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView8
-            // 
-            dataGridView8.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView8.Location = new Point(4, 4);
-            dataGridView8.Margin = new Padding(2);
-            dataGridView8.Name = "dataGridView8";
-            dataGridView8.RowHeadersWidth = 82;
-            dataGridView8.Size = new Size(671, 394);
-            dataGridView8.TabIndex = 1;
             // 
             // tabPage3
             // 
@@ -412,7 +165,7 @@
             // 
             // button8
             // 
-            button8.Location = new Point(63, 103);
+            button8.Location = new Point(87, 105);
             button8.Margin = new Padding(2);
             button8.Name = "button8";
             button8.Size = new Size(178, 38);
@@ -423,7 +176,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(63, 39);
+            button7.Location = new Point(87, 37);
             button7.Margin = new Padding(2);
             button7.Name = "button7";
             button7.Size = new Size(178, 38);
@@ -839,6 +592,7 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(button1);
             panel5.Controls.Add(textBox4);
             panel5.Controls.Add(label4);
             panel5.Location = new Point(698, 254);
@@ -912,7 +666,6 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPage4);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Margin = new Padding(2);
@@ -922,6 +675,17 @@
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(168, 111);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(92, 35);
+            button1.TabIndex = 3;
+            button1.Text = "Tìm kiếm";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // AdminForm
             // 
@@ -933,16 +697,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang admin";
             Load += AdminForm_Load;
-            tabPage4.ResumeLayout(false);
-            tabControl5.ResumeLayout(false);
-            tabPage5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
-            tabPage6.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView8).EndInit();
             tabPage3.ResumeLayout(false);
             tabControl4.ResumeLayout(false);
             tabPage12.ResumeLayout(false);
@@ -975,27 +729,6 @@
         }
 
         #endregion
-
-        private TabPage tabPage4;
-        private Button button3;
-        private TabControl tabControl5;
-        private TabPage tabPage5;
-        private Panel panel6;
-        private Button button5;
-        private TextBox textBox5;
-        private Label label5;
-        private Button RevokeUser;
-        private Button GrantRoleToUser;
-        private Button GrantUser;
-        private DataGridView dataGridView7;
-        private TabPage tabPage6;
-        private Panel panel7;
-        private Button button6;
-        private TextBox textBox6;
-        private Label label6;
-        private Button btnRevokeToRole;
-        private Button btnGrantToRole;
-        private DataGridView dataGridView8;
         private TabPage tabPage3;
         private Button button2;
         private TabControl tabControl4;
@@ -1047,5 +780,6 @@
         private Button btnCapQuyen;
         private Button btnCapQuyenRole;
         private Button btnRoleToUser;
+        private Button button1;
     }
 }

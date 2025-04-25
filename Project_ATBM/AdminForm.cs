@@ -58,8 +58,6 @@ namespace Project_ATBM
 
         }
 
-
-
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
@@ -167,12 +165,7 @@ namespace Project_ATBM
             createRoleForm.ShowDialog();
         }
 
-        private void GrantUser_Click(object sender, EventArgs e)
-        {
-            string userName = dataGridView7.CurrentRow.Cells["grantee"].Value.ToString();
-            GrantUserForm grantUserForm = new GrantUserForm(userName);
-            grantUserForm.ShowDialog();
-        }
+
 
         private void GrantRoleToUser_Click(object sender, EventArgs e)
         {
@@ -181,82 +174,6 @@ namespace Project_ATBM
             grantRoleToUserForm.ShowDialog();
         }
 
-        private void RevokeUser_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Bạn có muốn thu hồi quyền của user này không?",
-                "Xác nhận thu hồi quyền",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    bool isRevokeSuccessful = RevokeUserPrivileges();
-
-                    if (isRevokeSuccessful)
-                    {
-                        MessageBox.Show("Thu hồi quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thu hồi quyền thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        private bool RevokeUserPrivileges()
-        {
-
-            return true;
-        }
-
-
-        private void btnRevokeToRole_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Bạn có muốn thu hồi quyền của role này không?",
-                "Xác nhận thu hồi quyền",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    // Example: Call a method to handle the revocation logic
-                    bool isRevokeSuccessful = RevokeRolePrivileges();
-
-                    if (isRevokeSuccessful)
-                    {
-                        MessageBox.Show("Thu hồi quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thu hồi quyền thất bại. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        // Example method to handle role privilege revocation logic
-        private bool RevokeRolePrivileges()
-        {
-            // Implement the logic to revoke role privileges here
-            // This could involve database operations or other logic
-            return true; // Placeholder for actual implementation
-        }
         private void load_data_roles()
         {
             try
@@ -297,34 +214,15 @@ namespace Project_ATBM
                 string username = textBox3.Text.ToUpper();
                 string query = "select distinct username,user_id,last_login, drp.granted_role " +
                                "from dba_users du " +
-                               "left join dba_tab_privs dtp ON du.username = dtp.grantee " +
                                "left join dba_role_privs drp ON drp.grantee = du.username " +
-                               "where dtp.owner = 'ADMIN_QLDH' AND username LIKE : username";
+                               "where du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') and username != 'ADMIN_QLDH' and  username LIKE : username " +
+                               "order by du.created";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":username", "%" + username + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
-        }
-
-        private void btnFilterRole_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string rolename = textBox4.Text.ToUpper();
-                string query = "SELECT * FROM dba_roles WHERE role LIKE :rolename";
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":rolename", "%" + rolename + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView2.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -416,76 +314,9 @@ namespace Project_ATBM
 
 
         }
-
-        private void tabControl5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl5.SelectedIndex == 0)
-            {
-                load_info_privilege_user();
-            }
-            if (tabControl5.SelectedIndex == 1)
-            {
-                load_data_roles1();
-            }
-        }
-        private void load_data_roles1()
-        {
-            try
-            {
-                string query = "SELECT ROLE, TABLE_NAME, OWNER, PRIVILEGE, GRANTABLE FROM ROLE_TAB_PRIVS";
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView8.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
-        }
-
         private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string grantee = textBox5.Text.ToUpper();
-                string query = $"SELECT GRANTEE, OWNER, TABLE_NAME, PRIVILEGE, GRANTABLE, GRANTOR FROM DBA_TAB_PRIVS  WHERE grantee LIKE :grantee";
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":grantee", "%" + grantee + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView7.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string role = textBox6.Text.ToUpper();
-                string query = $"SELECT ROLE, TABLE_NAME, OWNER, PRIVILEGE, GRANTABLE FROM ROLE_TAB_PRIVS  WHERE role LIKE :role";
-                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":role", "%" + role + "%");
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView8.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -768,6 +599,25 @@ namespace Project_ATBM
             GrantRoleForm grantRoleForm = new GrantRoleForm(role);
             grantRoleForm.ShowDialog();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rolename = textBox4.Text.ToUpper();
+                string query = "select * from dba_roles where role_id > 107 and role_id < 1279991 and role LIKE :rolename";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":rolename", "%" + rolename + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
         }
     }
 }
