@@ -83,6 +83,7 @@
             textBox3 = new TextBox();
             label3 = new Label();
             panel1 = new Panel();
+            btnRoleToUser = new Button();
             btnCapQuyen = new Button();
             btnDeleteUser = new Button();
             btnUpdateUser = new Button();
@@ -91,7 +92,6 @@
             tabPage10 = new TabPage();
             btnCapQuyenRole = new Button();
             panel5 = new Panel();
-            btnFilterRole = new Button();
             textBox4 = new TextBox();
             label4 = new Label();
             btnDeleteRole = new Button();
@@ -99,7 +99,6 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
-            btnRoleToUser = new Button();
             tabPage4.SuspendLayout();
             tabControl5.SuspendLayout();
             tabPage5.SuspendLayout();
@@ -424,7 +423,6 @@
             // 
             // button7
             // 
-
             button7.Location = new Point(63, 39);
             button7.Margin = new Padding(2);
             button7.Name = "button7";
@@ -476,17 +474,14 @@
             panel2.Controls.Add(btnSearchUser);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
-
             panel2.Location = new Point(657, 112);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(280, 216);
-
             panel2.TabIndex = 1;
             // 
             // btnSearchUser
             // 
-
             btnSearchUser.Location = new Point(173, 105);
             btnSearchUser.Margin = new Padding(2);
             btnSearchUser.Name = "btnSearchUser";
@@ -711,7 +706,7 @@
             // 
             // btnFilterUser
             // 
-            btnFilterUser.Location = new Point(168, 87);
+            btnFilterUser.Location = new Point(170, 98);
             btnFilterUser.Margin = new Padding(2);
             btnFilterUser.Name = "btnFilterUser";
             btnFilterUser.Size = new Size(92, 35);
@@ -750,6 +745,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(260, 276);
             panel1.TabIndex = 5;
+            // 
+            // btnRoleToUser
+            // 
+            btnRoleToUser.Location = new Point(39, 215);
+            btnRoleToUser.Name = "btnRoleToUser";
+            btnRoleToUser.Size = new Size(164, 45);
+            btnRoleToUser.TabIndex = 6;
+            btnRoleToUser.Text = "Cấp role";
+            btnRoleToUser.UseVisualStyleBackColor = true;
+            btnRoleToUser.Click += GrantRoleToUser_Click;
             // 
             // btnCapQuyen
             // 
@@ -834,7 +839,6 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(btnFilterRole);
             panel5.Controls.Add(textBox4);
             panel5.Controls.Add(label4);
             panel5.Location = new Point(698, 254);
@@ -842,18 +846,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(262, 157);
             panel5.TabIndex = 7;
-            // 
-            // btnFilterRole
-
-            // 
-            btnFilterUser.Location = new Point(170, 98);
-            btnFilterUser.Margin = new Padding(2);
-            btnFilterUser.Name = "btnFilterUser";
-            btnFilterUser.Size = new Size(92, 35);
-            btnFilterUser.TabIndex = 2;
-            btnFilterUser.Text = "Tìm kiếm";
-            btnFilterUser.UseVisualStyleBackColor = true;
-            btnFilterUser.Click += btnFilterUser_Click;
             // 
             // textBox4
             // 
@@ -915,7 +907,6 @@
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 1;
-
             // 
             // tabControl1
             // 
@@ -931,16 +922,6 @@
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
-            // 
-            // btnRoleToUser
-            // 
-            btnRoleToUser.Location = new Point(39, 215);
-            btnRoleToUser.Name = "btnRoleToUser";
-            btnRoleToUser.Size = new Size(164, 45);
-            btnRoleToUser.TabIndex = 6;
-            btnRoleToUser.Text = "Cấp role";
-            btnRoleToUser.UseVisualStyleBackColor = true;
-            btnRoleToUser.Click += GrantRoleToUser_Click;
             // 
             // AdminForm
             // 
@@ -1056,7 +1037,6 @@
         private DataGridView dataGridView1;
         private TabPage tabPage10;
         private Panel panel5;
-        private Button btnFilterRole;
         private TextBox textBox4;
         private Label label4;
         private Button btnDeleteRole;

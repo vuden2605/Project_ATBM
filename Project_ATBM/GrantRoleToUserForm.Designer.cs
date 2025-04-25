@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            cmbRoles = new ComboBox();
             textBox1 = new TextBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             btnCancel = new Button();
             btnSuccessGrantR_U = new Button();
-            cmbRoles = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -51,6 +51,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(439, 128);
             panel1.TabIndex = 0;
+            // 
+            // cmbRoles
+            // 
+            cmbRoles.FormattingEnabled = true;
+            cmbRoles.Location = new Point(179, 71);
+            cmbRoles.Name = "cmbRoles";
+            cmbRoles.Size = new Size(242, 28);
+            cmbRoles.TabIndex = 3;
+            cmbRoles.SelectedIndexChanged += cmbRoles_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -111,14 +120,6 @@
             btnSuccessGrantR_U.Text = "Ok";
             btnSuccessGrantR_U.UseVisualStyleBackColor = true;
             btnSuccessGrantR_U.Click += btnSuccessGrantR_U_Click;
-            // 
-            // cmbRoles
-            // 
-            cmbRoles.FormattingEnabled = true;
-            cmbRoles.Location = new Point(179, 71);
-            cmbRoles.Name = "cmbRoles";
-            cmbRoles.Size = new Size(242, 28);
-            cmbRoles.TabIndex = 3;
             // 
             // GrantRoleToUserForm
             // 

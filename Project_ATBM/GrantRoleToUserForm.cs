@@ -32,7 +32,7 @@ namespace Project_ATBM
 
                 string query = string.Empty;
 
-                query = "SELECT DISTINCT ROLE FROM ROLE_TAB_PRIVS WHERE OWNER = 'ADMIN_QLDH'";
+                query = "select * from dba_roles where role_id > 107 and role_id < 1279991";
 
                 // Thực thi câu truy vấn
                 using (OracleCommand cmd = new OracleCommand(query, LoginForm.conn))
@@ -81,8 +81,8 @@ namespace Project_ATBM
                 // Logic to grant the role to the user
                 OracleCommand cmd = new OracleCommand("GrantRoleForUser", LoginForm.conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("n_role",roleName);
-                cmd.Parameters.Add("n_user",userName);
+                cmd.Parameters.Add("n_role", roleName);
+                cmd.Parameters.Add("n_user", userName);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cấp role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -92,7 +92,7 @@ namespace Project_ATBM
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -100,6 +100,11 @@ namespace Project_ATBM
         }
 
         private void GrantRoleToUserForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
