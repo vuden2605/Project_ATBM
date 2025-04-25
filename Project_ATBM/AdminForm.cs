@@ -38,8 +38,8 @@ namespace Project_ATBM
                 string query = "select distinct username,user_id,last_login, drp.granted_role, du.created " +
                                "from dba_users du " +
                                "left join dba_role_privs drp ON drp.grantee = du.username " +
-                               "where  du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') " +
-                               "order by username";
+                               "where du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') and username != 'ADMIN_QLDH' " +
+                               "order by du.created";
 
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
