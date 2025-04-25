@@ -72,6 +72,7 @@
             tabPage10 = new TabPage();
             btnCapQuyenRole = new Button();
             panel5 = new Panel();
+            button1 = new Button();
             textBox4 = new TextBox();
             label4 = new Label();
             btnDeleteRole = new Button();
@@ -79,7 +80,6 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
-            button1 = new Button();
             tabPage3.SuspendLayout();
             tabControl4.SuspendLayout();
             tabPage12.SuspendLayout();
@@ -397,6 +397,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = SystemColors.ActiveCaption;
             tabPage1.Controls.Add(button4);
             tabPage1.Controls.Add(tabControl2);
             tabPage1.Location = new Point(4, 29);
@@ -406,7 +407,6 @@
             tabPage1.Size = new Size(1117, 621);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "User & Role";
-            tabPage1.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -565,6 +565,7 @@
             // 
             // tabPage10
             // 
+            tabPage10.BackColor = SystemColors.ButtonFace;
             tabPage10.Controls.Add(btnCapQuyenRole);
             tabPage10.Controls.Add(panel5);
             tabPage10.Controls.Add(btnDeleteRole);
@@ -578,16 +579,18 @@
             tabPage10.Size = new Size(998, 436);
             tabPage10.TabIndex = 2;
             tabPage10.Text = "ROLE";
-            tabPage10.UseVisualStyleBackColor = true;
             // 
             // btnCapQuyenRole
             // 
-            btnCapQuyenRole.Location = new Point(747, 152);
+            btnCapQuyenRole.BackColor = Color.LimeGreen;
+            btnCapQuyenRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCapQuyenRole.ForeColor = SystemColors.ButtonHighlight;
+            btnCapQuyenRole.Location = new Point(747, 185);
             btnCapQuyenRole.Name = "btnCapQuyenRole";
             btnCapQuyenRole.Size = new Size(164, 45);
             btnCapQuyenRole.TabIndex = 9;
             btnCapQuyenRole.Text = "Cấp quyền";
-            btnCapQuyenRole.UseVisualStyleBackColor = true;
+            btnCapQuyenRole.UseVisualStyleBackColor = false;
             btnCapQuyenRole.Click += btnCapQuyenRole_Click;
             // 
             // panel5
@@ -601,6 +604,20 @@
             panel5.Size = new Size(262, 157);
             panel5.TabIndex = 7;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.LimeGreen;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(168, 111);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(92, 35);
+            button1.TabIndex = 3;
+            button1.Text = "Tìm kiếm";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // textBox4
             // 
             textBox4.Location = new Point(7, 56);
@@ -612,6 +629,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = SystemColors.ActiveCaptionText;
             label4.Location = new Point(7, 23);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
@@ -621,35 +639,44 @@
             // 
             // btnDeleteRole
             // 
-            btnDeleteRole.Location = new Point(747, 53);
+            btnDeleteRole.BackColor = Color.LimeGreen;
+            btnDeleteRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDeleteRole.ForeColor = SystemColors.ButtonHighlight;
+            btnDeleteRole.Location = new Point(747, 62);
             btnDeleteRole.Margin = new Padding(2);
             btnDeleteRole.Name = "btnDeleteRole";
             btnDeleteRole.Size = new Size(164, 45);
             btnDeleteRole.TabIndex = 4;
             btnDeleteRole.Text = "Xóa Role";
-            btnDeleteRole.UseVisualStyleBackColor = true;
+            btnDeleteRole.UseVisualStyleBackColor = false;
             btnDeleteRole.Click += btnDeleteRole_Click;
             // 
             // btnUpdateRole
             // 
-            btnUpdateRole.Location = new Point(747, 102);
+            btnUpdateRole.BackColor = Color.LimeGreen;
+            btnUpdateRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnUpdateRole.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdateRole.Location = new Point(747, 125);
             btnUpdateRole.Margin = new Padding(2);
             btnUpdateRole.Name = "btnUpdateRole";
             btnUpdateRole.Size = new Size(164, 45);
             btnUpdateRole.TabIndex = 3;
             btnUpdateRole.Text = "Sửa Role";
-            btnUpdateRole.UseVisualStyleBackColor = true;
+            btnUpdateRole.UseVisualStyleBackColor = false;
             btnUpdateRole.Click += btnUpdateRole_Click;
             // 
             // btnCreateRole
             // 
+            btnCreateRole.BackColor = Color.LimeGreen;
+            btnCreateRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCreateRole.ForeColor = SystemColors.ButtonHighlight;
             btnCreateRole.Location = new Point(747, 4);
             btnCreateRole.Margin = new Padding(2);
             btnCreateRole.Name = "btnCreateRole";
             btnCreateRole.Size = new Size(164, 45);
             btnCreateRole.TabIndex = 2;
             btnCreateRole.Text = "Tạo Role";
-            btnCreateRole.UseVisualStyleBackColor = true;
+            btnCreateRole.UseVisualStyleBackColor = false;
             btnCreateRole.Click += btnCreateRole_Click;
             // 
             // dataGridView2
@@ -675,17 +702,6 @@
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(168, 111);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 35);
-            button1.TabIndex = 3;
-            button1.Text = "Tìm kiếm";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // AdminForm
             // 
