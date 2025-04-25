@@ -75,7 +75,7 @@
             CanCelUpdateUser.Location = new Point(198, 11);
             CanCelUpdateUser.Margin = new Padding(2);
             CanCelUpdateUser.Name = "CanCelUpdateUser";
-            CanCelUpdateUser.Size = new Size(97, 24);
+            CanCelUpdateUser.Size = new Size(97, 31);
             CanCelUpdateUser.TabIndex = 1;
             CanCelUpdateUser.Text = "Cancel";
             CanCelUpdateUser.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             DoneUpdateUser.Location = new Point(83, 11);
             DoneUpdateUser.Margin = new Padding(2);
             DoneUpdateUser.Name = "DoneUpdateUser";
-            DoneUpdateUser.Size = new Size(97, 24);
+            DoneUpdateUser.Size = new Size(97, 31);
             DoneUpdateUser.TabIndex = 0;
             DoneUpdateUser.Text = "OK";
             DoneUpdateUser.UseVisualStyleBackColor = true;
