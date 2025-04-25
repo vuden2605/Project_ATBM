@@ -133,7 +133,8 @@
             // 
             tabControl4.Controls.Add(tabPage12);
             tabControl4.Controls.Add(tabPage13);
-            tabControl4.Location = new Point(5, 19);
+            tabControl4.ItemSize = new Size(120, 25);
+            tabControl4.Location = new Point(13, 12);
             tabControl4.Margin = new Padding(2);
             tabControl4.Name = "tabControl4";
             tabControl4.SelectedIndex = 0;
@@ -278,7 +279,7 @@
             // dataGridView5
             // 
             dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView5.Location = new Point(11, 9);
+            dataGridView5.Location = new Point(4, 0);
             dataGridView5.Margin = new Padding(2);
             dataGridView5.Name = "dataGridView5";
             dataGridView5.RowHeadersWidth = 82;
@@ -408,7 +409,7 @@
             // dataGridView6
             // 
             dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView6.Location = new Point(11, 9);
+            dataGridView6.Location = new Point(4, 0);
             dataGridView6.Margin = new Padding(2);
             dataGridView6.Name = "dataGridView6";
             dataGridView6.RowHeadersWidth = 82;
