@@ -221,7 +221,7 @@ namespace Project_ATBM
             try
             {
                 string username = textBox3.Text.ToUpper();
-                string query = "select distinct username,user_id,last_login, drp.granted_role " +
+                string query = "select distinct username,user_id,last_login, drp.granted_role, du.created " +
                                "from dba_users du " +
                                "left join dba_role_privs drp ON drp.grantee = du.username " +
                                "where du.created > TO_DATE('09-29-2021', 'MM-DD-YYYY') and username != 'ADMIN_QLDH' and  username LIKE : username " +
