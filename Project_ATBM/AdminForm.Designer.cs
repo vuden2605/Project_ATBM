@@ -80,6 +80,7 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
+            button3 = new Button();
             tabPage3.SuspendLayout();
             tabControl4.SuspendLayout();
             tabPage12.SuspendLayout();
@@ -476,10 +477,10 @@
             panel4.Controls.Add(btnFilterUser);
             panel4.Controls.Add(textBox3);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(675, 275);
+            panel4.Location = new Point(675, 321);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(262, 134);
+            panel4.Size = new Size(262, 120);
             panel4.TabIndex = 6;
             // 
             // btnFilterUser
@@ -487,7 +488,7 @@
             btnFilterUser.BackColor = Color.LimeGreen;
             btnFilterUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnFilterUser.ForeColor = SystemColors.ButtonHighlight;
-            btnFilterUser.Location = new Point(170, 98);
+            btnFilterUser.Location = new Point(168, 76);
             btnFilterUser.Margin = new Padding(2);
             btnFilterUser.Name = "btnFilterUser";
             btnFilterUser.Size = new Size(92, 35);
@@ -516,6 +517,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(btnRoleToUser);
             panel1.Controls.Add(btnCapQuyen);
             panel1.Controls.Add(btnDeleteUser);
@@ -524,7 +526,7 @@
             panel1.Location = new Point(677, 18);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(262, 268);
+            panel1.Size = new Size(262, 299);
             panel1.TabIndex = 5;
             // 
             // btnRoleToUser
@@ -746,6 +748,19 @@
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.LimeGreen;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(51, 251);
+            button3.Name = "button3";
+            button3.Size = new Size(164, 45);
+            button3.TabIndex = 7;
+            button3.Text = "Thu hồi role";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -840,5 +855,6 @@
         private Button btnCapQuyenRole;
         private Button btnRoleToUser;
         private Button button1;
+        private Button button3;
     }
 }

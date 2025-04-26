@@ -63,7 +63,8 @@ namespace Project_ATBM
 
             if (result == DialogResult.OK)
             {
-                this.Hide(); 
+                this.Hide();
+
             }
         }
 
@@ -177,16 +178,16 @@ namespace Project_ATBM
         private void GrantRoleToUser_Click(object sender, EventArgs e)
         {
             string userName = dataGridView1.CurrentRow.Cells["USERNAME"].Value.ToString();
-            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName,this);
+            GrantRoleToUserForm grantRoleToUserForm = new GrantRoleToUserForm(userName, this);
             grantRoleToUserForm.ShowDialog();
         }
 
-       public void load_data_roles()
+        public void load_data_roles()
         {
             try
             {
                 string query = "select * from dba_roles where role_id > 107 and role_id < 1279991 "
-                    +"order by role_id desc";
+                    + "order by role_id desc";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -628,6 +629,34 @@ namespace Project_ATBM
             }
         }
 
-        
+       private void button3_Click(object sender, EventArgs e) { 
+            try
+            {
+                string userName = dataGridView1.CurrentRow.Cells["username"].Value.ToString();
+                string role = dataGridView1.CurrentRow.Cells["Granted_role"].Value.ToString();
+
+                DialogResult result = MessageBox.Show(
+                    $"Bạn có muốn thu hồi role '{role}' của user '{userName}' không?", 
+                    "Xác nhận thu hồi role", 
+                    MessageBoxButtons.OKCancel, 
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.OK)
+                {
+                    OracleCommand cmd = new OracleCommand("RevokeRoleFromUser", LoginForm.conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("n_role", role);
+                    cmd.Parameters.Add("n_username", userName);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Đã thu hồi role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    load_data_users();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
