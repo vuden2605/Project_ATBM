@@ -81,6 +81,7 @@ AS
 BEGIN
     EXECUTE IMMEDIATE 'CREATE ROLE ' || p_rolename;
 END;
+/
 CREATE OR REPLACE PROCEDURE DeleteRole (
     p_rolename IN NVARCHAR2
 )
@@ -101,7 +102,6 @@ BEGIN
     EXECUTE IMMEDIATE 'ALTER ROLE ' || p_rolename || ' IDENTIFIED BY "' || p_new_password || '"';
 END;
 /
-
 
 -- phân quyền cho user
 CREATE OR REPLACE PROCEDURE GrantForUser (
@@ -129,7 +129,7 @@ BEGIN
 
     EXECUTE IMMEDIATE v_sql;
 END;
-
+/
 -- phân role cho user
 CREATE OR REPLACE PROCEDURE GrantRoleForUser (
     n_role in varchar2,
@@ -139,7 +139,7 @@ AUTHID CURRENT_USER AS
 BEGIN
      EXECUTE IMMEDIATE 'GRANT ' || n_role || ' TO ' || n_user;
 END;
-
+/
 -- phân quyền cho role
 CREATE OR REPLACE PROCEDURE GrantForRole (
     n_pri     IN VARCHAR2,
@@ -160,9 +160,7 @@ BEGIN
     -- Thực thi lệnh GRANT
     EXECUTE IMMEDIATE v_sql;
 END;
-
-
-
+/
 -- thu hồi quyền của user
 CREATE OR REPLACE PROCEDURE RevokeFromUser (
     n_pri in varchar2,
@@ -173,7 +171,7 @@ AUTHID CURRENT_USER AS
 BEGIN
     EXECUTE IMMEDIATE 'REVOKE ' || n_pri || ' ON ' || n_obj || ' FROM '||n_user;
 END;
-
+/
 -- thu hồi quyền của role
 CREATE OR REPLACE PROCEDURE RevokeFromRole (
     n_pri in varchar2,
@@ -184,7 +182,7 @@ AUTHID CURRENT_USER AS
 BEGIN
     EXECUTE IMMEDIATE 'REVOKE ' || n_pri || ' ON ' || n_obj || ' FROM '||n_role;
 END;
-
+/
 -- thu hồi role của user
 CREATE OR REPLACE PROCEDURE RevokeRoleFromUser(
     n_role in varchar2,
@@ -194,7 +192,7 @@ AUTHID CURRENT_USER AS
 BEGIN
     EXECUTE IMMEDIATE 'REVOKE ' || n_role || ' FROM ' || n_user;
 END;
-
+/
 -- thu hồi tất cả quyền của user
 CREATE OR REPLACE PROCEDURE RevokeAllFromUser(
     n_obj in varchar2,
@@ -204,7 +202,7 @@ AUTHID CURRENT_USER AS
 BEGIN
     EXECUTE IMMEDIATE 'REVOKE ALL ON ' || n_obj || ' FROM ' || n_user;
 END;
-
+/
 --thu hồi tất cả quyền của role
 CREATE OR REPLACE PROCEDURE RevokeAllFromRole(
     n_obj in varchar2,
@@ -214,3 +212,4 @@ AUTHID CURRENT_USER AS
 BEGIN
     EXECUTE IMMEDIATE 'REVOKE ALL ON ' || n_obj || ' FROM ' || n_role;
 END;
+/
