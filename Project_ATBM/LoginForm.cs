@@ -46,15 +46,15 @@ namespace Project_ATBM
                 return;
             }
 
-            string connectionString = $"User Id={username};Password={password};Data Source=localhost:1521/XE";
+            string connectionString = $"User Id={username};Password={password};Data Source=localhost:1521/QLDH";
 
             conn = new OracleConnection(connectionString);
 
             try
             {
                 conn.Open();
-                OracleCommand cmd = new OracleCommand("ALTER SESSION SET \"_ORACLE_SCRIPT\"=TRUE", LoginForm.conn);
-                cmd.ExecuteNonQuery();
+                //OracleCommand cmd = new OracleCommand("ALTER SESSION SET \"_ORACLE_SCRIPT\"=TRUE", LoginForm.conn);
+                //cmd.ExecuteNonQuery();
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
