@@ -1,13 +1,13 @@
-﻿alter session set "_ORACLE_SCRIPT"=true;
-CREATE USER admin_qldh IDENTIFIED BY admin_qldh;
-GRANT dba to admin_qldh;
-GRANT CREATE USER TO admin_qldh;
-GRANT DROP USER TO admin_qldh;
-GRANT CONNECT TO ADMIN_QLDH WITH ADMIN OPTION;
-GRANT ALTER USER TO ADMIN_QLDH;
-GRANT CREATE ROLE TO ADMIN_QLDH;
-GRANT GRANT ANY ROLE TO ADMIN_QLDH;
-CONNECT admin_qldh/admin_qldh@localhost:1521/XE;
+﻿--alter session set "_ORACLE_SCRIPT"=true;
+--CREATE USER admin_qldh IDENTIFIED BY admin_qldh;
+--GRANT dba to admin_qldh;
+--GRANT CREATE USER TO admin_qldh;
+--GRANT DROP USER TO admin_qldh;
+--GRANT CONNECT TO ADMIN_QLDH WITH ADMIN OPTION;
+--GRANT ALTER USER TO ADMIN_QLDH;
+--GRANT CREATE ROLE TO ADMIN_QLDH;
+--GRANT GRANT ANY ROLE TO ADMIN_QLDH;
+--CONNECT admin_qldh/admin_qldh@localhost:1521/XE;
 -- create user
 CREATE OR REPLACE PROCEDURE CreateUser (
     p_username IN NVARCHAR2,
