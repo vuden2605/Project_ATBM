@@ -95,7 +95,7 @@ GRANT SELECT ON v_trgdv_mm to role_trgdv;
 --mở các học phần thuộc quyền phụ trách chuyên môn bởi Khoa mà sinh viên đang theo
 --học.
 create or replace view v_sv_momon as
-select m.mamm, m.mahp, m.magv, m.hk, m.nam 
+select m.mamm, m.mahp, m.magv, m.hk, m.nam, m.ngaybd 
 from momon m 
 join hocphan hp on hp.mahp=m.mahp
 join sinhvien sv on sv.khoa=hp.madv where sv.masv=sys_context('userenv','session_user')
