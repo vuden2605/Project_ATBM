@@ -405,15 +405,4 @@ INSERT INTO THONGBAO (ID, NOIDUNG, OLS_LABEL)
 VALUES (9, 'Thông báo cho trưởng khoa Hóa cả hai cơ sở', 1009);
 commit;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Project_ATBM
-{
-    class ols
-    {
-    }
-}
