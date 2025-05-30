@@ -72,16 +72,16 @@ BEGIN
 END;
 /
 CREATE OR REPLACE VIEW V_nvpdt_mm AS
-SELECT *
-FROM MOMON
+SELECT m.mamm, hp.tenhp, m.mahp, m.magv, m.hk, m.nam, m.ngaybd
+FROM MOMON m
+join hocphan hp on hp.mahp=m.mahp
 WHERE (
     TO_NUMBER(SUBSTR(NAM,1,4)) = EXTRACT(YEAR FROM SYSDATE)
     OR TO_NUMBER(SUBSTR(NAM,6,9)) = EXTRACT(YEAR FROM SYSDATE)
 )
-AND HK = GET_CURRENT_SEMESTER()
-WITH CHECK OPTION;
+AND HK = GET_CURRENT_SEMESTER();
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON V_nvpdt_mm TO role_nvpdt;
+GRANT SELECT V_nvpdt_mm TO role_nvpdt;
 
 --Câu 2.3 Người dùng có vai trò “TRGĐV” có quyền xem các dòng phân công giảng dạy của
 --các giảng viên thuộc đơn vị mình làm trưởng.
@@ -210,34 +210,34 @@ END;
 --    );
 --END;
 --/
-CREATE OR REPLACE FUNCTION mask_diem_func (
-  schema_name IN VARCHAR2,
-  table_name  IN VARCHAR2
-) RETURN VARCHAR2 IS
-  v_user VARCHAR2(30);
-BEGIN
-  v_user := SYS_CONTEXT('USERENV', 'SESSION_USER');
+--CREATE OR REPLACE FUNCTION mask_diem_func (
+--  schema_name IN VARCHAR2,
+--  table_name  IN VARCHAR2
+--) RETURN VARCHAR2 IS
+--  v_user VARCHAR2(30);
+--BEGIN
+--  v_user := SYS_CONTEXT('USERENV', 'SESSION_USER');
 
-  IF v_user LIKE 'NVPDT%' THEN
-    RETURN '1=0';  
-  ELSE
-    RETURN NULL; 
-  END IF;
-END;
-/
-BEGIN
-  DBMS_RLS.ADD_POLICY(
-    object_schema   => 'ADMIN_QLDH',
-    object_name     => 'DANGKY',
-    policy_name     => 'mask_diem_policy',
-    function_schema => 'ADMIN_QLDH',
-    policy_function => 'mask_diem_func',
-    statement_types => 'SELECT',
-    sec_relevant_cols => 'DIEMTK, DIEMTH, DIEMCK, DIEMQT',
-    sec_relevant_cols_opt => DBMS_RLS.ALL_ROWS
-  );
-END;
-/
+--  IF v_user LIKE 'NVPDT%' THEN
+--    RETURN '1=0';  
+--  ELSE
+--    RETURN '1=1'; 
+--  END IF;
+--END;
+--/
+--BEGIN
+--  DBMS_RLS.ADD_POLICY(
+--    object_schema   => 'ADMIN_QLDH',
+--    object_name     => 'DANGKY',
+--    policy_name     => 'mask_diem_policy',
+--    function_schema => 'ADMIN_QLDH',
+--    policy_function => 'mask_diem_func',
+--    statement_types => 'SELECT',
+--    sec_relevant_cols => 'DIEMTK, DIEMTH, DIEMCK, DIEMQT',
+--    sec_relevant_cols_opt => DBMS_RLS.ALL_ROWS
+--  );
+--END;
+--/
 --BEGIN
 --    DBMS_RLS.DROP_POLICY (
 --        object_schema  => 'ADMIN_QLDH',

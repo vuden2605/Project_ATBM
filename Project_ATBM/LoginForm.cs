@@ -61,13 +61,17 @@ namespace Project_ATBM
 
                 if (username.Contains("admin"))
                 {
+                    UserSession.maSV = username.ToUpper();
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
+
                 }
                 else if (username.Contains("sv"))
                 {
+                    UserSession.maSV = username.ToUpper();
                     SinhVienForm sinhVienForm = new SinhVienForm();
                     sinhVienForm.ShowDialog();
+                  
                 }
                 else
                 {
