@@ -78,24 +78,24 @@ namespace Project_ATBM
             if (tabControl1.SelectedIndex == 1)
             {
                 load_data_momon();
-                //load_data_dangky();
+                load_data_dangky();
             }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            load_data_dangky();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+             if (dataGridView1.CurrentRow != null)
             {
-                string maMon = dataGridView2.CurrentRow.Cells["MAMON"].Value.ToString();
-                string tenMon = dataGridView2.CurrentRow.Cells["TENMON"].Value.ToString();
+                string maMm = dataGridView1.CurrentRow.Cells["MAMM"].Value.ToString();
+                string tenHp = dataGridView1.CurrentRow.Cells["TENHP"].Value.ToString();
 
                 DialogResult result = MessageBox.Show(
-                    $"Bạn có muốn đăng ký môn học: {tenMon} (Mã: {maMon}) không?",
+                    $"Bạn có muốn đăng ký môn học: {tenHp} (Mã: {maMm}) không?",
                     "Xác nhận đăng ký",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -103,8 +103,25 @@ namespace Project_ATBM
 
                 if (result == DialogResult.Yes)
                 {
-                    // Thực hiện đăng ký tại đây
-                    MessageBox.Show("Đăng ký thành công!", "Thông báo");
+                    try
+                    {
+                        using (OracleCommand cmd = new OracleCommand("admin_qldh.sv_dk_monhoc", LoginForm.conn))
+                        {
+                            Console.WriteLine(UserSession.maSV);
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.Add("p_masv", OracleDbType.NVarchar2).Value = UserSession.maSV;
+                            cmd.Parameters.Add("p_mamm", OracleDbType.NVarchar2).Value = maMm;
+
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Đăng ký môn học thành công!", "Thông báo");
+                            load_data_dangky();
+                        }
+                    }
+                    catch (Exception ex) {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
                 }
             }
             else
