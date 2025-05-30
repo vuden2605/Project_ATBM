@@ -63,6 +63,7 @@
             textBox3 = new TextBox();
             label3 = new Label();
             panel1 = new Panel();
+            button3 = new Button();
             btnRoleToUser = new Button();
             btnCapQuyen = new Button();
             btnDeleteUser = new Button();
@@ -80,7 +81,6 @@
             btnCreateRole = new Button();
             dataGridView2 = new DataGridView();
             tabControl1 = new TabControl();
-            button3 = new Button();
             tabPage3.SuspendLayout();
             tabControl4.SuspendLayout();
             tabPage12.SuspendLayout();
@@ -529,6 +529,19 @@
             panel1.Size = new Size(262, 299);
             panel1.TabIndex = 5;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.LimeGreen;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(51, 251);
+            button3.Name = "button3";
+            button3.Size = new Size(164, 45);
+            button3.TabIndex = 7;
+            button3.Text = "Thu hồi role";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // btnRoleToUser
             // 
             btnRoleToUser.BackColor = Color.LimeGreen;
@@ -747,19 +760,6 @@
             tabControl1.SizeMode = TabSizeMode.FillToRight;
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.LimeGreen;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(51, 251);
-            button3.Name = "button3";
-            button3.Size = new Size(164, 45);
-            button3.TabIndex = 7;
-            button3.Text = "Thu hồi role";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
             // 
             // AdminForm
             // 

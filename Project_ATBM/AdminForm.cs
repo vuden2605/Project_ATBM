@@ -19,6 +19,7 @@ namespace Project_ATBM
         {
             InitializeComponent();
             load_data_users();
+            
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
