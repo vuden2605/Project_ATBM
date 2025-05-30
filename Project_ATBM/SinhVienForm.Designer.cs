@@ -507,6 +507,7 @@
             btnSearchUser.TabIndex = 5;
             btnSearchUser.Text = "Tìm kiếm";
             btnSearchUser.UseVisualStyleBackColor = false;
+            btnSearchUser.Click += btnSearchUser_Click;
             // 
             // textBox9
             // 

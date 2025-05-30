@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_ATBM
 {
@@ -173,6 +174,27 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Vui lòng chọn một hàng trong danh sách đăng ký.", "Thông báo");
             }
+        }
+
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string tenHp = textBox9.Text;
+                string query = "SELECT * FROM admin_qldh.v_sv_momon WHERE tenhp LIKE : tenHp";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":username", "%" + tenHp + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
+
         }
     }
 }
