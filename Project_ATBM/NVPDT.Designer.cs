@@ -807,7 +807,7 @@
             button15.Name = "button15";
             button15.Size = new Size(164, 45);
             button15.TabIndex = 4;
-            button15.Text = "Xóa sinh viên";
+            button15.Text = "Xóa";
             button15.UseVisualStyleBackColor = false;
             // 
             // button16
@@ -820,7 +820,7 @@
             button16.Name = "button16";
             button16.Size = new Size(164, 45);
             button16.TabIndex = 3;
-            button16.Text = "Sửa sinh viên";
+            button16.Text = "Sửa";
             button16.UseVisualStyleBackColor = false;
             // 
             // button17
@@ -833,7 +833,7 @@
             button17.Name = "button17";
             button17.Size = new Size(164, 45);
             button17.TabIndex = 2;
-            button17.Text = "Thêm sinh viên";
+            button17.Text = "Thêm ";
             button17.UseVisualStyleBackColor = false;
             // 
             // button18
