@@ -40,6 +40,12 @@
     <Compile Update="NVPDT.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NVPKT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NVTCHC.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SinhVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
