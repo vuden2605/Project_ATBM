@@ -62,6 +62,9 @@
             textBox1 = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            tabPage2 = new TabPage();
+            dataGridView3 = new DataGridView();
+            label15 = new Label();
             tbcThongTin.SuspendLayout();
             tabPage1.SuspendLayout();
             panel8.SuspendLayout();
@@ -73,11 +76,14 @@
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             SuspendLayout();
             // 
             // tbcThongTin
             // 
             tbcThongTin.Controls.Add(tabPage1);
+            tbcThongTin.Controls.Add(tabPage2);
             tbcThongTin.Location = new Point(2, 1);
             tbcThongTin.Name = "tbcThongTin";
             tbcThongTin.SelectedIndex = 0;
@@ -392,6 +398,36 @@
             label1.TabIndex = 0;
             label1.Text = "Thông tin nhân viên";
             // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(label15);
+            tabPage2.Controls.Add(dataGridView3);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Size = new Size(979, 542);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Thông báo";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(89, 99);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 82;
+            dataGridView3.Size = new Size(798, 428);
+            dataGridView3.TabIndex = 4;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 16F);
+            label15.Location = new Point(348, 40);
+            label15.Name = "label15";
+            label15.Size = new Size(274, 37);
+            label15.TabIndex = 5;
+            label15.Text = "THÔNG BÁO CỦA TÔI";
+            // 
             // NVCB
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -421,6 +457,9 @@
             panel7.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ResumeLayout(false);
         }
 
@@ -460,5 +499,8 @@
         private TextBox textBox1;
         private Label label2;
         private Label label1;
+        private TabPage tabPage2;
+        private DataGridView dataGridView3;
+        private Label label15;
     }
 }
