@@ -140,6 +140,7 @@
             button4.TabIndex = 12;
             button4.Text = "Đăng xuất";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button2
             // 
@@ -569,21 +570,23 @@
             // dataGridView3
             // 
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(127, 138);
+            dataGridView3.Location = new Point(89, 99);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 82;
-            dataGridView3.Size = new Size(1246, 690);
+            dataGridView3.Size = new Size(798, 428);
             dataGridView3.TabIndex = 3;
+            dataGridView3.CellContentClick += dataGridView3_CellContentClick;
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 16F);
-            label15.Location = new Point(508, 48);
+            label15.Location = new Point(348, 40);
             label15.Name = "label15";
             label15.Size = new Size(274, 37);
             label15.TabIndex = 2;
             label15.Text = "THÔNG BÁO CỦA TÔI";
+            label15.Click += label15_Click;
             // 
             // SinhVienForm
             // 

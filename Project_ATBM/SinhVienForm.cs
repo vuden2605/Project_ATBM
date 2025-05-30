@@ -96,10 +96,10 @@ namespace Project_ATBM
             }
             if (tabControl1.SelectedIndex == 1)
             {
-                
+
                 load_data_momon();
                 load_data_dangky();
-                
+
             }
             if (tabControl1.SelectedIndex == 2)
             {
@@ -303,6 +303,32 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi." + ex.Message);
             }
 
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn đăng xuất không?",
+                "Xác nhận đăng xuất",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+
+            }
         }
     }
 }
