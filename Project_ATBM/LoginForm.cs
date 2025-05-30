@@ -63,11 +63,13 @@ namespace Project_ATBM
                 {
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
+                    UserSession.maSV=username;
                 }
                 else if (username.Contains("sv"))
                 {
                     SinhVienForm sinhVienForm = new SinhVienForm();
                     sinhVienForm.ShowDialog();
+                    UserSession.maSV = username;
                 }
                 else
                 {

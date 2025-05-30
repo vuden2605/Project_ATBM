@@ -72,16 +72,16 @@ BEGIN
 END;
 /
 CREATE OR REPLACE VIEW V_nvpdt_mm AS
-SELECT *
-FROM MOMON
+SELECT m.mamm, hp.tenhp, m.mahp, m.magv, m.hk, m.nam, m.ngaybd
+FROM MOMON m
+join hocphan hp on hp.mahp=m.mahp
 WHERE (
     TO_NUMBER(SUBSTR(NAM,1,4)) = EXTRACT(YEAR FROM SYSDATE)
     OR TO_NUMBER(SUBSTR(NAM,6,9)) = EXTRACT(YEAR FROM SYSDATE)
 )
-AND HK = GET_CURRENT_SEMESTER()
-WITH CHECK OPTION;
+AND HK = GET_CURRENT_SEMESTER();
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON V_nvpdt_mm TO role_nvpdt;
+GRANT SELECT V_nvpdt_mm TO role_nvpdt;
 
 --Câu 2.3 Người dùng có vai trò “TRGĐV” có quyền xem các dòng phân công giảng dạy của
 --các giảng viên thuộc đơn vị mình làm trưởng.

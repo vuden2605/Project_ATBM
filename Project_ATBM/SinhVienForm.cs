@@ -86,5 +86,32 @@ namespace Project_ATBM
         {
             load_data_dangky();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                string maMon = dataGridView2.CurrentRow.Cells["MAMON"].Value.ToString();
+                string tenMon = dataGridView2.CurrentRow.Cells["TENMON"].Value.ToString();
+
+                DialogResult result = MessageBox.Show(
+                    $"Bạn có muốn đăng ký môn học: {tenMon} (Mã: {maMon}) không?",
+                    "Xác nhận đăng ký",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    // Thực hiện đăng ký tại đây
+                    MessageBox.Show("Đăng ký thành công!", "Thông báo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách môn học.", "Thông báo");
+            }
+        }
+
     }
 }
