@@ -72,7 +72,7 @@ BEGIN
 END;
 /
 CREATE OR REPLACE VIEW V_nvpdt_mm AS
-SELECT m.mamm, hp.tenhp, m.mahp, m.magv, m.hk, m.nam, m.ngaybd
+SELECT m.mamm, m.mahp,hp.tenhp, m.magv, m.hk, m.nam, m.ngaybd
 FROM MOMON m
 join hocphan hp on hp.mahp=m.mahp
 WHERE (
@@ -81,7 +81,7 @@ WHERE (
 )
 AND HK = GET_CURRENT_SEMESTER();
 
-GRANT SELECT V_nvpdt_mm TO role_nvpdt;
+GRANT SELECT on V_nvpdt_mm TO role_nvpdt;
 
 --Câu 2.3 Người dùng có vai trò “TRGĐV” có quyền xem các dòng phân công giảng dạy của
 --các giảng viên thuộc đơn vị mình làm trưởng.
@@ -95,7 +95,7 @@ GRANT SELECT ON v_trgdv_mm to role_trgdv;
 --mở các học phần thuộc quyền phụ trách chuyên môn bởi Khoa mà sinh viên đang theo
 --học.
 create or replace view v_sv_momon as
-select m.mamm, m.mahp, m.magv, m.hk, m.nam, m.ngaybd 
+select m.mamm, m.mahp, hp.tenhp, m.magv, m.hk, m.nam, m.ngaybd 
 from momon m 
 join hocphan hp on hp.mahp=m.mahp
 join sinhvien sv on sv.khoa=hp.madv where sv.masv=sys_context('userenv','session_user')
