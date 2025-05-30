@@ -458,6 +458,7 @@
             button5.TabIndex = 9;
             button5.Text = "Hủy đăng ký";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button3
             // 

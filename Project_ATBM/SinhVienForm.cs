@@ -84,12 +84,12 @@ namespace Project_ATBM
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-             if (dataGridView1.CurrentRow != null)
+            if (dataGridView1.CurrentRow != null)
             {
                 string maMm = dataGridView1.CurrentRow.Cells["MAMM"].Value.ToString();
                 string tenHp = dataGridView1.CurrentRow.Cells["TENHP"].Value.ToString();
@@ -119,7 +119,8 @@ namespace Project_ATBM
                             load_data_dangky();
                         }
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         MessageBox.Show("Lỗi: " + ex.Message);
                     }
                 }
@@ -130,5 +131,48 @@ namespace Project_ATBM
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow != null)
+            {
+                string maMm = dataGridView2.CurrentRow.Cells["MAMM"].Value.ToString();
+                string tenHp = dataGridView1.CurrentRow.Cells["TENHP"].Value.ToString();
+
+                DialogResult result = MessageBox.Show(
+                    $"Bạn có muốn hủy đăng ký môn học: {tenHp} (Mã: {maMm}) không?",
+                    "Xác nhận đăng ký",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (OracleCommand cmd = new OracleCommand("admin_qldh.sv_delete_dk", LoginForm.conn))
+                        {
+                            Console.WriteLine(UserSession.maSV);
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.Add("p_masv", OracleDbType.NVarchar2).Value = UserSession.maSV;
+                            cmd.Parameters.Add("p_mamm", OracleDbType.NVarchar2).Value = maMm;
+
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Hủy đăng ký môn học thành công!", "Thông báo");
+                            load_data_dangky();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách đăng ký.", "Thông báo");
+            }
+        }
     }
 }
