@@ -481,6 +481,7 @@
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(735, 185);
             dataGridView2.TabIndex = 7;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // label14
             // 

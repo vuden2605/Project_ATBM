@@ -45,6 +45,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
+        public void load_data_dangky()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.dangky";
+
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -55,12 +73,18 @@ namespace Project_ATBM
         {
             if (tabControl1.SelectedIndex == 0)
             {
-               
+
             }
             if (tabControl1.SelectedIndex == 1)
             {
                 load_data_momon();
+                //load_data_dangky();
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            load_data_dangky();
         }
     }
 }
