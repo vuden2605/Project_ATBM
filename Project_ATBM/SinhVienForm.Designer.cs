@@ -71,6 +71,8 @@
             dataGridView1 = new DataGridView();
             label12 = new Label();
             tabPage3 = new TabPage();
+            dataGridView3 = new DataGridView();
+            label15 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             panel6.SuspendLayout();
@@ -84,6 +86,8 @@
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -146,6 +150,7 @@
             button2.TabIndex = 11;
             button2.Text = "Thay đổi SĐT";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -156,6 +161,7 @@
             button1.TabIndex = 10;
             button1.Text = "Thay đổi địa chỉ";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label11
             // 
@@ -550,14 +556,39 @@
             // 
             // tabPage3
             // 
+<<<<<<< HEAD
             tabPage3.Location = new Point(4, 29);
             tabPage3.Margin = new Padding(2);
+=======
+            tabPage3.Controls.Add(dataGridView3);
+            tabPage3.Controls.Add(label15);
+            tabPage3.Location = new Point(8, 46);
+>>>>>>> origin/main
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(2);
             tabPage3.Size = new Size(979, 542);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Xem thông báo";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(127, 138);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 82;
+            dataGridView3.Size = new Size(1246, 690);
+            dataGridView3.TabIndex = 3;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 16F);
+            label15.Location = new Point(508, 48);
+            label15.Name = "label15";
+            label15.Size = new Size(442, 59);
+            label15.TabIndex = 2;
+            label15.Text = "THÔNG BÁO CỦA TÔI";
             // 
             // SinhVienForm
             // 
@@ -567,6 +598,7 @@
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "SinhVienForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang sinh viên";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
@@ -591,6 +623,9 @@
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ResumeLayout(false);
         }
 
@@ -639,5 +674,7 @@
         private Button button3;
         private DataGridView dataGridView2;
         private TabPage tabPage3;
+        private DataGridView dataGridView3;
+        private Label label15;
     }
 }

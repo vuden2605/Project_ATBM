@@ -17,16 +17,112 @@ namespace Project_ATBM
         public SinhVienForm()
         {
             InitializeComponent();
-        }
+            LoadTTSV();
 
+        }
+        // sửa dia chi
         private void label10_Click(object sender, EventArgs e)
         {
             textBox4.Enabled = true;
-        }
+            textBox4.Focus();
 
+        }
+        // sửa sdt
         private void label11_Click(object sender, EventArgs e)
         {
-            textBox4.Enabled = true;
+            textBox6.Enabled = true;
+            textBox6.Focus();
+
+        }
+        private void LoadThongBao()
+        {
+            try
+            {
+                string query = @"
+            SELECT 
+                ROW_NUMBER() OVER (ORDER BY ngaytao DESC) AS ""STT"",
+                noidung AS ""Nội dung"",
+                ngaytao AS ""Ngày tạo""
+            FROM ADMIN_QLDH.THONGBAO";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+                dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
+            }
+        }
+        private void LoadTTSV()
+        {
+            try
+            {
+                string query = @"
+            SELECT MASV, HOTEN, TO_CHAR(NGSINH, 'DD/MM/YYYY') AS NGSINH, PHAI, DCHI, DT, KHOA, TINHTRANG
+            FROM ADMIN_QLDH.SINHVIEN
+            WHERE MASV = SYS_CONTEXT('USERENV', 'SESSION_USER')";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    textBox1.Text = reader["MASV"].ToString();
+                    textBox5.Text = reader["HOTEN"].ToString();
+                    textBox8.Text = reader["NGSINH"].ToString();
+                    textBox2.Text = reader["PHAI"].ToString();
+                    textBox4.Text = reader["DCHI"].ToString();
+                    textBox6.Text = reader["DT"].ToString();
+                    textBox3.Text = reader["KHOA"].ToString();
+                    textBox7.Text = reader["TINHTRANG"].ToString();
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông tin sinh viên: " + ex.Message);
+            }
+        }
+
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (tabControl1.SelectedIndex == 0)
+            {
+                LoadTTSV();
+
+            }
+            if (tabControl1.SelectedIndex == 1)
+            {
+            }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                LoadThongBao();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("admin_qldh.update_address", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_masv", OracleDbType.Varchar2).Value = textBox1.Text.Trim();
+                cmd.Parameters.Add("p_dchimoi", OracleDbType.Varchar2).Value = textBox4.Text.Trim();
+                int result = cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cập nhật địa chỉ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTTSV();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật địa chỉ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            LoadTTSV();
+            textBox4.Enabled = false;
         }
         public void load_data_momon()
         {
@@ -176,6 +272,29 @@ namespace Project_ATBM
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("admin_qldh.update_phone", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_masv", OracleDbType.Varchar2).Value = textBox1.Text.Trim();
+                cmd.Parameters.Add("p_sdtmoi", OracleDbType.Varchar2).Value = textBox6.Text.Trim();
+                int result = cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cập nhật số điện thoại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTTSV();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật  số điện thoại: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            LoadTTSV();
+            textBox6.Enabled = false;
+        }
+    }
+}
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
             try
