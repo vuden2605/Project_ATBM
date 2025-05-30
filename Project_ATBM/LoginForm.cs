@@ -73,6 +73,55 @@ namespace Project_ATBM
                     sinhVienForm.ShowDialog();
                   
                 }
+                else if (username.Contains("GV"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    GV sinhVienForm = new GV();
+                    sinhVienForm.ShowDialog();
+
+                }
+                else if (username.Contains("NVCB"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    NVCB sinhVienForm = new NVCB();
+                    sinhVienForm.ShowDialog();
+
+                }
+                else if (username.Contains("NVPDT"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    NVPDT sinhVienForm = new NVPDT();
+                    sinhVienForm.ShowDialog();
+
+                }
+                else if (username.Contains("NVPKT"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    NVPKT sinhVienForm = new NVPKT();
+                    sinhVienForm.ShowDialog();
+
+                }
+                else if (username.Contains("NVTCHC"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    NVTCHC sinhVienForm = new NVTCHC();
+                    sinhVienForm.ShowDialog();
+
+                }
+                else if (username.Contains("NVCTSV"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    CTSV sinhVienForm = new CTSV();
+                    sinhVienForm.ShowDialog();
+
+                }
+                else if (username.Contains("TDV"))
+                {
+                    UserSession.maSV = username.ToUpper();
+                    TRGDV sinhVienForm = new TRGDV();
+                    sinhVienForm.ShowDialog();
+
+                }
                 else
                 {
                     // Load form khác theo role nếu cần
