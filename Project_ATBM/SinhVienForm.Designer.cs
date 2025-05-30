@@ -558,7 +558,7 @@
             // 
             tabPage3.Controls.Add(dataGridView3);
             tabPage3.Controls.Add(label15);
-            tabPage3.Location = new Point(8, 46);
+            tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(2);
             tabPage3.Size = new Size(979, 542);
@@ -581,7 +581,7 @@
             label15.Font = new Font("Segoe UI", 16F);
             label15.Location = new Point(508, 48);
             label15.Name = "label15";
-            label15.Size = new Size(442, 59);
+            label15.Size = new Size(274, 37);
             label15.TabIndex = 2;
             label15.Text = "THÔNG BÁO CỦA TÔI";
             // 

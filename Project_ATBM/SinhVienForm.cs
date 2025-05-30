@@ -96,6 +96,10 @@ namespace Project_ATBM
             }
             if (tabControl1.SelectedIndex == 1)
             {
+                
+                load_data_momon();
+                load_data_dangky();
+                
             }
             if (tabControl1.SelectedIndex == 2)
             {
@@ -114,8 +118,8 @@ namespace Project_ATBM
                 int result = cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cập nhật địa chỉ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadTTSV();
-                
+                LoadTTSV();
+
             }
             catch (Exception ex)
             {
@@ -164,19 +168,6 @@ namespace Project_ATBM
         {
 
 
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedIndex == 0)
-            {
-
-            }
-            if (tabControl1.SelectedIndex == 1)
-            {
-                load_data_momon();
-                load_data_dangky();
-            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -283,8 +274,8 @@ namespace Project_ATBM
                 int result = cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cập nhật số điện thoại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadTTSV();
-                
+                LoadTTSV();
+
             }
             catch (Exception ex)
             {
@@ -293,8 +284,6 @@ namespace Project_ATBM
             LoadTTSV();
             textBox6.Enabled = false;
         }
-    }
-}
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
             try
@@ -317,3 +306,4 @@ namespace Project_ATBM
         }
     }
 }
+      
