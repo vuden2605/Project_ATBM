@@ -98,6 +98,9 @@
             button16 = new Button();
             button17 = new Button();
             button18 = new Button();
+            tabPage5 = new TabPage();
+            dataGridView4 = new DataGridView();
+            label19 = new Label();
             tbcThongTin.SuspendLayout();
             tabPage1.SuspendLayout();
             panel8.SuspendLayout();
@@ -121,6 +124,8 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             panel14.SuspendLayout();
             panel15.SuspendLayout();
+            tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
             // 
             // tbcThongTin
@@ -129,6 +134,7 @@
             tbcThongTin.Controls.Add(tabPage3);
             tbcThongTin.Controls.Add(tabPage2);
             tbcThongTin.Controls.Add(tabPage4);
+            tbcThongTin.Controls.Add(tabPage5);
             tbcThongTin.Location = new Point(2, 1);
             tbcThongTin.Name = "tbcThongTin";
             tbcThongTin.SelectedIndex = 0;
@@ -807,7 +813,7 @@
             button15.Name = "button15";
             button15.Size = new Size(164, 45);
             button15.TabIndex = 4;
-            button15.Text = "Xóa sinh viên";
+            button15.Text = "Xóa";
             button15.UseVisualStyleBackColor = false;
             // 
             // button16
@@ -820,7 +826,7 @@
             button16.Name = "button16";
             button16.Size = new Size(164, 45);
             button16.TabIndex = 3;
-            button16.Text = "Sửa sinh viên";
+            button16.Text = "Sửa";
             button16.UseVisualStyleBackColor = false;
             // 
             // button17
@@ -833,7 +839,7 @@
             button17.Name = "button17";
             button17.Size = new Size(164, 45);
             button17.TabIndex = 2;
-            button17.Text = "Thêm sinh viên";
+            button17.Text = "Thêm ";
             button17.UseVisualStyleBackColor = false;
             // 
             // button18
@@ -848,6 +854,36 @@
             button18.TabIndex = 15;
             button18.Text = "Đăng xuất";
             button18.UseVisualStyleBackColor = false;
+            // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(dataGridView4);
+            tabPage5.Controls.Add(label19);
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(979, 542);
+            tabPage5.TabIndex = 5;
+            tabPage5.Text = "Thông báo";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Location = new Point(90, 87);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.RowHeadersWidth = 82;
+            dataGridView4.Size = new Size(798, 428);
+            dataGridView4.TabIndex = 5;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 16F);
+            label19.Location = new Point(349, 28);
+            label19.Name = "label19";
+            label19.Size = new Size(274, 37);
+            label19.TabIndex = 4;
+            label19.Text = "THÔNG BÁO CỦA TÔI";
             // 
             // NVPDT
             // 
@@ -896,6 +932,9 @@
             panel14.ResumeLayout(false);
             panel14.PerformLayout();
             panel15.ResumeLayout(false);
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ResumeLayout(false);
         }
 
@@ -971,5 +1010,8 @@
         private TextBox textBox12;
         private Label label17;
         private Button button18;
+        private TabPage tabPage5;
+        private DataGridView dataGridView4;
+        private Label label19;
     }
 }

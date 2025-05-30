@@ -88,6 +88,9 @@
             button7 = new Button();
             label18 = new Label();
             textBox13 = new TextBox();
+            tabPage5 = new TabPage();
+            dataGridView4 = new DataGridView();
+            label19 = new Label();
             tbcThongTin.SuspendLayout();
             tabPage1.SuspendLayout();
             panel8.SuspendLayout();
@@ -108,6 +111,8 @@
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             panel11.SuspendLayout();
+            tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
             // 
             // tbcThongTin
@@ -116,6 +121,7 @@
             tbcThongTin.Controls.Add(tabPage3);
             tbcThongTin.Controls.Add(tabPage2);
             tbcThongTin.Controls.Add(tabPage4);
+            tbcThongTin.Controls.Add(tabPage5);
             tbcThongTin.Location = new Point(2, 1);
             tbcThongTin.Name = "tbcThongTin";
             tbcThongTin.SelectedIndex = 0;
@@ -711,6 +717,36 @@
             textBox13.Size = new Size(253, 27);
             textBox13.TabIndex = 4;
             // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(dataGridView4);
+            tabPage5.Controls.Add(label19);
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(979, 542);
+            tabPage5.TabIndex = 5;
+            tabPage5.Text = "Thông báo";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Location = new Point(90, 87);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.RowHeadersWidth = 82;
+            dataGridView4.Size = new Size(798, 428);
+            dataGridView4.TabIndex = 5;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 16F);
+            label19.Location = new Point(349, 28);
+            label19.Name = "label19";
+            label19.Size = new Size(274, 37);
+            label19.TabIndex = 4;
+            label19.Text = "THÔNG BÁO CỦA TÔI";
+            // 
             // GV
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -755,6 +791,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ResumeLayout(false);
         }
 
@@ -820,5 +859,8 @@
         private Label label16;
         private TextBox textBox13;
         private Label label18;
+        private TabPage tabPage5;
+        private DataGridView dataGridView4;
+        private Label label19;
     }
 }
