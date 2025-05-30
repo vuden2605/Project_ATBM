@@ -61,6 +61,9 @@
             textBox1 = new TextBox();
             label1 = new Label();
             tabPage2 = new TabPage();
+            button5 = new Button();
+            button3 = new Button();
+            dataGridView2 = new DataGridView();
             label14 = new Label();
             btnSearchUser = new Button();
             textBox9 = new TextBox();
@@ -68,9 +71,6 @@
             dataGridView1 = new DataGridView();
             label12 = new Label();
             tabPage3 = new TabPage();
-            dataGridView2 = new DataGridView();
-            button3 = new Button();
-            button5 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             panel6.SuspendLayout();
@@ -82,8 +82,8 @@
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -409,8 +409,41 @@
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1588, 866);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Mở môn";
+            tabPage2.Text = "Đăng ký học phần";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Crimson;
+            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button5.ForeColor = SystemColors.ButtonHighlight;
+            button5.Location = new Point(1256, 608);
+            button5.Name = "button5";
+            button5.Size = new Size(188, 56);
+            button5.TabIndex = 9;
+            button5.Text = "Hủy đăng ký";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.LimeGreen;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(1256, 320);
+            button3.Name = "button3";
+            button3.Size = new Size(150, 56);
+            button3.TabIndex = 8;
+            button3.Text = "Đăng ký";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(15, 475);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 82;
+            dataGridView2.Size = new Size(1194, 296);
+            dataGridView2.TabIndex = 7;
             // 
             // label14
             // 
@@ -474,41 +507,8 @@
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(1588, 866);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Đăng ký";
+            tabPage3.Text = "Xem thông báo";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(15, 475);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.Size = new Size(1194, 296);
-            dataGridView2.TabIndex = 7;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.LimeGreen;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(1256, 320);
-            button3.Name = "button3";
-            button3.Size = new Size(150, 56);
-            button3.TabIndex = 8;
-            button3.Text = "Đăng ký";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.Crimson;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button5.ForeColor = SystemColors.ButtonHighlight;
-            button5.Location = new Point(1256, 608);
-            button5.Name = "button5";
-            button5.Size = new Size(188, 56);
-            button5.TabIndex = 9;
-            button5.Text = "Hủy đăng ký";
-            button5.UseVisualStyleBackColor = false;
             // 
             // SinhVienForm
             // 
@@ -539,8 +539,8 @@
             panel1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -549,7 +549,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TabPage tabPage3;
         private Panel panel1;
         private Label label1;
         private TextBox textBox1;
@@ -589,5 +588,6 @@
         private Button button5;
         private Button button3;
         private DataGridView dataGridView2;
+        private TabPage tabPage3;
     }
 }

@@ -64,6 +64,11 @@ namespace Project_ATBM
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
                 }
+                else if (username.Contains("sv"))
+                {
+                    SinhVienForm sinhVienForm = new SinhVienForm();
+                    sinhVienForm.ShowDialog();
+                }
                 else
                 {
                     // Load form khác theo role nếu cần
