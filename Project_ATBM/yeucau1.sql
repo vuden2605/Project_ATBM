@@ -148,6 +148,7 @@ END;
 --        policy_name    => 'SV_POLICY'
 --    );
 --END;
+--/
 CREATE OR REPLACE TRIGGER sv_restrict_update
 BEFORE UPDATE ON SINHVIEN
 FOR EACH ROW
@@ -209,6 +210,42 @@ END;
 --    );
 --END;
 --/
+CREATE OR REPLACE FUNCTION mask_diem_func (
+  schema_name IN VARCHAR2,
+  table_name  IN VARCHAR2
+) RETURN VARCHAR2 IS
+  v_user VARCHAR2(30);
+BEGIN
+  v_user := SYS_CONTEXT('USERENV', 'SESSION_USER');
+
+  IF v_user LIKE 'NVPDT%' THEN
+    RETURN '1=0';  
+  ELSE
+    RETURN NULL; 
+  END IF;
+END;
+/
+BEGIN
+  DBMS_RLS.ADD_POLICY(
+    object_schema   => 'ADMIN_QLDH',
+    object_name     => 'DANGKY',
+    policy_name     => 'mask_diem_policy',
+    function_schema => 'ADMIN_QLDH',
+    policy_function => 'mask_diem_func',
+    statement_types => 'SELECT',
+    sec_relevant_cols => 'DIEMTK, DIEMTH, DIEMCK, DIEMQT',
+    sec_relevant_cols_opt => DBMS_RLS.ALL_ROWS
+  );
+END;
+/
+--BEGIN
+--    DBMS_RLS.DROP_POLICY (
+--        object_schema  => 'ADMIN_QLDH',
+--        object_name    => 'DANGKY',
+--        policy_name    => 'mask_diem_policy'
+--    );
+--END;
+--/
 CREATE OR REPLACE TRIGGER dk_restrict_update
 BEFORE INSERT OR UPDATE OR DELETE ON DANGKY
 FOR EACH ROW
@@ -248,3 +285,4 @@ GRANT SELECT, INSERT, DELETE ON DANGKY TO role_sv;
 GRANT SELECT, INSERT, DELETE ON DANGKY TO role_nvpdt;
 GRANT SELECT, UPDATE (DIEMTH,DIEMQT,DIEMCK,DIEMTK) ON DANGKY TO role_nvpkt;
 GRANT SELECT ON DANGKY TO role_gv;
+
