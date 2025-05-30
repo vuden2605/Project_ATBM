@@ -38,30 +38,38 @@ CREATE TABLE THONGBAO (
 -- tạo người dùng để test
 -- tạo u1-u8 gán quyền connect select trên thongbao
 -- Tạo user và cấp quyền CONNECT + SELECT trên ADMIN_QLDH.THONGBAO
---
+
 --CREATE USER TDV001 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV001;
---
+--GRANT CONNECT TO TDV001;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO TDV001;
+
 --CREATE USER TDV004 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV004;
---
+--GRANT CONNECT TO TDV004;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO TDV004;
+
 --CREATE USER TDV002 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV002;
---
+--GRANT CONNECT TO TDV002;
+--GRANT  SELECT ON ADMIN_QLDH.THONGBAO TO TDV002;
+
 --CREATE USER GV004 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO GV004;
---
+--GRANT CONNECT TO GV004;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO GV004;
+
 --CREATE USER SV0004 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO SV0004;
---
+--GRANT CONNECT TO SV0004;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO SV0004;
+
 --CREATE USER TDV003 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV003;
---
+--GRANT CONNECT TO TDV003;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO TDV003;
+
 --CREATE USER GV001 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO GV001;
---
+--GRANT CONNECT TO GV001;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO GV001;
+
 --CREATE USER NVPDT001 IDENTIFIED BY 123;
---GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO NVPDT001;
+--GRANT CONNECT TO NVPDT001;
+--GRANT SELECT ON ADMIN_QLDH.THONGBAO TO NVPDT001;
 --- tạo chính sách
 BEGIN
     sa_sysdba.create_policy(
@@ -169,20 +177,20 @@ BEGIN
     );
 END;
 /
+connect sys/vuden2605@localhost:1521/QLDH AS SYSDBA;
 -- xem label
 --SELECT * FROM DBA_SA_LABELS 
 --WHERE POLICY_NAME = 'THONGBAO_POLICY';
---drop label
-
---BEGIN
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000018);
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000019);
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000020);
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000021);
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000022);
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000023);
---    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000024);
---END;
+--drop label;
+--begin
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000000);
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000001);
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000002);
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000003);
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000004);
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000005);
+--    sa_label_admin.drop_label(policy_name => 'thongbao_policy', label_tag => 1000000006);
+--end;
 --/
 
 -- t1,Nhãn cho Trưởng đơn vị (có thể đọc tất cả)
