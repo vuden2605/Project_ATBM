@@ -36,19 +36,32 @@ CREATE TABLE THONGBAO (
     NGAYTAO DATE DEFAULT SYSDATE
 );
 -- tạo người dùng để test
-BEGIN
-  FOR i IN 1..8 LOOP
-    -- Tạo user
-    EXECUTE IMMEDIATE 'CREATE USER u' || i || ' IDENTIFIED BY 123';
-
-    -- Cấp quyền CONNECT
-    EXECUTE IMMEDIATE 'GRANT CONNECT TO u' || i;
-
-    -- Cấp quyền SELECT trên bảng
-    EXECUTE IMMEDIATE 'GRANT SELECT ON admin_qldh.thongbao TO u' || i;
-  END LOOP;
-END;
-/
+-- tạo u1-u8 gán quyền connect select trên thongbao
+-- Tạo user và cấp quyền CONNECT + SELECT trên ADMIN_QLDH.THONGBAO
+--
+--CREATE USER TDV001 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV001;
+--
+--CREATE USER TDV004 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV004;
+--
+--CREATE USER TDV002 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV002;
+--
+--CREATE USER GV004 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO GV004;
+--
+--CREATE USER SV0004 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO SV0004;
+--
+--CREATE USER TDV003 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO TDV003;
+--
+--CREATE USER GV001 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO GV001;
+--
+--CREATE USER NVPDT001 IDENTIFIED BY 123;
+--GRANT CONNECT, SELECT ON ADMIN_QLDH.THONGBAO TO NVPDT001;
 --- tạo chính sách
 BEGIN
     sa_sysdba.create_policy(
@@ -156,14 +169,22 @@ BEGIN
     );
 END;
 /
+-- xem label
+--SELECT * FROM DBA_SA_LABELS 
+--WHERE POLICY_NAME = 'THONGBAO_POLICY';
 --drop label
+
 --BEGIN
---    sa_label_admin.drop_label(
---        policy_name => 'THONGBAO_POLICY',
---        label_tag => 1000000017
---    );
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000018);
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000019);
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000020);
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000021);
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000022);
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000023);
+--    sa_label_admin.drop_label(policy_name => 'THONGBAO_POLICY', label_tag => 1000000024);
 --END;
 --/
+
 -- t1,Nhãn cho Trưởng đơn vị (có thể đọc tất cả)
 BEGIN
     sa_label_admin.create_label(
@@ -256,12 +277,11 @@ BEGIN
     );
 END;
 /
--- tạo u1-u8 gán quyền connect select trên thongbao
 -- U1: Trưởng đơn vị có thể đọc toàn bộ thông báo
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U1',
+        'TDV001',
         'TDV:TOAN,LY,HOA,HC:CS1,CS2'
     );
 END;
@@ -270,7 +290,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U2',
+        'TDV004',
         'TDV:HOA:CS2'
     );
 END;
@@ -280,7 +300,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U3',
+        'TDV002',
         'TDV:LY:CS2'
     );
 END;
@@ -290,7 +310,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U4',
+        'GV004',
         'NV:HOA:CS2'
     );
 END;
@@ -300,7 +320,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U5',
+        'SV0004',
         'SV:HOA:CS2'
     );
 END;
@@ -310,7 +330,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U6',
+        'TDV003',
         'TDV:HC:CS1,CS2'
     );
 END;
@@ -320,7 +340,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U7',
+        'GV001',
         'NV:TOAN,LY,HOA,HC:CS1,CS2'
     );
 END;
@@ -330,7 +350,7 @@ END;
 BEGIN
     sa_user_admin.set_user_labels(
         'THONGBAO_POLICY',
-        'U8',
+        'NVPDT001',
         'NV:HC:CS1'
     );
 END;
