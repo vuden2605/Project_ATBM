@@ -103,33 +103,33 @@ BEGIN
   );
 END;    
 /
+--BEGIN
+--  DBMS_FGA.DROP_POLICY( 
+--    object_schema => 'ADMIN_QLDH',
+--    object_name   => 'DANGKY',
+--    policy_name   => 'AUDIT_CHECK_SV_DANGKY'
+--  );
+--END;
+--/
 BEGIN
-  DBMS_FGA.DROP_POLICY( 
-    object_schema => 'ADMIN_QLDH',
-    object_name   => 'DANGKY',
-    policy_name   => 'AUDIT_CHECK_SV_DANGKY'
-  );
+    DBMS_FGA.ADD_POLICY(
+    object_schema   => 'ADMIN_QLDH',
+    object_name     => 'DANGKY',
+    policy_name     => 'AUDIT_SV_DANGKY_OVER_TIME',
+    audit_condition => 'fga_check_thoi_gian(MAMM)=1',
+    statement_types => 'INSERT, UPDATE, DELETE',
+    audit_column_opts  => DBMS_FGA.ANY_COLUMNS
+    );
 END;
 /
-    BEGIN
-      DBMS_FGA.ADD_POLICY(
-        object_schema   => 'ADMIN_QLDH',
-        object_name     => 'DANGKY',
-        policy_name     => 'AUDIT_SV_DANGKY_OVER_TIME',
-        audit_condition => 'fga_check_thoi_gian(MAMM)=1',
-        statement_types => 'INSERT, UPDATE, DELETE',
-        audit_column_opts  => DBMS_FGA.ANY_COLUMNS
-      );
-    END;
-/
-BEGIN
-  DBMS_FGA.DROP_POLICY( 
-    object_schema => 'ADMIN_QLDH',
-    object_name   => 'DANGKY',
-    policy_name   => 'AUDIT_SV_DANGKY_OVER_TIME'
-  );
-END;
-/
+--BEGIN
+--  DBMS_FGA.DROP_POLICY( 
+--    object_schema => 'ADMIN_QLDH',
+--    object_name   => 'DANGKY',
+--    policy_name   => 'AUDIT_SV_DANGKY_OVER_TIME'
+--  );
+--END;
+--/
 
 -- ket qua log nhanvien
 SELECT EVENT_TIMESTAMP,
@@ -156,7 +156,7 @@ ORDER BY EVENT_TIMESTAMP DESC;
 --connect nvpkt001/nvpkt001@localhost:1521/QLDH;
 --update admin_qldh.DANGKY set diemck=10; 
 
-CREATE AUDIT POLICY dangky_audit_policy ACTIONS UPDATE ON DANGKY;
+CREATE AUDIT POLICY dangky_audit_policy ACTIONS INSERT, UPDATE, DELETE ON DANGKY;
 AUDIT POLICY dangky_audit_policy BY nvpkt001;
 
 SELECT AUDIT_TYPE, EVENT_TIMESTAMP, DBUSERNAME, OBJECT_NAME, ACTION_NAME, SQL_TEXT, UNIFIED_AUDIT_POLICIES  
