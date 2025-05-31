@@ -249,6 +249,7 @@
             Controls.Add(label2);
             Name = "ThongTinMoMon";
             Text = "ThongTinMoMon";
+            Load += ThongTinMoMon_Load;
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             panel5.ResumeLayout(false);

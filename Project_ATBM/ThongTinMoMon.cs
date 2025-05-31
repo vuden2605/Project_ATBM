@@ -16,5 +16,10 @@ namespace Project_ATBM
         {
             InitializeComponent();
         }
+
+        private void ThongTinMoMon_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
