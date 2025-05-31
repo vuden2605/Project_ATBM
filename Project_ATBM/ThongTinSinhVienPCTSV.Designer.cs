@@ -33,10 +33,10 @@
             textBox1 = new TextBox();
             label1 = new Label();
             panel2 = new Panel();
-            textBox2 = new TextBox();
+            comboBox2 = new ComboBox();
             label3 = new Label();
             panel3 = new Panel();
-            textBox3 = new TextBox();
+            comboBox3 = new ComboBox();
             label4 = new Label();
             panel4 = new Panel();
             textBox4 = new TextBox();
@@ -48,7 +48,7 @@
             textBox8 = new TextBox();
             label9 = new Label();
             panel7 = new Panel();
-            textBox7 = new TextBox();
+            comboBox1 = new ComboBox();
             label8 = new Label();
             panel6 = new Panel();
             textBox6 = new TextBox();
@@ -88,7 +88,6 @@
             // 
             // textBox1
             // 
-            textBox1.Enabled = false;
             textBox1.Location = new Point(90, 14);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
@@ -107,7 +106,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(comboBox2);
             panel2.Controls.Add(label3);
             panel2.Location = new Point(95, 162);
             panel2.Margin = new Padding(2);
@@ -115,14 +114,13 @@
             panel2.Size = new Size(292, 49);
             panel2.TabIndex = 4;
             // 
-            // textBox2
+            // comboBox2
             // 
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(90, 14);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(190, 27);
-            textBox2.TabIndex = 1;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(90, 11);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(190, 28);
+            comboBox2.TabIndex = 1;
             // 
             // label3
             // 
@@ -136,7 +134,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(comboBox3);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(95, 255);
             panel3.Margin = new Padding(2);
@@ -144,14 +142,13 @@
             panel3.Size = new Size(292, 49);
             panel3.TabIndex = 5;
             // 
-            // textBox3
+            // comboBox3
             // 
-            textBox3.Enabled = false;
-            textBox3.Location = new Point(90, 14);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(190, 27);
-            textBox3.TabIndex = 1;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(90, 11);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(190, 28);
+            comboBox3.TabIndex = 2;
             // 
             // label4
             // 
@@ -175,7 +172,6 @@
             // 
             // textBox4
             // 
-            textBox4.Enabled = false;
             textBox4.Location = new Point(90, 14);
             textBox4.Margin = new Padding(2);
             textBox4.Name = "textBox4";
@@ -204,7 +200,6 @@
             // 
             // textBox5
             // 
-            textBox5.Enabled = false;
             textBox5.Location = new Point(90, 14);
             textBox5.Margin = new Padding(2);
             textBox5.Name = "textBox5";
@@ -233,7 +228,6 @@
             // 
             // textBox8
             // 
-            textBox8.Enabled = false;
             textBox8.Location = new Point(90, 14);
             textBox8.Margin = new Padding(2);
             textBox8.Name = "textBox8";
@@ -252,7 +246,7 @@
             // 
             // panel7
             // 
-            panel7.Controls.Add(textBox7);
+            panel7.Controls.Add(comboBox1);
             panel7.Controls.Add(label8);
             panel7.Location = new Point(534, 255);
             panel7.Margin = new Padding(2);
@@ -260,13 +254,14 @@
             panel7.Size = new Size(292, 49);
             panel7.TabIndex = 9;
             // 
-            // textBox7
+            // comboBox1
             // 
-            textBox7.Location = new Point(90, 14);
-            textBox7.Margin = new Padding(2);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(190, 27);
-            textBox7.TabIndex = 1;
+            comboBox1.Enabled = false;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(90, 11);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(190, 28);
+            comboBox1.TabIndex = 13;
             // 
             // label8
             // 
@@ -290,7 +285,6 @@
             // 
             // textBox6
             // 
-            textBox6.Enabled = false;
             textBox6.Location = new Point(90, 14);
             textBox6.Margin = new Padding(2);
             textBox6.Name = "textBox6";
@@ -376,10 +370,8 @@
         private TextBox textBox1;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox2;
         private Label label3;
         private Panel panel3;
-        private TextBox textBox3;
         private Label label4;
         private Panel panel4;
         private TextBox textBox4;
@@ -391,12 +383,14 @@
         private TextBox textBox8;
         private Label label9;
         private Panel panel7;
-        private TextBox textBox7;
         private Label label8;
         private Panel panel6;
         private TextBox textBox6;
         private Label label7;
         private Button button1;
         private Button button2;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private ComboBox comboBox1;
     }
 }

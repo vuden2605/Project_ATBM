@@ -17,11 +17,9 @@ namespace Project_ATBM
             InitializeComponent();
             textBox1.Text = masv;
             textBox5.Text = hoten;
-            textBox2.Text = phai;
+            
             textBox4.Text = dchi;
             textBox6.Text = dt;
-            textBox3.Text = khoa;
-            textBox7.Text = tinhtrang;
             textBox8.Text = ngsinh;  
         }
     }
