@@ -196,6 +196,7 @@
             // 
             textBox6.Location = new Point(205, 22);
             textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
             textBox6.Size = new Size(306, 39);
             textBox6.TabIndex = 1;
             // 

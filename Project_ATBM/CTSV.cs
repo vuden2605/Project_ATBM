@@ -108,6 +108,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
             }
         }
+        private void LoadSinhVien()
+        {
+            try
+            {
+                string query = @"
+            SELECT * FROM ADMIN_QLDH.SINHVIEN";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
+            }
+        }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -123,6 +141,7 @@ namespace Project_ATBM
             }
             if (tabControl1.SelectedIndex == 2)
             {
+                LoadSinhVien();
             }
         }
 
@@ -135,5 +154,52 @@ namespace Project_ATBM
         {
             
         }
+
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSV = textBox10.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.SINHVIEN WHERE UPPER(MASV) LIKE : maSV";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maSV", "%" + maSV + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    string masv = dataGridView1.CurrentRow.Cells["MASV"].Value.ToString();
+                    string hoten = dataGridView1.CurrentRow.Cells["HOTEN"].Value.ToString();
+                    string phai = dataGridView1.CurrentRow.Cells["PHAI"].Value.ToString();
+                    string ngsinh = dataGridView1.CurrentRow.Cells["NGSINH"].Value.ToString();
+                    string dchi = dataGridView1.CurrentRow.Cells["DCHI"].Value.ToString();
+                    string dt = dataGridView1.CurrentRow.Cells["DT"].Value.ToString();
+                    string khoa = dataGridView1.CurrentRow.Cells["KHOA"].Value.ToString();
+                    string tinhtrang = dataGridView1.CurrentRow.Cells["TINHTRANG"].Value.ToString();
+
+                    ThongTinSinhVien ttsv = new ThongTinSinhVien(masv, hoten, phai, ngsinh, dchi, dt, khoa, tinhtrang);
+                    ttsv.SVUpdate += (s, args) => LoadSinhVien();
+                    ttsv.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.Message);
+            }
+        }
+
     }
 }
