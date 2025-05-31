@@ -159,7 +159,6 @@
             tabPage3.TabIndex = 3;
             tabPage3.Text = "Thông tin cá nhân";
             tabPage3.UseVisualStyleBackColor = true;
-            tabPage3.Click += this.tabPage3_Click;
             // 
             // button4
             // 
@@ -260,7 +259,7 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(306, 39);
             textBox9.TabIndex = 1;
-            textBox9.TextChanged += this.textBox9_TextChanged;
+            //textBox9.TextChanged += this.textBox9_TextChanged;
             // 
             // label10
             // 
@@ -319,7 +318,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(306, 39);
             textBox3.TabIndex = 1;
-            textBox3.TextChanged += this.textBox3_TextChanged;
+            //textBox3.TextChanged += this.textBox3_TextChanged;
             // 
             // label4
             // 
@@ -349,7 +348,7 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(306, 39);
             textBox4.TabIndex = 1;
-            textBox4.TextChanged += this.textBox4_TextChanged;
+            //textBox4.TextChanged += this.textBox4_TextChanged;
             // 
             // label5
             // 
@@ -379,7 +378,7 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(306, 39);
             textBox5.TabIndex = 1;
-            textBox5.TextChanged += this.textBox5_TextChanged;
+            //textBox5.TextChanged += this.textBox5_TextChanged;
             // 
             // label6
             // 
