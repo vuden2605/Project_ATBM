@@ -75,23 +75,25 @@ CREATE OR REPLACE PROCEDURE SUA_DANGKY (
     p_mamm    IN VARCHAR2,
     p_diemth  IN NUMBER,
     p_diemqt  IN NUMBER,
-    p_diemck  IN NUMBER,
-    p_diemtk  IN NUMBER
+    p_diemck  IN NUMBER
 )
 IS
+    v_diemtk NUMBER;
 BEGIN
+    v_diemtk := 0.2 * p_diemqt + 0.3 * p_diemth + 0.5 * p_diemck;
+
     UPDATE DANGKY
     SET 
         DIEMTH = p_diemth,
         DIEMQT = p_diemqt,
         DIEMCK = p_diemck,
-        DIEMTK = p_diemtk
+        DIEMTK = v_diemtk
     WHERE MASV = p_masv AND MAMM = p_mamm;
 
     IF SQL%ROWCOUNT = 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'Không tìm thấy sinh viên hoặc môn học.');
     END IF;
-    
+
     COMMIT;
 END;
 /
@@ -244,4 +246,66 @@ END;
 GRANT EXECUTE ON nvpdt_insert_dangky TO role_nvpdt;
 
 
+-- của ctsv
+CREATE OR REPLACE PROCEDURE CAPNHAT_SINHVIEN (
+    p_masv     IN VARCHAR2,
+    p_hoten    IN VARCHAR2,
+    p_phai     IN VARCHAR2,
+    p_ngsinh   IN DATE,
+    p_dchi     IN VARCHAR2,
+    p_dt       IN VARCHAR2,
+    p_khoa     IN VARCHAR2
+)
+IS
+BEGIN
+    UPDATE SINHVIEN
+    SET
+        HOTEN  = p_hoten,
+        PHAI   = p_phai,
+        NGSINH = p_ngsinh,
+        DCHI   = p_dchi,
+        DT     = p_dt,
+        KHOA   = p_khoa
+    WHERE MASV = p_masv;
 
+    IF SQL%ROWCOUNT = 0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Không tìm thấy sinh viên với MASV đã cho.');
+    END IF;
+
+    COMMIT;
+END;
+/
+
+--tchc sửa 
+CREATE OR REPLACE PROCEDURE SUA_NHANVIEN (
+    p_manv    IN VARCHAR2,
+    p_hoten   IN VARCHAR2,
+    p_phai    IN VARCHAR2,
+    p_ngsinh  IN DATE,
+    p_luong   IN NUMBER,
+    p_phucap  IN NUMBER,
+    p_dt      IN VARCHAR2,
+    p_vaitro  IN VARCHAR2,
+    p_madv    IN VARCHAR2
+)
+IS
+BEGIN
+    UPDATE NHANVIEN
+    SET
+        HOTEN   = p_hoten,
+        PHAI    = p_phai,
+        NGSINH  = p_ngsinh,
+        LUONG   = p_luong,
+        PHUCAP  = p_phucap,
+        DT      = p_dt,
+        VAITRO  = p_vaitro,
+        MADV    = p_madv
+    WHERE MANLD = p_manv;
+
+    IF SQL%ROWCOUNT = 0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Không tìm thấy nhân viên có mã ' || p_manv);
+    END IF;
+
+    COMMIT;
+END;
+/

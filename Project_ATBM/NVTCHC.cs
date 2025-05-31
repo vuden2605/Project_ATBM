@@ -162,7 +162,7 @@ namespace Project_ATBM
 
         private void button8_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 DialogResult confirmResult = MessageBox.Show(
@@ -193,6 +193,33 @@ namespace Project_ATBM
         private void button6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    string MANLD = dataGridView1.CurrentRow.Cells["MANLD"].Value.ToString();
+                    string HOTEN = dataGridView1.CurrentRow.Cells["HOTEN"].Value.ToString();
+                    string PHAI = dataGridView1.CurrentRow.Cells["PHAI"].Value.ToString();
+                    string NGSINH = dataGridView1.CurrentRow.Cells["NGSINH"].Value.ToString();
+                    string LUONG = dataGridView1.CurrentRow.Cells["LUONG"].Value.ToString();
+                    string PHUCAP = dataGridView1.CurrentRow.Cells["PHUCAP"].Value.ToString();
+                    string DT = dataGridView1.CurrentRow.Cells["DT"].Value.ToString();
+                    string VAITRO = dataGridView1.CurrentRow.Cells["VAITRO"].Value.ToString();
+                    string MADV = dataGridView1.CurrentRow.Cells["MADV"].Value.ToString();
+
+                    UpdateThongTinNhanVien ttsv = new UpdateThongTinNhanVien(MANLD, HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DT, VAITRO,MADV);
+                    ttsv.SVUpdate += (s, args) => LoadAllTTNV();
+                    ttsv.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.Message);
+            }
         }
     }
 }
