@@ -19,7 +19,6 @@ namespace Project_ATBM
         public ThongTinDangKy(string mssv, string mamon, string diemQT, string diemCK, string diemTH, string diemTK)
             : this()
         {
-            // Giả sử bạn có các TextBox tên là txtMSSV, txtMaMon, txtDiemQT, txtDiemCK, txtDiemTH, txtDiemTK
             textBox1.Text = mssv;
             textBox2.Text = mamon;
             textBox4.Text = diemQT;

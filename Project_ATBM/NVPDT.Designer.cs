@@ -568,6 +568,7 @@
             button7.TabIndex = 3;
             button7.Text = "Sửa mở môn";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button11
             // 
@@ -764,6 +765,7 @@
             button15.TabIndex = 4;
             button15.Text = "Xóa";
             button15.UseVisualStyleBackColor = false;
+            button15.Click += button15_Click_1;
             // 
             // button16
             // 
@@ -777,6 +779,7 @@
             button16.TabIndex = 3;
             button16.Text = "Sửa";
             button16.UseVisualStyleBackColor = false;
+            button16.Click += button16_Click;
             // 
             // button17
             // 
@@ -790,6 +793,7 @@
             button17.TabIndex = 2;
             button17.Text = "Thêm ";
             button17.UseVisualStyleBackColor = false;
+            button17.Click += button17_Click;
             // 
             // panel14
             // 
@@ -834,6 +838,7 @@
             button14.TabIndex = 2;
             button14.Text = "Tìm kiếm";
             button14.UseVisualStyleBackColor = false;
+            button14.Click += button14_Click;
             // 
             // textBox12
             // 

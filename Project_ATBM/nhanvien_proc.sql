@@ -96,4 +96,27 @@ BEGIN
 END;
 /
 GRANT EXECUTE ON SUA_DANGKY TO role_nvpkt;
+CREATE OR REPLACE PROCEDURE nvpdt_delete_dangky (
+    p_masv VARCHAR2,
+    p_mamm   VARCHAR2
+)
+IS
+    v_ngaybd DATE;
+    v_nam VARCHAR2(9);
+BEGIN
+    SELECT ngaybd , nam 
+    INTO v_ngaybd, v_nam
+    FROM admin_qldh.MOMON
+    WHERE mamm = p_mamm;
+    IF SYSDATE < v_ngaybd +14  AND (TO_NUMBER(SUBSTR(v_nam,1,4)) = EXTRACT(YEAR FROM SYSDATE)
+                                    OR TO_NUMBER(SUBSTR(v_nam,6,9)) = EXTRACT(YEAR FROM SYSDATE)) THEN
+        DELETE FROM admin_qldh.DANGKY WHERE mamm = p_mamm AND masv = p_masv;
+    ELSE
+        RAISE_APPLICATION_ERROR(-20001, 'Không thể xóa, đã quá hạn');
+    END IF;
+END;
+/
+GRANT EXECUTE ON nvpdt_delete_dangky to role_nvpdt;
+
+
 

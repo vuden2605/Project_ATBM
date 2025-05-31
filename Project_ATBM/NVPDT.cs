@@ -81,6 +81,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
+        public void LoadDsDK()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.DANGKY";
+
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView3.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -150,6 +168,7 @@ namespace Project_ATBM
             }
             if (tbcThongTin.SelectedIndex == 3)
             {
+                LoadDsDK();
             }
             if (tbcThongTin.SelectedIndex == 4)
             {
@@ -235,13 +254,81 @@ namespace Project_ATBM
                     MessageBox.Show("Xóa mở môn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDsMoMon();
                 }
-               
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSV = textBox12.Text.Trim().ToUpper();
+                string maMm = textBox13.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.DANGKY WHERE UPPER(MASV) LIKE : maSV AND UPPER(mamm) LIKE : maMm";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maSV", maSV + "%");
+                cmd.Parameters.Add(":maMm", maMm + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult confirmResult = MessageBox.Show(
+                    "Bạn có chắc muốn xóa đăng ký này?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string masv = dataGridView3.CurrentRow.Cells["MASV"].Value.ToString();
+                    string mamm = dataGridView3.CurrentRow.Cells["MAMM"].Value.ToString();
+
+                    OracleCommand cmd = new OracleCommand("admin_qldh.nvpdt_delete_dangky", LoginForm.conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("p_masv", OracleDbType.Varchar2).Value = masv;
+                    cmd.Parameters.Add("p_mamm", OracleDbType.Varchar2).Value = mamm;
+                    int result = cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDsDK();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
