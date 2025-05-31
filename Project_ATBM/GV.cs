@@ -63,7 +63,42 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
+        public void LoadDsSV()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.SINHVIEN";
 
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
+        public void LoadDsSvDk()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.DANGKY";
+
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView3.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
         private void label11_Click(object sender, EventArgs e)
         {
             textBox7.Enabled = true;
@@ -111,6 +146,15 @@ namespace Project_ATBM
             {
                 LoadDsMoMon();
             }
+            if (tbcThongTin.SelectedIndex == 2)
+            {
+                LoadDsSV();
+            }
+            if (tbcThongTin.SelectedIndex == 3)
+            {
+                LoadDsSvDk();
+            }
+
 
         }
 
@@ -137,6 +181,58 @@ namespace Project_ATBM
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSV = textBox11.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.SINHVIEN WHERE UPPER(MASV) LIKE : maSV";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maSV", maSV + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSV = textBox12.Text.Trim().ToUpper();
+                string maMm = textBox13.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.DANGKY WHERE UPPER(MASV) LIKE : maSV AND UPPER(mamm) LIKE : maMm";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maSV", maSV + "%");
+                cmd.Parameters.Add(":maHp", maMm + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
         }
     }
 }

@@ -579,6 +579,7 @@
             button3.TabIndex = 2;
             button3.Text = "Tìm kiếm";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // textBox11
             // 
@@ -606,6 +607,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(667, 409);
             dataGridView1.TabIndex = 4;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label12
             // 
@@ -686,6 +688,7 @@
             button6.TabIndex = 2;
             button6.Text = "Tìm kiếm";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // textBox12
             // 
@@ -713,6 +716,7 @@
             dataGridView3.RowHeadersWidth = 51;
             dataGridView3.Size = new Size(667, 409);
             dataGridView3.TabIndex = 5;
+            dataGridView3.CellContentClick += dataGridView3_CellContentClick;
             // 
             // label16
             // 
