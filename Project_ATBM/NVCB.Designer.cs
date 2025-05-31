@@ -63,8 +63,8 @@
             label2 = new Label();
             label1 = new Label();
             tabPage2 = new TabPage();
-            dataGridView3 = new DataGridView();
             label15 = new Label();
+            dataGridView3 = new DataGridView();
             tbcThongTin.SuspendLayout();
             tabPage1.SuspendLayout();
             panel8.SuspendLayout();
@@ -348,7 +348,7 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(90, 14);
+            textBox7.Location = new Point(90, 11);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(190, 27);
             textBox7.TabIndex = 1;
@@ -409,15 +409,6 @@
             tabPage2.Text = "Thông báo";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
-            // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(89, 99);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 82;
-            dataGridView3.Size = new Size(798, 428);
-            dataGridView3.TabIndex = 4;
-            // 
             // label15
             // 
             label15.AutoSize = true;
@@ -427,6 +418,15 @@
             label15.Size = new Size(274, 37);
             label15.TabIndex = 5;
             label15.Text = "THÔNG BÁO CỦA TÔI";
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(89, 99);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 82;
+            dataGridView3.Size = new Size(798, 428);
+            dataGridView3.TabIndex = 4;
             // 
             // NVCB
             // 

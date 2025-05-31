@@ -59,68 +59,52 @@ namespace Project_ATBM
 
                 this.Hide();
 
-                if (username.Contains("admin"))
-                {
-                    UserSession.maUser = username.ToUpper();
-                    AdminForm adminForm = new AdminForm();
-                    adminForm.ShowDialog();
+                string uname = username.ToLower();
 
-                }
-                else if (username.Contains("sv"))
+                if (uname.StartsWith("admin"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    SinhVienForm sinhVienForm = new SinhVienForm();
-                    sinhVienForm.ShowDialog();
-                  
+                    new AdminForm().ShowDialog();
                 }
-                else if (username.Contains("gv"))
+                else if (uname.StartsWith("sv"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    GV gvForm = new GV();
-                    gvForm.ShowDialog();
-
+                    new SinhVienForm().ShowDialog();
                 }
-                else if (username.Contains("nvcb"))
+                else if (uname.StartsWith("gv"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    NVCB nvcbForm = new NVCB();
-                    nvcbForm.ShowDialog();
-
+                    new GV().ShowDialog();
                 }
-                else if (username.Contains("nvpdt"))
+                else if (uname.StartsWith("nvcb"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    NVPDT nvpdtForm = new NVPDT();
-                    nvpdtForm.ShowDialog();
-
+                    new NVCB().ShowDialog();
                 }
-                else if (username.Contains("nvpkt"))
+                else if (uname.StartsWith("nvpdt"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    NVPKT nvpktForm = new NVPKT();
-                    nvpktForm.ShowDialog();
-
+                    new NVPDT().ShowDialog();
                 }
-                else if (username.Contains("nvtchc"))
+                else if (uname.StartsWith("nvpkt"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    NVTCHC nvtchcForm = new NVTCHC();
-                    nvtchcForm.ShowDialog();
-
+                    new NVPKT().ShowDialog();
                 }
-                else if (username.Contains("nvctsv"))
+                else if (uname.StartsWith("nvtchc"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    CTSV nvctsvForm = new CTSV();
-                    nvctsvForm.ShowDialog();
-
+                    new NVTCHC().ShowDialog();
                 }
-                else if (username.Contains("tdv"))
+                else if (uname.StartsWith("nvctsv"))
                 {
                     UserSession.maUser = username.ToUpper();
-                    TRGDV tdvForm = new TRGDV();
-                    tdvForm.ShowDialog();
-
+                    new CTSV().ShowDialog();
+                }
+                else if (uname.StartsWith("tdv"))
+                {
+                    UserSession.maUser = username.ToUpper();
+                    new TRGDV().ShowDialog();
                 }
                 else
                 {
