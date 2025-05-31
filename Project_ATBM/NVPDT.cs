@@ -189,7 +189,7 @@ namespace Project_ATBM
                 if (dataGridView1.CurrentRow != null)
                 {
                     string masv = dataGridView1.CurrentRow.Cells["MASV"].Value.ToString();
-                    
+
                     string hoten = dataGridView1.CurrentRow.Cells["HOTEN"].Value.ToString();
                     string phai = dataGridView1.CurrentRow.Cells["PHAI"].Value.ToString();
                     string ngsinh = dataGridView1.CurrentRow.Cells["NGSINH"].Value.ToString();
@@ -200,13 +200,48 @@ namespace Project_ATBM
                     ThongTinSinhVienPDT ttsv = new ThongTinSinhVienPDT(masv, hoten, phai, ngsinh, dchi, dt, khoa, tinhtrang);
                     ttsv.Show();
                 }
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi" + ex.Message);
             }
-            
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult confirmResult = MessageBox.Show(
+                    "Bạn có chắc muốn xóa mở môn này?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string mamm = dataGridView2.CurrentRow.Cells["MAMM"].Value.ToString();
+                    DateTime ngaybd = Convert.ToDateTime(dataGridView2.CurrentRow.Cells["NGAYBD"].Value);
+                    string nam = dataGridView2.CurrentRow.Cells["NAM"].Value.ToString();
+
+                    OracleCommand cmd = new OracleCommand("admin_qldh.nvpdt_delete_momon", LoginForm.conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("p_mamm", OracleDbType.Varchar2).Value = mamm;
+                    cmd.Parameters.Add("p_ngaybd", OracleDbType.Date).Value = ngaybd;
+                    cmd.Parameters.Add("p_nam", OracleDbType.Varchar2).Value = nam;
+
+                    int result = cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa mở môn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDsMoMon();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

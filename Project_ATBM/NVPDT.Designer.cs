@@ -554,6 +554,7 @@
             button5.TabIndex = 4;
             button5.Text = "Xóa mở môn";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button7
             // 
