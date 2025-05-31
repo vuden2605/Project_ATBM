@@ -192,7 +192,22 @@ namespace Project_ATBM
 
         private void button6_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string manld = textBox11.Text.ToUpper();
+                string query = "select * from admin_qldh.nhanvien WHERE UPPER (MANLD) = : manld ";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":manld", manld);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông tin: " + ex.Message);
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
