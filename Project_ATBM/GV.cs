@@ -157,7 +157,7 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
             }
         }
-       
+
         private void tbcThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tbcThongTin.SelectedIndex == 0)
@@ -176,7 +176,7 @@ namespace Project_ATBM
             {
                 LoadDsSvDk();
             }
-            if(tbcThongTin.SelectedIndex == 4)
+            if (tbcThongTin.SelectedIndex == 4)
             {
                 LoadThongBao();
             }
@@ -258,6 +258,11 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi." + ex.Message);
             }
+        }
+
+        private void tbcThongTin_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

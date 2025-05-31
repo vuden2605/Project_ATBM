@@ -132,7 +132,7 @@ namespace Project_ATBM
             {
                 LoadDsMoMon();
             }
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace Project_ATBM
                 string query = "SELECT * FROM admin_qldh.v_trgdv_mm WHERE UPPER(MAGV) LIKE :maGv";
 
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":maGv", maGv +"%");
+                cmd.Parameters.Add(":maGv", maGv + "%");
 
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -154,6 +154,11 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi." + ex.Message);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
