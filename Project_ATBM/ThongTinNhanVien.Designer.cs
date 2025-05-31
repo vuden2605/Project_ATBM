@@ -44,19 +44,19 @@
             textBox6 = new TextBox();
             label7 = new Label();
             panel9 = new Panel();
-            textBox9 = new TextBox();
             label10 = new Label();
             panel7 = new Panel();
             textBox7 = new TextBox();
             label8 = new Label();
             panel3 = new Panel();
-            textBox3 = new TextBox();
             label4 = new Label();
             button1 = new Button();
             button2 = new Button();
             panel8 = new Panel();
             textBox8 = new TextBox();
             label9 = new Label();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -195,20 +195,12 @@
             // 
             // panel9
             // 
-            panel9.Controls.Add(textBox9);
+            panel9.Controls.Add(comboBox2);
             panel9.Controls.Add(label10);
             panel9.Location = new Point(768, 215);
             panel9.Name = "panel9";
             panel9.Size = new Size(292, 49);
             panel9.TabIndex = 4;
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(90, 14);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(190, 27);
-            textBox9.TabIndex = 1;
-            textBox9.TextChanged += textBox9_TextChanged;
             // 
             // label10
             // 
@@ -246,19 +238,12 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(comboBox1);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(46, 215);
             panel3.Name = "panel3";
             panel3.Size = new Size(292, 49);
             panel3.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(90, 14);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(190, 27);
-            textBox3.TabIndex = 1;
             // 
             // label4
             // 
@@ -319,6 +304,22 @@
             label9.TabIndex = 0;
             label9.Text = "Vai trò:";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(90, 6);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(190, 28);
+            comboBox1.TabIndex = 1;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(90, 11);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(190, 28);
+            comboBox2.TabIndex = 2;
+            // 
             // ThongTinNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -376,18 +377,18 @@
         private TextBox textBox6;
         private Label label7;
         private Panel panel9;
-        private TextBox textBox9;
         private Label label10;
         private Panel panel7;
         private TextBox textBox7;
         private Label label8;
         private Panel panel3;
-        private TextBox textBox3;
         private Label label4;
         private Button button1;
         private Button button2;
         private Panel panel8;
         private TextBox textBox8;
         private Label label9;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
     }
 }

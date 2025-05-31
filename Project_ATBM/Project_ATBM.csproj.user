@@ -49,6 +49,12 @@
     <Compile Update="ThongTinDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ThongTinDangKyPDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ThongTinMoMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ThongTinNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
