@@ -16,6 +16,6 @@ GRANT EXECUTE ON update_phone_nhanvien TO role_gv;
 GRANT EXECUTE ON update_phone_nhanvien TO role_nvcb;
 GRANT EXECUTE ON update_phone_nhanvien TO role_nvpdt;
 GRANT EXECUTE ON update_phone_nhanvien TO role_nvpkt;
-GRANT EXECUTE ON update_phone_nhanvien TO role_gv;
+GRANT EXECUTE ON update_phone_nhanvien TO role_nvtchc;
 GRANT EXECUTE ON update_phone_nhanvien TO role_trgdv;
 GRANT EXECUTE ON update_phone_nhanvien TO role_nvctsv;

@@ -262,7 +262,6 @@
             // 
             // textBox7
             // 
-            textBox7.Enabled = false;
             textBox7.Location = new Point(90, 14);
             textBox7.Margin = new Padding(2);
             textBox7.Name = "textBox7";
