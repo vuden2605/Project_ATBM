@@ -70,7 +70,6 @@
             label15 = new Label();
             panel10 = new Panel();
             button5 = new Button();
-            button7 = new Button();
             button11 = new Button();
             dataGridView2 = new DataGridView();
             label13 = new Label();
@@ -534,7 +533,6 @@
             // panel10
             // 
             panel10.Controls.Add(button5);
-            panel10.Controls.Add(button7);
             panel10.Controls.Add(button11);
             panel10.Location = new Point(691, 49);
             panel10.Margin = new Padding(2);
@@ -547,7 +545,7 @@
             button5.BackColor = Color.LimeGreen;
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button5.ForeColor = SystemColors.ButtonHighlight;
-            button5.Location = new Point(51, 111);
+            button5.Location = new Point(51, 152);
             button5.Margin = new Padding(2);
             button5.Name = "button5";
             button5.Size = new Size(164, 45);
@@ -555,20 +553,6 @@
             button5.Text = "Xóa mở môn";
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.LimeGreen;
-            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button7.ForeColor = SystemColors.ButtonHighlight;
-            button7.Location = new Point(51, 195);
-            button7.Margin = new Padding(2);
-            button7.Name = "button7";
-            button7.Size = new Size(164, 45);
-            button7.TabIndex = 3;
-            button7.Text = "Sửa mở môn";
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click;
             // 
             // button11
             // 
@@ -1005,7 +989,6 @@
         private Label label15;
         private Panel panel10;
         private Button button5;
-        private Button button7;
         private Button button11;
         private DataGridView dataGridView2;
         private Label label13;
