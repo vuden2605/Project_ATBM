@@ -131,6 +131,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Đang học", "Nghỉ học", "Bảo lưu" });
             comboBox1.Location = new Point(90, 11);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(190, 28);
@@ -251,6 +252,7 @@
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(190, 28);
             comboBox3.TabIndex = 2;
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -276,10 +278,12 @@
             // 
             comboBox2.Enabled = false;
             comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox2.Location = new Point(90, 11);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(190, 28);
             comboBox2.TabIndex = 1;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // label3
             // 

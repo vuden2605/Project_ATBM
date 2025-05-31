@@ -197,7 +197,7 @@ namespace Project_ATBM
                     string dt = dataGridView1.CurrentRow.Cells["DT"].Value.ToString();
                     string khoa = dataGridView1.CurrentRow.Cells["KHOA"].Value.ToString();
                     string tinhtrang = dataGridView1.CurrentRow.Cells["TINHTRANG"].Value.ToString();
-                    ThongTinSinhVien ttsv = new ThongTinSinhVien(masv, hoten, phai, ngsinh, dchi, dt, khoa, tinhtrang);
+                    ThongTinSinhVienPDT ttsv = new ThongTinSinhVienPDT(masv, hoten, phai, ngsinh, dchi, dt, khoa, tinhtrang);
                     ttsv.Show();
                 }
                 
