@@ -411,6 +411,14 @@ VALUES (8, 'Thông báo cho trưởng khoa Hóa cơ sở 1', 1008);
 -- T9: Cần phát tán đến trưởng khoa Hóa ở cơ sở 1 và cơ sở 2
 INSERT INTO THONGBAO (ID, NOIDUNG, OLS_LABEL) 
 VALUES (9, 'Thông báo cho trưởng khoa Hóa cả hai cơ sở', 1009);
+GRANT SELECT ON THONGBAO TO role_sv;
+GRANT SELECT ON THONGBAO TO role_nvctsv;
+GRANT SELECT ON THONGBAO TO role_gv;
+GRANT SELECT ON THONGBAO TO role_nvpdt;
+GRANT SELECT ON THONGBAO TO role_nvpkt;
+GRANT SELECT ON THONGBAO TO role_nvtchc;
+GRANT SELECT ON THONGBAO TO role_nvcb;
+GRANT SELECT ON THONGBAO TO role_trgdv;
 commit;
 
 

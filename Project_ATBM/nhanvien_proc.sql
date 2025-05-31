@@ -119,7 +119,7 @@ BEGIN
 END;
 /
 GRANT EXECUTE ON nvpdt_delete_dangky to role_nvpdt;
-REATE OR REPLACE PROCEDURE nvtchc_insert_nhanvien (
+CREATE OR REPLACE PROCEDURE nvtchc_insert_nhanvien (
     p_manld    IN VARCHAR2,
     p_hoten    IN VARCHAR2,
     p_phai     IN VARCHAR2,
@@ -275,7 +275,7 @@ BEGIN
     COMMIT;
 END;
 /
-
+GRANT EXECUTE ON CAPNHAT_SINHVIEN TO role_nvctsv;
 --tchc sửa 
 CREATE OR REPLACE PROCEDURE SUA_NHANVIEN (
     p_manv    IN VARCHAR2,
@@ -309,3 +309,4 @@ BEGIN
     COMMIT;
 END;
 /
+GRANT EXECUTE ON SUA_NHANVIEN TO role_nvtchc;
