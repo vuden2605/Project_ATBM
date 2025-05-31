@@ -140,6 +140,7 @@
             tbcThongTin.SelectedIndex = 0;
             tbcThongTin.Size = new Size(987, 575);
             tbcThongTin.TabIndex = 1;
+            tbcThongTin.SelectedIndexChanged += tbcThongTin_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -501,6 +502,7 @@
             button12.TabIndex = 2;
             button12.Text = "Tìm kiếm";
             button12.UseVisualStyleBackColor = false;
+            button12.Click += button12_Click;
             // 
             // textBox10
             // 
@@ -578,6 +580,7 @@
             dataGridView2.RowHeadersWidth = 51;
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 3;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // label13
             // 

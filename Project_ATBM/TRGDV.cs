@@ -45,7 +45,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi tải thông tin: " + ex.Message);
             }
         }
+        public void LoadDsMoMon()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.v_trgdv_mm ";
 
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -71,6 +88,44 @@ namespace Project_ATBM
         {
             textBox7.Enabled = true;
             textBox7.Focus();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                LoadTTNV();
+            }
+            if (tabControl1.SelectedIndex == 3)
+            {
+                LoadDsMoMon();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maGv = textBox11.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.v_trgdv_mm WHERE UPPER(MAGV) LIKE :maGv";
+
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maGv", maGv +"%");
+
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
         }
     }
 }

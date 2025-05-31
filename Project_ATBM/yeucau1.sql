@@ -88,8 +88,9 @@ GRANT SELECT on V_nvpdt_mm TO role_nvpdt;
 --Câu 2.3 Người dùng có vai trò “TRGĐV” có quyền xem các dòng phân công giảng dạy của
 --các giảng viên thuộc đơn vị mình làm trưởng.
 CREATE OR REPLACE VIEW v_trgdv_mm AS
-select m.mamm, m.mahp, m.magv, m.hk, m.nam 
+select m.mamm, m.mahp, hp.tenhp, m.magv, m.hk, m.nam 
 from momon m 
+join hocphan hp on hp.mahp = m.mahp
 join nhanvien nv on m.magv=nv.manld 
 join donvi dv on dv.madv= nv.madv where dv.trgdv= sys_context('userenv','session_user');
 GRANT SELECT ON v_trgdv_mm to role_trgdv;

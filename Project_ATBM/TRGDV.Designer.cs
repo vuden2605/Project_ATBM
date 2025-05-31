@@ -108,6 +108,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(992, 574);
             tabControl1.TabIndex = 0;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabPage3
             // 
@@ -546,6 +547,7 @@
             button3.TabIndex = 7;
             button3.Text = "Tìm kiếm";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // textBox11
             // 
@@ -585,6 +587,7 @@
             dataGridView2.RowHeadersWidth = 82;
             dataGridView2.Size = new Size(607, 296);
             dataGridView2.TabIndex = 0;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // TRGDV
             // 
