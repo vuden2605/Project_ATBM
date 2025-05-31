@@ -582,6 +582,7 @@
             button11.TabIndex = 2;
             button11.Text = "Thêm mở môn";
             button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
             // 
             // dataGridView2
             // 

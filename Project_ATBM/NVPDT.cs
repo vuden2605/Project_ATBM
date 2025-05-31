@@ -298,7 +298,7 @@ namespace Project_ATBM
 
         private void button16_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button15_Click_1(object sender, EventArgs e)
@@ -330,6 +330,11 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
