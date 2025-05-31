@@ -16,9 +16,9 @@ namespace Project_ATBM
         public GV()
         {
             InitializeComponent();
-            LoadTTGV();
+            LoadTTNV();
         }
-        private void LoadTTGV()
+        private void LoadTTNV()
         {
             try
             {
@@ -46,5 +46,31 @@ namespace Project_ATBM
             }
         }
 
+        private void label11_Click(object sender, EventArgs e)
+        {
+            textBox7.Enabled = true;
+            textBox7.Focus();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("admin_qldh.update_phone_nhanvien", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_manld", OracleDbType.Varchar2).Value = UserSession.maUser;
+                cmd.Parameters.Add("p_sdt", OracleDbType.Varchar2).Value = textBox7.Text.Trim();
+                int result = cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cập nhật số điện thoại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTTNV();
+                textBox7.Enabled = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật số điện thoại: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

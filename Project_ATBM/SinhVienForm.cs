@@ -117,14 +117,13 @@ namespace Project_ATBM
 
                 MessageBox.Show("Cập nhật địa chỉ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadTTSV();
+                textBox4.Enabled = false;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi cập nhật địa chỉ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            LoadTTSV();
-            textBox4.Enabled = false;
         }
         public void load_data_momon()
         {
@@ -273,14 +272,14 @@ namespace Project_ATBM
 
                 MessageBox.Show("Cập nhật số điện thoại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadTTSV();
+                textBox6.Enabled = false;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi cập nhật  số điện thoại: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            LoadTTSV();
-            textBox6.Enabled = false;
+            
         }
         private void btnSearchUser_Click(object sender, EventArgs e)
         {

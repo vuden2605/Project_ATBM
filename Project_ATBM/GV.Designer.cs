@@ -176,6 +176,7 @@
             button2.TabIndex = 6;
             button2.Text = "Lưu thay đổi";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -199,6 +200,7 @@
             label11.Size = new Size(45, 28);
             label11.TabIndex = 4;
             label11.Text = "Sửa";
+            label11.Click += label11_Click;
             // 
             // panel8
             // 
