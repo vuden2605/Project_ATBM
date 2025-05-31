@@ -75,29 +75,29 @@
             dataGridView2 = new DataGridView();
             label13 = new Label();
             tabPage2 = new TabPage();
-            label12 = new Label();
-            dataGridView1 = new DataGridView();
-            panel12 = new Panel();
-            button9 = new Button();
+            button3 = new Button();
             panel11 = new Panel();
             button6 = new Button();
             textBox11 = new TextBox();
             label14 = new Label();
-            button3 = new Button();
+            panel12 = new Panel();
+            button9 = new Button();
+            dataGridView1 = new DataGridView();
+            label12 = new Label();
             tabPage4 = new TabPage();
-            label16 = new Label();
-            dataGridView3 = new DataGridView();
+            button18 = new Button();
+            panel15 = new Panel();
+            button15 = new Button();
+            button16 = new Button();
+            button17 = new Button();
             panel14 = new Panel();
             textBox13 = new TextBox();
             label18 = new Label();
             button14 = new Button();
             textBox12 = new TextBox();
             label17 = new Label();
-            panel15 = new Panel();
-            button15 = new Button();
-            button16 = new Button();
-            button17 = new Button();
-            button18 = new Button();
+            dataGridView3 = new DataGridView();
+            label16 = new Label();
             tabPage5 = new TabPage();
             dataGridView4 = new DataGridView();
             label19 = new Label();
@@ -117,13 +117,13 @@
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel12.SuspendLayout();
             panel11.SuspendLayout();
+            panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
-            panel14.SuspendLayout();
             panel15.SuspendLayout();
+            panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
@@ -189,6 +189,7 @@
             button2.TabIndex = 6;
             button2.Text = "Lưu thay đổi";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -212,6 +213,7 @@
             label11.Size = new Size(45, 28);
             label11.TabIndex = 4;
             label11.Text = "Sửa";
+            label11.Click += label11_Click;
             // 
             // panel8
             // 
@@ -601,46 +603,18 @@
             tabPage2.Text = "Danh sách sinh viên";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // button3
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label12.Location = new Point(6, 16);
-            label12.Name = "label12";
-            label12.Size = new Size(176, 20);
-            label12.TabIndex = 4;
-            label12.Text = "DANH SÁCH SINH VIÊN";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 49);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(667, 409);
-            dataGridView1.TabIndex = 5;
-            // 
-            // panel12
-            // 
-            panel12.Controls.Add(button9);
-            panel12.Location = new Point(691, 49);
-            panel12.Margin = new Padding(2);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(262, 274);
-            panel12.TabIndex = 9;
-            // 
-            // button9
-            // 
-            button9.BackColor = Color.LimeGreen;
-            button9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button9.ForeColor = SystemColors.ButtonHighlight;
-            button9.Location = new Point(43, 116);
-            button9.Margin = new Padding(2);
-            button9.Name = "button9";
-            button9.Size = new Size(164, 45);
-            button9.TabIndex = 3;
-            button9.Text = "Sửa trạng thái";
-            button9.UseVisualStyleBackColor = false;
+            button3.BackColor = Color.LightCoral;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(774, 476);
+            button3.Margin = new Padding(2);
+            button3.Name = "button3";
+            button3.Size = new Size(164, 45);
+            button3.TabIndex = 11;
+            button3.Text = "Đăng xuất";
+            button3.UseVisualStyleBackColor = false;
             // 
             // panel11
             // 
@@ -684,18 +658,46 @@
             label14.TabIndex = 0;
             label14.Text = "Nhập mã sinh viên:";
             // 
-            // button3
+            // panel12
             // 
-            button3.BackColor = Color.LightCoral;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(774, 476);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(164, 45);
-            button3.TabIndex = 11;
-            button3.Text = "Đăng xuất";
-            button3.UseVisualStyleBackColor = false;
+            panel12.Controls.Add(button9);
+            panel12.Location = new Point(691, 49);
+            panel12.Margin = new Padding(2);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(262, 274);
+            panel12.TabIndex = 9;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.LimeGreen;
+            button9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button9.ForeColor = SystemColors.ButtonHighlight;
+            button9.Location = new Point(43, 116);
+            button9.Margin = new Padding(2);
+            button9.Name = "button9";
+            button9.Size = new Size(164, 45);
+            button9.TabIndex = 3;
+            button9.Text = "Sửa trạng thái";
+            button9.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(6, 49);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(667, 409);
+            dataGridView1.TabIndex = 5;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label12.Location = new Point(6, 16);
+            label12.Name = "label12";
+            label12.Size = new Size(176, 20);
+            label12.TabIndex = 4;
+            label12.Text = "DANH SÁCH SINH VIÊN";
             // 
             // tabPage4
             // 
@@ -711,24 +713,68 @@
             tabPage4.Text = "Thông tin đăng ký học phần";
             tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label16
+            // button18
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label16.Location = new Point(6, 16);
-            label16.Name = "label16";
-            label16.Size = new Size(202, 20);
-            label16.TabIndex = 5;
-            label16.Text = "DANH SÁCH LỚP ĐĂNG KÝ";
+            button18.BackColor = Color.LightCoral;
+            button18.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button18.ForeColor = SystemColors.ButtonHighlight;
+            button18.Location = new Point(783, 491);
+            button18.Margin = new Padding(2);
+            button18.Name = "button18";
+            button18.Size = new Size(164, 45);
+            button18.TabIndex = 15;
+            button18.Text = "Đăng xuất";
+            button18.UseVisualStyleBackColor = false;
             // 
-            // dataGridView3
+            // panel15
             // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(6, 49);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.Size = new Size(667, 409);
-            dataGridView3.TabIndex = 6;
+            panel15.Controls.Add(button15);
+            panel15.Controls.Add(button16);
+            panel15.Controls.Add(button17);
+            panel15.Location = new Point(711, 2);
+            panel15.Margin = new Padding(2);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(262, 249);
+            panel15.TabIndex = 14;
+            // 
+            // button15
+            // 
+            button15.BackColor = Color.LimeGreen;
+            button15.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button15.ForeColor = SystemColors.ButtonHighlight;
+            button15.Location = new Point(51, 102);
+            button15.Margin = new Padding(2);
+            button15.Name = "button15";
+            button15.Size = new Size(164, 45);
+            button15.TabIndex = 4;
+            button15.Text = "Xóa";
+            button15.UseVisualStyleBackColor = false;
+            // 
+            // button16
+            // 
+            button16.BackColor = Color.LimeGreen;
+            button16.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button16.ForeColor = SystemColors.ButtonHighlight;
+            button16.Location = new Point(51, 176);
+            button16.Margin = new Padding(2);
+            button16.Name = "button16";
+            button16.Size = new Size(164, 45);
+            button16.TabIndex = 3;
+            button16.Text = "Sửa";
+            button16.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            button17.BackColor = Color.LimeGreen;
+            button17.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button17.ForeColor = SystemColors.ButtonHighlight;
+            button17.Location = new Point(51, 30);
+            button17.Margin = new Padding(2);
+            button17.Name = "button17";
+            button17.Size = new Size(164, 45);
+            button17.TabIndex = 2;
+            button17.Text = "Thêm ";
+            button17.UseVisualStyleBackColor = false;
             // 
             // panel14
             // 
@@ -792,68 +838,24 @@
             label17.TabIndex = 0;
             label17.Text = "Nhập mã sinh viên:";
             // 
-            // panel15
+            // dataGridView3
             // 
-            panel15.Controls.Add(button15);
-            panel15.Controls.Add(button16);
-            panel15.Controls.Add(button17);
-            panel15.Location = new Point(711, 2);
-            panel15.Margin = new Padding(2);
-            panel15.Name = "panel15";
-            panel15.Size = new Size(262, 249);
-            panel15.TabIndex = 14;
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(6, 49);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 51;
+            dataGridView3.Size = new Size(667, 409);
+            dataGridView3.TabIndex = 6;
             // 
-            // button15
+            // label16
             // 
-            button15.BackColor = Color.LimeGreen;
-            button15.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button15.ForeColor = SystemColors.ButtonHighlight;
-            button15.Location = new Point(51, 102);
-            button15.Margin = new Padding(2);
-            button15.Name = "button15";
-            button15.Size = new Size(164, 45);
-            button15.TabIndex = 4;
-            button15.Text = "Xóa";
-            button15.UseVisualStyleBackColor = false;
-            // 
-            // button16
-            // 
-            button16.BackColor = Color.LimeGreen;
-            button16.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button16.ForeColor = SystemColors.ButtonHighlight;
-            button16.Location = new Point(51, 176);
-            button16.Margin = new Padding(2);
-            button16.Name = "button16";
-            button16.Size = new Size(164, 45);
-            button16.TabIndex = 3;
-            button16.Text = "Sửa";
-            button16.UseVisualStyleBackColor = false;
-            // 
-            // button17
-            // 
-            button17.BackColor = Color.LimeGreen;
-            button17.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button17.ForeColor = SystemColors.ButtonHighlight;
-            button17.Location = new Point(51, 30);
-            button17.Margin = new Padding(2);
-            button17.Name = "button17";
-            button17.Size = new Size(164, 45);
-            button17.TabIndex = 2;
-            button17.Text = "Thêm ";
-            button17.UseVisualStyleBackColor = false;
-            // 
-            // button18
-            // 
-            button18.BackColor = Color.LightCoral;
-            button18.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button18.ForeColor = SystemColors.ButtonHighlight;
-            button18.Location = new Point(783, 491);
-            button18.Margin = new Padding(2);
-            button18.Name = "button18";
-            button18.Size = new Size(164, 45);
-            button18.TabIndex = 15;
-            button18.Text = "Đăng xuất";
-            button18.UseVisualStyleBackColor = false;
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label16.Location = new Point(6, 16);
+            label16.Name = "label16";
+            label16.Size = new Size(202, 20);
+            label16.TabIndex = 5;
+            label16.Text = "DANH SÁCH LỚP ĐĂNG KÝ";
             // 
             // tabPage5
             // 
@@ -922,16 +924,16 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel12.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
+            panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            panel15.ResumeLayout(false);
             panel14.ResumeLayout(false);
             panel14.PerformLayout();
-            panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             tabPage5.ResumeLayout(false);
             tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
