@@ -63,7 +63,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
+        public void LoadDsSV()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.SINHVIEN";
 
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -129,6 +146,7 @@ namespace Project_ATBM
             }
             if (tbcThongTin.SelectedIndex == 2)
             {
+                LoadDsSV();
             }
             if (tbcThongTin.SelectedIndex == 3)
             {
@@ -157,6 +175,38 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi." + ex.Message);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    string masv = dataGridView1.CurrentRow.Cells["MASV"].Value.ToString();
+                    
+                    string hoten = dataGridView1.CurrentRow.Cells["HOTEN"].Value.ToString();
+                    string phai = dataGridView1.CurrentRow.Cells["PHAI"].Value.ToString();
+                    string ngsinh = dataGridView1.CurrentRow.Cells["NGSINH"].Value.ToString();
+                    string dchi = dataGridView1.CurrentRow.Cells["DCHI"].Value.ToString();
+                    string dt = dataGridView1.CurrentRow.Cells["DT"].Value.ToString();
+                    string khoa = dataGridView1.CurrentRow.Cells["KHOA"].Value.ToString();
+                    string tinhtrang = dataGridView1.CurrentRow.Cells["TINHTRANG"].Value.ToString();
+                    ThongTinSinhVien ttsv = new ThongTinSinhVien(masv, hoten, phai, ngsinh, dchi, dt, khoa, tinhtrang);
+                    ttsv.Show();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.Message);
+            }
+            
         }
     }
 }
