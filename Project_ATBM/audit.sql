@@ -13,33 +13,33 @@ END;
 
 
 /
-BEGIN
-  DBMS_FGA.DROP_POLICY( 
-    object_schema => 'ADMIN_QLDH',
-    object_name   => 'DANGKY',
-    policy_name   => 'AUDIT_DANGKY'
-  );
-END;
-/
+--BEGIN
+--  DBMS_FGA.DROP_POLICY( 
+--    object_schema => 'ADMIN_QLDH',
+--    object_name   => 'DANGKY',
+--    policy_name   => 'AUDIT_DANGKY'
+--  );
+--END;
+--/
 BEGIN
   DBMS_FGA.ADD_POLICY(
     object_schema   => 'ADMIN_QLDH',
     object_name     => 'NHANVIEN',
     policy_name     => 'AUDIT_SELECT_LUONG_PHUCAP',
-    audit_condition => 'SYS_CONTEXT(''USERENV'',''SESSION_USER'') NOT LIKE ''NVTCHC%''',
+    audit_condition => 'SYS_CONTEXT(''USERENV'', ''SESSION_USER'') NOT LIKE ''NVTCHC%'' AND MANLD <> SYS_CONTEXT(''USERENV'', ''SESSION_USER'')',
     audit_column    => 'LUONG, PHUCAP',
     statement_types => 'SELECT'
   );
 END;
 /
-BEGIN
-  DBMS_FGA.DROP_POLICY( 
-    object_schema => 'ADMIN_QLDH',
-    object_name   => 'NHANVIEN',
-    policy_name   => 'AUDIT_SELECT_LUONG_PHUCAP'
-  );
-END;
-/
+--BEGIN
+--  DBMS_FGA.DROP_POLICY( 
+--    object_schema => 'ADMIN_QLDH',
+--    object_name   => 'NHANVIEN',
+--    policy_name   => 'AUDIT_SELECT_LUONG_PHUCAP'
+--  );
+--END;
+--/
 BEGIN
   DBMS_FGA.ADD_POLICY(
     object_schema   => 'ADMIN_QLDH',
@@ -50,14 +50,14 @@ BEGIN
   );
 END;
 /
-BEGIN
-  DBMS_FGA.DROP_POLICY( 
-    object_schema => 'ADMIN_QLDH',
-    object_name   => 'NHANVIEN',
-    policy_name   => 'AUDIT_UPDATE_NHANVIEN'
-  );
-END;
-/
+--BEGIN
+--  DBMS_FGA.DROP_POLICY( 
+--    object_schema => 'ADMIN_QLDH',
+--    object_name   => 'NHANVIEN',
+--    policy_name   => 'AUDIT_UPDATE_NHANVIEN'
+--  );
+--END;
+--/
 CREATE OR REPLACE FUNCTION fga_check_thoi_gian (
   v_mamm IN VARCHAR2
 )
@@ -156,7 +156,7 @@ ORDER BY EVENT_TIMESTAMP DESC;
 --connect nvpkt001/nvpkt001@localhost:1521/QLDH;
 --update admin_qldh.DANGKY set diemck=10; 
 
-CREATE AUDIT POLICY dangky_audit_policy ACTIONS INSERT, UPDATE, DELETE ON DANGKY;
+CREATE AUDIT POLICY dangky_audit_policy ACTIONS UPDATE ON DANGKY;
 AUDIT POLICY dangky_audit_policy BY nvpkt001;
 
 SELECT AUDIT_TYPE, EVENT_TIMESTAMP, DBUSERNAME, OBJECT_NAME, ACTION_NAME, SQL_TEXT, UNIFIED_AUDIT_POLICIES  

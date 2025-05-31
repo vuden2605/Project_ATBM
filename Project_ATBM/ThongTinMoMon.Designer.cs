@@ -233,6 +233,7 @@
             Margin = new Padding(5);
             Name = "ThongTinMoMon";
             Text = "ThongTinMoMon";
+            Load += ThongTinMoMon_Load;
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             panel3.ResumeLayout(false);
