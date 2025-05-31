@@ -247,7 +247,7 @@ namespace Project_ATBM
                 string query = "SELECT * FROM admin_qldh.DANGKY WHERE UPPER(MASV) LIKE : maSV AND UPPER(mamm) LIKE : maMm";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":maSV", maSV + "%");
-                cmd.Parameters.Add(":maHp", maMm + "%");
+                cmd.Parameters.Add(":maMm", maMm + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
