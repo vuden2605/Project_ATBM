@@ -94,6 +94,28 @@ namespace Project_ATBM
         {
 
         }
+        private void LoadThongBao()
+        {
+            try
+            {
+                string query = @"
+            SELECT 
+                ID AS ""Mã thông báo"",
+                noidung AS ""Nội dung"",
+                ngaytao AS ""Ngày tạo""
+            FROM ADMIN_QLDH.THONGBAO";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+                dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
+            }
+        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,10 +123,16 @@ namespace Project_ATBM
             {
                 LoadTTNV();
             }
+            if (tabControl1.SelectedIndex == 1)
+            {
+                LoadThongBao();
+
+            }
             if (tabControl1.SelectedIndex == 3)
             {
                 LoadDsMoMon();
             }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

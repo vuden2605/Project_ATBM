@@ -72,5 +72,41 @@ namespace Project_ATBM
             textBox7.Enabled = true;
             textBox7.Focus();
         }
+        private void LoadThongBao()
+        {
+            try
+            {
+                string query = @"
+            SELECT 
+                ID AS ""Mã thông báo"",
+                noidung AS ""Nội dung"",
+                ngaytao AS ""Ngày tạo""
+            FROM ADMIN_QLDH.THONGBAO";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView4.DataSource = dt;
+                dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
+            }
+        }
+        private void tbcThongTin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tbcThongTin.SelectedIndex == 0)
+            {
+                LoadTTNV();
+            }
+            if (tbcThongTin.SelectedIndex == 1)
+            {
+            }
+            if (tbcThongTin.SelectedIndex == 2)
+            {
+                LoadThongBao();
+            }
+        }
     }
 }
