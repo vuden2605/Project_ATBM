@@ -334,12 +334,41 @@ namespace Project_ATBM
 
         private void button11_Click(object sender, EventArgs e)
         {
+            ThongTinMoMon thongTinMoMon = new ThongTinMoMon();
 
+            thongTinMoMon.ShowDialog();
         }
 
         private void button7_Click_1(object sender, EventArgs e)
         {
+            if (dataGridView2.CurrentRow != null)
+            {
+                string mamm = dataGridView2.CurrentRow.Cells["MAMM"].Value.ToString();
+                UpdateMomon frm = new UpdateMomon(mamm);
+                frm.SVUpdate += (s, args) => LoadDsMoMon();
 
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn đăng xuất không?",
+                "Xác nhận đăng xuất",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+
+            }
         }
     }
 }

@@ -226,7 +226,7 @@ namespace Project_ATBM
                     string VAITRO = dataGridView1.CurrentRow.Cells["VAITRO"].Value.ToString();
                     string MADV = dataGridView1.CurrentRow.Cells["MADV"].Value.ToString();
 
-                    UpdateThongTinNhanVien ttsv = new UpdateThongTinNhanVien(MANLD, HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DT, VAITRO,MADV);
+                    UpdateThongTinNhanVien ttsv = new UpdateThongTinNhanVien(MANLD, HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DT, VAITRO, MADV);
                     ttsv.SVUpdate += (s, args) => LoadAllTTNV();
                     ttsv.Show();
                 }
@@ -234,6 +234,22 @@ namespace Project_ATBM
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi" + ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn đăng xuất không?",
+                "Xác nhận đăng xuất",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+
             }
         }
     }
