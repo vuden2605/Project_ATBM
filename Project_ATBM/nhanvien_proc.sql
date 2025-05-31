@@ -38,20 +38,32 @@ CREATE OR REPLACE PROCEDURE nvpdt_insert_momon (
     p_mamm   VARCHAR2,
     p_mahp   VARCHAR2,
     p_magv   VARCHAR2,
-    p_hk     NUMBER,
     p_nam    VARCHAR2,
     p_ngaybd DATE
 )
 IS
+    v_hk NUMBER;
+    v_thang NUMBER := EXTRACT(MONTH FROM p_ngaybd);
 BEGIN
+    -- Xác định học kỳ dựa trên tháng của ngày bắt đầu
+    IF v_thang >= 9 THEN
+        v_hk := 1;
+    ELSIF v_thang >= 5 THEN
+        v_hk := 3;
+    ELSE
+        v_hk := 2;
+    END IF;
+
+    -- Chèn vào bảng MOMON
     INSERT INTO admin_qldh.MOMON (mamm, mahp, magv, hk, nam, ngaybd)
-    VALUES (p_mamm, p_mahp, p_magv, p_hk, p_nam, p_ngaybd);
+    VALUES (p_mamm, p_mahp, p_magv, v_hk, p_nam, p_ngaybd);
 
 EXCEPTION
     WHEN OTHERS THEN
         DBMS_OUTPUT.PUT_LINE('Lỗi: ' || SQLERRM);
 END;
 /
+
 GRANT EXECUTE ON nvpdt_insert_momon TO role_nvpdt;
 CREATE OR REPLACE PROCEDURE nvpdt_delete_momon (
     p_mamm   VARCHAR2,
@@ -310,3 +322,22 @@ BEGIN
 END;
 /
 GRANT EXECUTE ON SUA_NHANVIEN TO role_nvtchc;
+-- sửa magv trong momon cuẩ 
+CREATE OR REPLACE PROCEDURE SUA_MAGV_MOMON (
+    p_mamm IN VARCHAR2,
+    p_magv IN VARCHAR2
+)
+IS
+BEGIN
+    UPDATE MOMON
+    SET MAGV = p_magv
+    WHERE MAMM = p_mamm;
+
+    IF SQL%ROWCOUNT = 0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Không tìm thấy môn môn có mã: ' || p_mamm);
+    END IF;
+
+    COMMIT;
+END;
+/
+GRANT EXECUTE ON SUA_MAGV_MOMON TO role_nvpdt;
