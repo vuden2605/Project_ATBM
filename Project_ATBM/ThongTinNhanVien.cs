@@ -18,31 +18,18 @@ namespace Project_ATBM
         {
             InitializeComponent();
         }
-        public ThongTinNhanVien(string manld, string hoten, string phai, string ngaysinh, string luong, string phucap, string sdt, string vaitro, string dv)
-            : this()
-        {
-            textBox1.Text = manld;
-            textBox2.Text = hoten;
-            textBox3.Text = phai;
-            textBox4.Text = ngaysinh;
-            textBox5.Text = luong;
-            textBox6.Text = phucap;
-            textBox7.Text = sdt;
-            textBox8.Text = vaitro;
-            textBox9.Text = dv;
-        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 string manld = textBox1.Text;
                 string hoten = textBox2.Text;
-                string phai = textBox3.Text;
+                string phai = comboBox1.Text;
                 string luong = textBox5.Text;
                 string phucap = textBox6.Text;
                 string sdt = textBox7.Text;
                 string vaitro = textBox8.Text;
-                string dv = textBox9.Text;
+                string dv = comboBox2.Text;
                 DateTime ngaysinh = DateTime.ParseExact(textBox4.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 OracleCommand cmd = new OracleCommand("admin_qldh.nvtchc_insert_nhanvien", LoginForm.conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -69,7 +56,12 @@ namespace Project_ATBM
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            
+
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

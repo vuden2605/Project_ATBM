@@ -67,6 +67,7 @@
             button2.TabIndex = 21;
             button2.Text = "Lưu";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -208,7 +209,6 @@
             // 
             // textBox2
             // 
-            textBox2.Enabled = false;
             textBox2.Location = new Point(97, 14);
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
@@ -237,7 +237,6 @@
             // 
             // textBox1
             // 
-            textBox1.Enabled = false;
             textBox1.Location = new Point(97, 14);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";

@@ -137,6 +137,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(190, 28);
             comboBox1.TabIndex = 13;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label8
             // 
@@ -249,6 +250,7 @@
             // 
             comboBox3.Enabled = false;
             comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "CNTT", "VL", "KT", "HH" });
             comboBox3.Location = new Point(90, 11);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(190, 28);

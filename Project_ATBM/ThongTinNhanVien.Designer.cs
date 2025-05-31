@@ -44,19 +44,19 @@
             textBox6 = new TextBox();
             label7 = new Label();
             panel9 = new Panel();
+            comboBox2 = new ComboBox();
             label10 = new Label();
             panel7 = new Panel();
             textBox7 = new TextBox();
             label8 = new Label();
             panel3 = new Panel();
+            comboBox1 = new ComboBox();
             label4 = new Label();
             button1 = new Button();
             button2 = new Button();
             panel8 = new Panel();
             textBox8 = new TextBox();
             label9 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -202,6 +202,16 @@
             panel9.Size = new Size(292, 49);
             panel9.TabIndex = 4;
             // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "CNTT", "VL", "KT", "HH", "PĐT", "PKT", "PTCHC", "PCTSV" });
+            comboBox2.Location = new Point(90, 11);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(190, 28);
+            comboBox2.TabIndex = 2;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -244,6 +254,15 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(292, 49);
             panel3.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Nam", "Nữ" });
+            comboBox1.Location = new Point(90, 6);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(190, 28);
+            comboBox1.TabIndex = 1;
             // 
             // label4
             // 
@@ -303,22 +322,6 @@
             label9.Size = new Size(55, 20);
             label9.TabIndex = 0;
             label9.Text = "Vai trò:";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(90, 6);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(190, 28);
-            comboBox1.TabIndex = 1;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(90, 11);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(190, 28);
-            comboBox2.TabIndex = 2;
             // 
             // ThongTinNhanVien
             // 

@@ -478,6 +478,7 @@
             button8.TabIndex = 4;
             button8.Text = "Xóa nhân viên";
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // button9
             // 
@@ -529,6 +530,7 @@
             button6.TabIndex = 2;
             button6.Text = "Tìm kiếm";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // textBox11
             // 

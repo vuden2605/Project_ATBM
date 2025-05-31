@@ -208,7 +208,6 @@
             // 
             // textBox2
             // 
-            textBox2.Enabled = false;
             textBox2.Location = new Point(97, 14);
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";

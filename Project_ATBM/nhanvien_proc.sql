@@ -117,6 +117,131 @@ BEGIN
 END;
 /
 GRANT EXECUTE ON nvpdt_delete_dangky to role_nvpdt;
+REATE OR REPLACE PROCEDURE nvtchc_insert_nhanvien (
+    p_manld    IN VARCHAR2,
+    p_hoten    IN VARCHAR2,
+    p_phai     IN VARCHAR2,
+    p_ngaysinh IN DATE,
+    p_luong    IN NUMBER,
+    p_phucap   IN NUMBER,
+    p_sdt      IN VARCHAR2,
+    p_vaitro   IN VARCHAR2,
+    p_dv       IN VARCHAR2
+)
+IS
+    v_count NUMBER;
+BEGIN
+    -- Kiểm tra trùng mã nhân viên
+    SELECT COUNT(*) INTO v_count
+    FROM NHANVIEN
+    WHERE MANLD = p_manld;
+
+    IF v_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Mã nhân viên đã tồn tại.');
+    END IF;
+
+    -- Insert dữ liệu mới
+    INSERT INTO NHANVIEN (MANLD, HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DT, VAITRO, MaDV)
+    VALUES (p_manld, p_hoten, p_phai, p_ngaysinh, p_luong, p_phucap, p_sdt, p_vaitro, p_dv);
+    
+    COMMIT;
+END;
+/
+GRANT EXECUTE ON nvtchc_insert_nhanvien TO role_nvtchc;
+CREATE OR REPLACE PROCEDURE nvtchc_delete_nhanvien (
+    p_manld    IN VARCHAR2
+)
+IS
+BEGIN
+    DELETE FROM admin_qldh.NHANVIEN WHERE manld = p_manld;
+    COMMIT;
+END;
+/
+GRANT EXECUTE ON nvtchc_delete_nhanvien TO role_nvtchc;
+CREATE OR REPLACE PROCEDURE nvpdt_insert_dangky (
+    p_masv VARCHAR2,
+    p_mamm   VARCHAR2
+)
+IS
+    v_ngaybd DATE;
+    v_nam VARCHAR2(9);
+BEGIN
+    SELECT ngaybd , nam 
+    INTO v_ngaybd, v_nam
+    FROM admin_qldh.MOMON
+    WHERE mamm = p_mamm;
+    IF SYSDATE < v_ngaybd +14  AND (TO_NUMBER(SUBSTR(v_nam,1,4)) = EXTRACT(YEAR FROM SYSDATE)
+                                    OR TO_NUMBER(SUBSTR(v_nam,6,9)) = EXTRACT(YEAR FROM SYSDATE)) THEN
+        INSERT INTO admin_qldh.DANGKY (masv,mamm) VALUES (p_masv, p_mamm); 
+    ELSE
+        RAISE_APPLICATION_ERROR(-20001, 'Không thể thêm, đã quá hạn');
+    END IF;
+END;
+/
+GRANT EXECUTE ON nvpdt_insert_dangky TO role_nvpdt;
+CREATE OR REPLACE PROCEDURE nvpdt_insert_dangky (
+    p_masv VARCHAR2,
+    p_mamm   VARCHAR2
+)
+IS
+    v_ngaybd DATE;
+    v_nam VARCHAR2(9);
+BEGIN
+    SELECT ngaybd , nam 
+    INTO v_ngaybd, v_nam
+    FROM admin_qldh.MOMON
+    WHERE mamm = p_mamm;
+    IF SYSDATE < v_ngaybd +14  AND (TO_NUMBER(SUBSTR(v_nam,1,4)) = EXTRACT(YEAR FROM SYSDATE)
+                                    OR TO_NUMBER(SUBSTR(v_nam,6,9)) = EXTRACT(YEAR FROM SYSDATE)) THEN
+        INSERT INTO admin_qldh.DANGKY (masv,mamm) VALUES (p_masv, p_mamm); 
+    ELSE
+        RAISE_APPLICATION_ERROR(-20001, 'Không thể thêm, đã quá hạn');
+    END IF;
+END;
+/
+GRANT EXECUTE ON nvpdt_insert_dangky TO role_nvpdt;
+CREATE OR REPLACE PROCEDURE nvpdt_insert_dangky (
+    p_masv VARCHAR2,
+    p_mamm   VARCHAR2
+)
+IS
+    v_ngaybd DATE;
+    v_nam VARCHAR2(9);
+BEGIN
+    SELECT ngaybd , nam 
+    INTO v_ngaybd, v_nam
+    FROM admin_qldh.MOMON
+    WHERE mamm = p_mamm;
+    IF SYSDATE < v_ngaybd +14  AND (TO_NUMBER(SUBSTR(v_nam,1,4)) = EXTRACT(YEAR FROM SYSDATE)
+                                    OR TO_NUMBER(SUBSTR(v_nam,6,9)) = EXTRACT(YEAR FROM SYSDATE)) THEN
+        INSERT INTO admin_qldh.DANGKY (masv,mamm) VALUES (p_masv, p_mamm); 
+    ELSE
+        RAISE_APPLICATION_ERROR(-20001, 'Không thể thêm, đã quá hạn');
+    END IF;
+END;
+/
+GRANT EXECUTE ON nvpdt_insert_dangky TO role_nvpdt;
+CREATE OR REPLACE PROCEDURE nvpdt_insert_dangky (
+    p_masv VARCHAR2,
+    p_mamm   VARCHAR2
+)
+IS
+    v_ngaybd DATE;
+    v_nam VARCHAR2(9);
+BEGIN
+    SELECT ngaybd , nam 
+    INTO v_ngaybd, v_nam
+    FROM admin_qldh.MOMON
+    WHERE mamm = p_mamm;
+    IF SYSDATE < v_ngaybd +14  AND (TO_NUMBER(SUBSTR(v_nam,1,4)) = EXTRACT(YEAR FROM SYSDATE)
+                                    OR TO_NUMBER(SUBSTR(v_nam,6,9)) = EXTRACT(YEAR FROM SYSDATE)) THEN
+        INSERT INTO admin_qldh.DANGKY (masv,mamm) VALUES (p_masv, p_mamm); 
+    ELSE
+        RAISE_APPLICATION_ERROR(-20001, 'Không thể thêm, đã quá hạn');
+    END IF;
+END;
+/
+GRANT EXECUTE ON nvpdt_insert_dangky TO role_nvpdt;
 
 
 

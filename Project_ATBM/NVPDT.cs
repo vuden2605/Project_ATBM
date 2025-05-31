@@ -270,7 +270,8 @@ namespace Project_ATBM
 
         private void button17_Click(object sender, EventArgs e)
         {
-
+            ThongTinDangKyPDT ttdk = new ThongTinDangKyPDT();
+            ttdk.Show();
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -297,7 +298,7 @@ namespace Project_ATBM
 
         private void button16_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button15_Click_1(object sender, EventArgs e)

@@ -56,5 +56,10 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

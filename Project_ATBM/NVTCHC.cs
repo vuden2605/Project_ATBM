@@ -159,5 +159,40 @@ namespace Project_ATBM
         {
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                DialogResult confirmResult = MessageBox.Show(
+                    "Bạn có chắc muốn xóa nhân viên này?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string manld = dataGridView1.CurrentRow.Cells["MANLD"].Value.ToString();
+
+                    OracleCommand cmd = new OracleCommand("admin_qldh.nvtchc_delete_nhanvien", LoginForm.conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("p_manld", OracleDbType.Varchar2).Value = manld;
+                    int result = cmd.ExecuteNonQuery();
+                    MessageBox.Show("Xóa đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadAllTTNV();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
