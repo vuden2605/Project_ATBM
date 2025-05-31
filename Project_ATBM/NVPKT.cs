@@ -94,6 +94,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
             }
         }
+        private void LoadDangKy()
+        {
+            try
+            {
+                string query = @"
+            SELECT * FROM ADMIN_QLDH.DANGKY";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+                dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
+            }
+        }
         private void tbcThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tbcThongTin.SelectedIndex == 0)
@@ -102,11 +120,59 @@ namespace Project_ATBM
             }
             if (tbcThongTin.SelectedIndex == 1)
             {
+                LoadDangKy();
+
             }
             if (tbcThongTin.SelectedIndex == 2)
             {
                 LoadThongBao();
             }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSV = textBox12.Text.Trim().ToUpper();
+                string maMm = textBox13.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.DANGKY WHERE UPPER(MASV) LIKE : maSV AND UPPER(mamm) LIKE : maMm";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maSV", maSV + "%");
+                cmd.Parameters.Add(":mamm", maMm + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng đăng ký.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lấy dữ liệu từ dòng được chọn
+            var row = dataGridView3.CurrentRow;
+            string mssv = row.Cells["MASV"].Value?.ToString();
+            string mamon = row.Cells["MAMM"].Value?.ToString();
+            string diemQT = row.Cells["DIEMQT"].Value?.ToString();
+            string diemCK = row.Cells["DIEMCK"].Value?.ToString();
+            string diemTH = row.Cells["DIEMTH"].Value?.ToString();
+            string diemTK = row.Cells["DIEMTK"].Value?.ToString();
+
+            // Truyền dữ liệu sang form ThongTinDangKy (giả sử có constructor phù hợp)
+            ThongTinDangKy form = new ThongTinDangKy(mssv, mamon, diemQT, diemCK, diemTH, diemTK);
+            form.DangKyUpdated += (s, args) => LoadDangKy();
+
+            form.ShowDialog();
         }
     }
 }

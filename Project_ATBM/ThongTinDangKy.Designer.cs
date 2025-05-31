@@ -60,28 +60,25 @@
             // 
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(47, 67);
-            panel1.Margin = new Padding(2);
+            panel1.Location = new Point(76, 107);
             panel1.Name = "panel1";
-            panel1.Size = new Size(338, 49);
+            panel1.Size = new Size(549, 78);
             panel1.TabIndex = 4;
             // 
             // textBox1
             // 
             textBox1.Enabled = false;
-            textBox1.Location = new Point(97, 14);
-            textBox1.Margin = new Padding(2);
+            textBox1.Location = new Point(158, 22);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(190, 27);
+            textBox1.Size = new Size(306, 39);
             textBox1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 14);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(36, 22);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(82, 32);
             label1.TabIndex = 0;
             label1.Text = "MSSV:";
             // 
@@ -89,28 +86,25 @@
             // 
             panel2.Controls.Add(textBox2);
             panel2.Controls.Add(label2);
-            panel2.Location = new Point(47, 175);
-            panel2.Margin = new Padding(2);
+            panel2.Location = new Point(76, 280);
             panel2.Name = "panel2";
-            panel2.Size = new Size(338, 49);
+            panel2.Size = new Size(549, 78);
             panel2.TabIndex = 4;
             // 
             // textBox2
             // 
             textBox2.Enabled = false;
-            textBox2.Location = new Point(97, 14);
-            textBox2.Margin = new Padding(2);
+            textBox2.Location = new Point(158, 22);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(190, 27);
+            textBox2.Size = new Size(306, 39);
             textBox2.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(2, 14);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(3, 22);
             label2.Name = "label2";
-            label2.Size = new Size(93, 20);
+            label2.Size = new Size(151, 32);
             label2.TabIndex = 0;
             label2.Text = "Mã mở môn:";
             // 
@@ -118,28 +112,24 @@
             // 
             panel3.Controls.Add(textBox3);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(47, 272);
-            panel3.Margin = new Padding(2);
+            panel3.Location = new Point(76, 435);
             panel3.Name = "panel3";
-            panel3.Size = new Size(338, 49);
+            panel3.Size = new Size(549, 78);
             panel3.TabIndex = 5;
             // 
             // textBox3
             // 
-            textBox3.Enabled = false;
-            textBox3.Location = new Point(126, 14);
-            textBox3.Margin = new Padding(2);
+            textBox3.Location = new Point(205, 22);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(190, 27);
+            textBox3.Size = new Size(306, 39);
             textBox3.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(7, 17);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(11, 27);
             label3.Name = "label3";
-            label3.Size = new Size(117, 20);
+            label3.Size = new Size(191, 32);
             label3.TabIndex = 0;
             label3.Text = "Điểm thực hành:";
             // 
@@ -147,28 +137,24 @@
             // 
             panel4.Controls.Add(textBox4);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(430, 67);
-            panel4.Margin = new Padding(2);
+            panel4.Location = new Point(699, 107);
             panel4.Name = "panel4";
-            panel4.Size = new Size(338, 49);
+            panel4.Size = new Size(549, 78);
             panel4.TabIndex = 6;
             // 
             // textBox4
             // 
-            textBox4.Enabled = false;
-            textBox4.Location = new Point(126, 14);
-            textBox4.Margin = new Padding(2);
+            textBox4.Location = new Point(205, 22);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(190, 27);
+            textBox4.Size = new Size(306, 39);
             textBox4.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 17);
-            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Location = new Point(11, 27);
             label4.Name = "label4";
-            label4.Size = new Size(111, 20);
+            label4.Size = new Size(180, 32);
             label4.TabIndex = 0;
             label4.Text = "Điểm quá trình:";
             // 
@@ -176,28 +162,24 @@
             // 
             panel5.Controls.Add(textBox5);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(430, 175);
-            panel5.Margin = new Padding(2);
+            panel5.Location = new Point(699, 280);
             panel5.Name = "panel5";
-            panel5.Size = new Size(338, 49);
+            panel5.Size = new Size(549, 78);
             panel5.TabIndex = 7;
             // 
             // textBox5
             // 
-            textBox5.Enabled = false;
-            textBox5.Location = new Point(126, 14);
-            textBox5.Margin = new Padding(2);
+            textBox5.Location = new Point(205, 22);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(190, 27);
+            textBox5.Size = new Size(306, 39);
             textBox5.TabIndex = 1;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(7, 17);
-            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Location = new Point(11, 27);
             label5.Name = "label5";
-            label5.Size = new Size(98, 20);
+            label5.Size = new Size(159, 32);
             label5.TabIndex = 0;
             label5.Text = "Điểm cuối kỳ:";
             // 
@@ -205,28 +187,24 @@
             // 
             panel6.Controls.Add(textBox6);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(430, 272);
-            panel6.Margin = new Padding(2);
+            panel6.Location = new Point(699, 435);
             panel6.Name = "panel6";
-            panel6.Size = new Size(338, 49);
+            panel6.Size = new Size(549, 78);
             panel6.TabIndex = 8;
             // 
             // textBox6
             // 
-            textBox6.Enabled = false;
-            textBox6.Location = new Point(126, 14);
-            textBox6.Margin = new Padding(2);
+            textBox6.Location = new Point(205, 22);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(190, 27);
+            textBox6.Size = new Size(306, 39);
             textBox6.TabIndex = 1;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(7, 17);
-            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Location = new Point(11, 27);
             label6.Name = "label6";
-            label6.Size = new Size(107, 20);
+            label6.Size = new Size(173, 32);
             label6.TabIndex = 0;
             label6.Text = "Điểm tổng kết:";
             // 
@@ -235,30 +213,34 @@
             button1.BackColor = Color.Red;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(249, 366);
+            button1.Location = new Point(405, 586);
+            button1.Margin = new Padding(5);
             button1.Name = "button1";
-            button1.Size = new Size(136, 44);
+            button1.Size = new Size(221, 70);
             button1.TabIndex = 12;
             button1.Text = "Hủy";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.LimeGreen;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(430, 366);
+            button2.Location = new Point(699, 586);
+            button2.Margin = new Padding(5);
             button2.Name = "button2";
-            button2.Size = new Size(136, 44);
+            button2.Size = new Size(221, 70);
             button2.TabIndex = 13;
             button2.Text = "Lưu";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
             // ThongTinDangKy
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(807, 450);
+            ClientSize = new Size(1311, 720);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(panel6);
@@ -267,6 +249,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(5);
             Name = "ThongTinDangKy";
             Text = "ThongTinDangKy";
             panel1.ResumeLayout(false);
