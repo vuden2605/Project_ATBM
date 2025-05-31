@@ -187,10 +187,10 @@ namespace Project_ATBM
         {
             try
             {
-                string maNV = textBox10.Text.Trim().ToUpper();
-                string query = "SELECT * FROM admin_qldh.v_trgdv_nv WHERE UPPER(MANLD) LIKE : maNV";
+                string hoten = textBox10.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.v_trgdv_nv WHERE UPPER(HOTEN) LIKE : hoten";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":maNV", maNV + "%");
+                cmd.Parameters.Add(":maNV", "%" + hoten + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
