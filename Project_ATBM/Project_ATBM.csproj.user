@@ -73,6 +73,9 @@
     <Compile Update="UpdateThongTinDangKyPDT.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UpdateThongTinNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UpdateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
