@@ -31,6 +31,7 @@ namespace Project_ATBM
                 cmd.Parameters.Add("p_mamm", OracleDbType.Varchar2).Value = mamm;
                 int result = cmd.ExecuteNonQuery();
                 MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
                     
             }
             catch (Exception ex)

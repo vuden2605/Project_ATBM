@@ -87,7 +87,6 @@
             button18 = new Button();
             panel15 = new Panel();
             button15 = new Button();
-            button16 = new Button();
             button17 = new Button();
             panel14 = new Panel();
             textBox13 = new TextBox();
@@ -100,6 +99,7 @@
             tabPage5 = new TabPage();
             dataGridView4 = new DataGridView();
             label19 = new Label();
+            button7 = new Button();
             tbcThongTin.SuspendLayout();
             tabPage1.SuspendLayout();
             panel8.SuspendLayout();
@@ -532,6 +532,7 @@
             // 
             // panel10
             // 
+            panel10.Controls.Add(button7);
             panel10.Controls.Add(button5);
             panel10.Controls.Add(button11);
             panel10.Location = new Point(691, 49);
@@ -545,7 +546,7 @@
             button5.BackColor = Color.LimeGreen;
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button5.ForeColor = SystemColors.ButtonHighlight;
-            button5.Location = new Point(51, 152);
+            button5.Location = new Point(51, 116);
             button5.Margin = new Padding(2);
             button5.Name = "button5";
             button5.Size = new Size(164, 45);
@@ -730,7 +731,6 @@
             // panel15
             // 
             panel15.Controls.Add(button15);
-            panel15.Controls.Add(button16);
             panel15.Controls.Add(button17);
             panel15.Location = new Point(711, 2);
             panel15.Margin = new Padding(2);
@@ -743,7 +743,7 @@
             button15.BackColor = Color.LimeGreen;
             button15.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button15.ForeColor = SystemColors.ButtonHighlight;
-            button15.Location = new Point(51, 102);
+            button15.Location = new Point(51, 116);
             button15.Margin = new Padding(2);
             button15.Name = "button15";
             button15.Size = new Size(164, 45);
@@ -751,20 +751,6 @@
             button15.Text = "Xóa";
             button15.UseVisualStyleBackColor = false;
             button15.Click += button15_Click_1;
-            // 
-            // button16
-            // 
-            button16.BackColor = Color.LimeGreen;
-            button16.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button16.ForeColor = SystemColors.ButtonHighlight;
-            button16.Location = new Point(51, 176);
-            button16.Margin = new Padding(2);
-            button16.Name = "button16";
-            button16.Size = new Size(164, 45);
-            button16.TabIndex = 3;
-            button16.Text = "Sửa";
-            button16.UseVisualStyleBackColor = false;
-            button16.Click += button16_Click;
             // 
             // button17
             // 
@@ -891,6 +877,20 @@
             label19.Size = new Size(274, 37);
             label19.TabIndex = 4;
             label19.Text = "THÔNG BÁO CỦA TÔI";
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.LimeGreen;
+            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button7.ForeColor = SystemColors.ButtonHighlight;
+            button7.Location = new Point(51, 185);
+            button7.Margin = new Padding(2);
+            button7.Name = "button7";
+            button7.Size = new Size(164, 45);
+            button7.TabIndex = 5;
+            button7.Text = "Sửa mở môn";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click_1;
             // 
             // NVPDT
             // 
@@ -1019,5 +1019,6 @@
         private TabPage tabPage5;
         private DataGridView dataGridView4;
         private Label label19;
+        private Button button7;
     }
 }

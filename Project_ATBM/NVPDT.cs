@@ -336,5 +336,10 @@ namespace Project_ATBM
         {
 
         }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
