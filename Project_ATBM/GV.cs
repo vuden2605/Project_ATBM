@@ -18,7 +18,7 @@ namespace Project_ATBM
             InitializeComponent();
             LoadTTNV();
         }
-        private void LoadTTNV()
+        public void LoadTTNV()
         {
             try
             {
@@ -43,6 +43,24 @@ namespace Project_ATBM
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi tải thông tin: " + ex.Message);
+            }
+        }
+        public void LoadDsMoMon()
+        {
+            try
+            {
+                string query = "SELECT * FROM admin_qldh.v_gv_mm";
+
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView2.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load dữ liệu: " + ex.Message);
             }
         }
 
@@ -71,6 +89,54 @@ namespace Project_ATBM
             {
                 MessageBox.Show("Lỗi khi cập nhật số điện thoại: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbcThongTin_TabIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbcThongTin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tbcThongTin.SelectedIndex == 0)
+            {
+                LoadTTNV();
+            }
+            if (tbcThongTin.SelectedIndex == 1)
+            {
+                LoadDsMoMon();
+            }
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string tenHp = textBox10.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.v_gv_mm WHERE UPPER(TENHP) LIKE : tenHp";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":tenHp", "%" + tenHp + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

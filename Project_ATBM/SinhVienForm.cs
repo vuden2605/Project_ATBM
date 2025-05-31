@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_ATBM
@@ -285,8 +286,8 @@ namespace Project_ATBM
         {
             try
             {
-                string tenHp = textBox9.Text;
-                string query = "SELECT * FROM admin_qldh.v_sv_momon WHERE tenhp LIKE : tenHp";
+                string tenHp = textBox9.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.v_sv_momon WHERE UPPER(TENHP) LIKE : tenHp";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 cmd.Parameters.Add(":username", "%" + tenHp + "%");
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);

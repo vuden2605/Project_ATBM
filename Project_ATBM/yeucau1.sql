@@ -51,8 +51,10 @@ grant select, insert, delete, update on nhanvien to role_nvtchc;
 --Câu 2.1 Người dùng có vai trò “GV” được quyền xem các dòng phân công giảng dạy liên quan
 --đến chính giảng viên đó.
 create or replace view v_gv_mm as
-select * from momon where magv= sys_context('userenv','session_user');
-GRANT SELECT ON v_gv_mm TO role_gv;
+select mm.mamm, mm.mahp, hp.tenhp, mm.magv, mm.hk, mm.nam, mm.ngaybd
+from momon mm
+join hocphan hp ON mm.mahp = hp.mahp
+where magv= sys_context('userenv','session_user');
 --Câu 2.2 Người dùng có vai trò “NV PĐT” có quyền xem, thêm, cập nhật, xóa dòng trong bảng
 --MOMON liên quan đến học kỳ hiện tại của năm học đang diễn ra.
 /

@@ -127,6 +127,8 @@
             tbcThongTin.SelectedIndex = 0;
             tbcThongTin.Size = new Size(987, 575);
             tbcThongTin.TabIndex = 1;
+            tbcThongTin.SelectedIndexChanged += tbcThongTin_SelectedIndexChanged;
+            tbcThongTin.TabIndexChanged += tbcThongTin_TabIndexChanged;
             // 
             // tabPage1
             // 
@@ -487,6 +489,7 @@
             button12.TabIndex = 2;
             button12.Text = "Tìm kiếm";
             button12.UseVisualStyleBackColor = false;
+            button12.Click += button12_Click;
             // 
             // textBox10
             // 
@@ -495,6 +498,7 @@
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(253, 27);
             textBox10.TabIndex = 1;
+            textBox10.TextChanged += textBox10_TextChanged;
             // 
             // label15
             // 
@@ -502,9 +506,9 @@
             label15.Location = new Point(7, 13);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(133, 20);
+            label15.Size = new Size(135, 20);
             label15.TabIndex = 0;
-            label15.Text = "Nhập mã mở môn:";
+            label15.Text = "Nhập tên môn học:";
             // 
             // dataGridView2
             // 
@@ -514,6 +518,7 @@
             dataGridView2.RowHeadersWidth = 51;
             dataGridView2.Size = new Size(667, 409);
             dataGridView2.TabIndex = 3;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // label13
             // 
