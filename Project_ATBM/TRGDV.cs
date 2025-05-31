@@ -116,7 +116,24 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
             }
         }
-
+        private void LoadNhanVien()
+        {
+            try
+            {
+                string query = @"
+            SELECT * FROM ADMIN_QLDH.v_trgdv_nv";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông báo: " + ex.Message);
+            }
+        }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 0)
@@ -126,6 +143,11 @@ namespace Project_ATBM
             if (tabControl1.SelectedIndex == 1)
             {
                 LoadThongBao();
+
+            }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                LoadNhanVien();
 
             }
             if (tabControl1.SelectedIndex == 3)
@@ -159,6 +181,26 @@ namespace Project_ATBM
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maNV = textBox10.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.v_trgdv_nv WHERE UPPER(MANLD) LIKE : maNV";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maNV", maNV + "%");
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
+            }
         }
     }
 }

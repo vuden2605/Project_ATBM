@@ -126,9 +126,9 @@
             tabPage3.Controls.Add(panel1);
             tabPage3.Controls.Add(label1);
             tabPage3.Location = new Point(8, 46);
-            tabPage3.Margin = new Padding(5, 5, 5, 5);
+            tabPage3.Margin = new Padding(5);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(5, 5, 5, 5);
+            tabPage3.Padding = new Padding(5);
             tabPage3.Size = new Size(1596, 864);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Thông tin cá nhân";
@@ -152,7 +152,7 @@
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(1176, 627);
-            button2.Margin = new Padding(5, 5, 5, 5);
+            button2.Margin = new Padding(5);
             button2.Name = "button2";
             button2.Size = new Size(221, 70);
             button2.TabIndex = 6;
@@ -166,7 +166,7 @@
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button1.ForeColor = Color.White;
             button1.Location = new Point(923, 622);
-            button1.Margin = new Padding(5, 5, 5, 5);
+            button1.Margin = new Padding(5);
             button1.Name = "button1";
             button1.Size = new Size(221, 70);
             button1.TabIndex = 5;
@@ -191,7 +191,7 @@
             panel8.Controls.Add(textBox8);
             panel8.Controls.Add(label9);
             panel8.Location = new Point(923, 251);
-            panel8.Margin = new Padding(5, 5, 5, 5);
+            panel8.Margin = new Padding(5);
             panel8.Name = "panel8";
             panel8.Size = new Size(474, 78);
             panel8.TabIndex = 3;
@@ -200,7 +200,7 @@
             // 
             textBox8.Enabled = false;
             textBox8.Location = new Point(146, 22);
-            textBox8.Margin = new Padding(5, 5, 5, 5);
+            textBox8.Margin = new Padding(5);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(306, 39);
             textBox8.TabIndex = 1;
@@ -220,7 +220,7 @@
             panel9.Controls.Add(textBox9);
             panel9.Controls.Add(label10);
             panel9.Location = new Point(923, 371);
-            panel9.Margin = new Padding(5, 5, 5, 5);
+            panel9.Margin = new Padding(5);
             panel9.Name = "panel9";
             panel9.Size = new Size(474, 78);
             panel9.TabIndex = 3;
@@ -229,7 +229,7 @@
             // 
             textBox9.Enabled = false;
             textBox9.Location = new Point(146, 22);
-            textBox9.Margin = new Padding(5, 5, 5, 5);
+            textBox9.Margin = new Padding(5);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(306, 39);
             textBox9.TabIndex = 1;
@@ -249,7 +249,7 @@
             panel2.Controls.Add(textBox2);
             panel2.Controls.Add(label3);
             panel2.Location = new Point(150, 251);
-            panel2.Margin = new Padding(5, 5, 5, 5);
+            panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
             panel2.Size = new Size(474, 78);
             panel2.TabIndex = 2;
@@ -258,7 +258,7 @@
             // 
             textBox2.Enabled = false;
             textBox2.Location = new Point(146, 22);
-            textBox2.Margin = new Padding(5, 5, 5, 5);
+            textBox2.Margin = new Padding(5);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(306, 39);
             textBox2.TabIndex = 1;
@@ -278,7 +278,7 @@
             panel3.Controls.Add(textBox3);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(150, 371);
-            panel3.Margin = new Padding(5, 5, 5, 5);
+            panel3.Margin = new Padding(5);
             panel3.Name = "panel3";
             panel3.Size = new Size(474, 78);
             panel3.TabIndex = 2;
@@ -287,7 +287,7 @@
             // 
             textBox3.Enabled = false;
             textBox3.Location = new Point(146, 22);
-            textBox3.Margin = new Padding(5, 5, 5, 5);
+            textBox3.Margin = new Padding(5);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(306, 39);
             textBox3.TabIndex = 1;
@@ -307,7 +307,7 @@
             panel4.Controls.Add(textBox4);
             panel4.Controls.Add(label5);
             panel4.Location = new Point(150, 499);
-            panel4.Margin = new Padding(5, 5, 5, 5);
+            panel4.Margin = new Padding(5);
             panel4.Name = "panel4";
             panel4.Size = new Size(474, 78);
             panel4.TabIndex = 2;
@@ -316,7 +316,7 @@
             // 
             textBox4.Enabled = false;
             textBox4.Location = new Point(146, 22);
-            textBox4.Margin = new Padding(5, 5, 5, 5);
+            textBox4.Margin = new Padding(5);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(306, 39);
             textBox4.TabIndex = 1;
@@ -336,7 +336,7 @@
             panel5.Controls.Add(textBox5);
             panel5.Controls.Add(label6);
             panel5.Location = new Point(150, 619);
-            panel5.Margin = new Padding(5, 5, 5, 5);
+            panel5.Margin = new Padding(5);
             panel5.Name = "panel5";
             panel5.Size = new Size(474, 78);
             panel5.TabIndex = 2;
@@ -345,7 +345,7 @@
             // 
             textBox5.Enabled = false;
             textBox5.Location = new Point(146, 22);
-            textBox5.Margin = new Padding(5, 5, 5, 5);
+            textBox5.Margin = new Padding(5);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(306, 39);
             textBox5.TabIndex = 1;
@@ -365,7 +365,7 @@
             panel6.Controls.Add(textBox6);
             panel6.Controls.Add(label7);
             panel6.Location = new Point(923, 139);
-            panel6.Margin = new Padding(5, 5, 5, 5);
+            panel6.Margin = new Padding(5);
             panel6.Name = "panel6";
             panel6.Size = new Size(474, 78);
             panel6.TabIndex = 2;
@@ -374,7 +374,7 @@
             // 
             textBox6.Enabled = false;
             textBox6.Location = new Point(146, 22);
-            textBox6.Margin = new Padding(5, 5, 5, 5);
+            textBox6.Margin = new Padding(5);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(306, 39);
             textBox6.TabIndex = 1;
@@ -394,7 +394,7 @@
             panel7.Controls.Add(textBox7);
             panel7.Controls.Add(label8);
             panel7.Location = new Point(923, 499);
-            panel7.Margin = new Padding(5, 5, 5, 5);
+            panel7.Margin = new Padding(5);
             panel7.Name = "panel7";
             panel7.Size = new Size(474, 78);
             panel7.TabIndex = 2;
@@ -403,7 +403,7 @@
             // 
             textBox7.Enabled = false;
             textBox7.Location = new Point(146, 22);
-            textBox7.Margin = new Padding(5, 5, 5, 5);
+            textBox7.Margin = new Padding(5);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(306, 39);
             textBox7.TabIndex = 1;
@@ -423,7 +423,7 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(150, 139);
-            panel1.Margin = new Padding(5, 5, 5, 5);
+            panel1.Margin = new Padding(5);
             panel1.Name = "panel1";
             panel1.Size = new Size(474, 78);
             panel1.TabIndex = 1;
@@ -432,7 +432,7 @@
             // 
             textBox1.Enabled = false;
             textBox1.Location = new Point(146, 22);
-            textBox1.Margin = new Padding(5, 5, 5, 5);
+            textBox1.Margin = new Padding(5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(306, 39);
             textBox1.TabIndex = 1;
@@ -465,9 +465,9 @@
             tabPage2.Controls.Add(dataGridView3);
             tabPage2.Controls.Add(label15);
             tabPage2.Location = new Point(8, 46);
-            tabPage2.Margin = new Padding(5, 5, 5, 5);
+            tabPage2.Margin = new Padding(5);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3, 3, 3, 3);
+            tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(1596, 864);
             tabPage2.TabIndex = 4;
             tabPage2.Text = "Xem thông báo";
@@ -477,7 +477,7 @@
             // 
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView3.Location = new Point(145, 158);
-            dataGridView3.Margin = new Padding(5, 5, 5, 5);
+            dataGridView3.Margin = new Padding(5);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 82;
             dataGridView3.Size = new Size(1297, 586);
@@ -503,7 +503,7 @@
             tabPage1.Controls.Add(dataGridView1);
             tabPage1.Location = new Point(8, 46);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3, 3, 3, 3);
+            tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(1596, 864);
             tabPage1.TabIndex = 5;
             tabPage1.Text = "Nhân viên";
@@ -520,6 +520,7 @@
             btnSearchUser.TabIndex = 7;
             btnSearchUser.Text = "Tìm kiếm";
             btnSearchUser.UseVisualStyleBackColor = false;
+            btnSearchUser.Click += btnSearchUser_Click;
             // 
             // textBox10
             // 
@@ -565,7 +566,7 @@
             tabPage4.Controls.Add(dataGridView2);
             tabPage4.Location = new Point(8, 46);
             tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3, 3, 3, 3);
+            tabPage4.Padding = new Padding(3);
             tabPage4.Size = new Size(1596, 864);
             tabPage4.TabIndex = 6;
             tabPage4.Text = "Mở môn";
