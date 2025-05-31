@@ -180,10 +180,10 @@ namespace Project_ATBM
         {
             try
             {
-                string tenHp = textBox10.Text.Trim().ToUpper();
-                string query = "SELECT * FROM admin_qldh.V_nvpdt_mm WHERE UPPER(TENHP) LIKE : tenHp";
+                string mamm = textBox10.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.V_nvpdt_mm WHERE UPPER(MAMM) = : mamm";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
-                cmd.Parameters.Add(":tenHp", "%" + tenHp + "%");
+                cmd.Parameters.Add(":tenHp", mamm);
                 OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -368,6 +368,26 @@ namespace Project_ATBM
             {
                 this.Hide();
 
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSV = textBox11.Text.Trim().ToUpper();
+                string query = "SELECT * FROM admin_qldh.SINHVIEN WHERE UPPER(MASV) = : maSV ";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                cmd.Parameters.Add(":maSV", maSV);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi." + ex.Message);
             }
         }
     }
