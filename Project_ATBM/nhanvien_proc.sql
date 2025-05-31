@@ -1,6 +1,6 @@
 ﻿CREATE OR REPLACE PROCEDURE update_phone_nhanvien (
     p_manld    IN SINHVIEN.MASV%TYPE,
-    p_dt  IN SINHVIEN.DCHI%TYPE
+    p_dt  IN SINHVIEN.DT%TYPE
 )
 IS
 BEGIN

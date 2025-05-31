@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project_ATBM
 {
@@ -33,6 +35,26 @@ namespace Project_ATBM
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string masv = textBox1.Text;
+                string tinhtrang = comboBox1.Text;
+                OracleCommand cmd = new OracleCommand("admin_qldh.nvpdt_update_tinhtrangsv", LoginForm.conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_masv", OracleDbType.Varchar2).Value = masv;
+                cmd.Parameters.Add("p_tinhtrang", OracleDbType.Varchar2).Value = tinhtrang;
+                int result = cmd.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
     }
 }
