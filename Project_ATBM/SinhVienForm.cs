@@ -41,7 +41,7 @@ namespace Project_ATBM
             {
                 string query = @"
             SELECT 
-                ROW_NUMBER() OVER (ORDER BY ngaytao DESC) AS ""STT"",
+                id as ""Mã thông báo"",
                 noidung AS ""Nội dung"",
                 ngaytao AS ""Ngày tạo""
             FROM ADMIN_QLDH.THONGBAO";
