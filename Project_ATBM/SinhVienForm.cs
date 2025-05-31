@@ -60,17 +60,15 @@ namespace Project_ATBM
         {
             try
             {
-                string query = @"
-            SELECT MASV, HOTEN, TO_CHAR(NGSINH, 'DD/MM/YYYY') AS NGSINH, PHAI, DCHI, DT, KHOA, TINHTRANG
-            FROM ADMIN_QLDH.SINHVIEN
-            WHERE MASV = SYS_CONTEXT('USERENV', 'SESSION_USER')";
+                string query = "SELECT * FROM admin_qldh.SINHVIEN";
                 OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
                 OracleDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     textBox1.Text = reader["MASV"].ToString();
                     textBox5.Text = reader["HOTEN"].ToString();
-                    textBox8.Text = reader["NGSINH"].ToString();
+                    DateTime ngsinh = (DateTime)reader["NGSINH"];
+                    textBox8.Text = ngsinh.ToString("dd/MM/yyyy");
                     textBox2.Text = reader["PHAI"].ToString();
                     textBox4.Text = reader["DCHI"].ToString();
                     textBox6.Text = reader["DT"].ToString();
