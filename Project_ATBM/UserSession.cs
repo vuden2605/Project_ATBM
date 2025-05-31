@@ -8,6 +8,6 @@ namespace Project_ATBM
 {
     public static class UserSession
     {
-        public static string maSV { get; set; }
+        public static string maUser { get; set; }
     }
 }

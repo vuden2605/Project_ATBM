@@ -195,10 +195,10 @@ namespace Project_ATBM
                     {
                         using (OracleCommand cmd = new OracleCommand("admin_qldh.sv_dk_monhoc", LoginForm.conn))
                         {
-                            Console.WriteLine(UserSession.maSV);
+                            Console.WriteLine(UserSession.maUser);
                             cmd.CommandType = CommandType.StoredProcedure;
 
-                            cmd.Parameters.Add("p_masv", OracleDbType.NVarchar2).Value = UserSession.maSV;
+                            cmd.Parameters.Add("p_masv", OracleDbType.NVarchar2).Value = UserSession.maUser;
                             cmd.Parameters.Add("p_mamm", OracleDbType.NVarchar2).Value = maMm;
 
                             cmd.ExecuteNonQuery();
@@ -239,10 +239,10 @@ namespace Project_ATBM
                     {
                         using (OracleCommand cmd = new OracleCommand("admin_qldh.sv_delete_dk", LoginForm.conn))
                         {
-                            Console.WriteLine(UserSession.maSV);
+                            Console.WriteLine(UserSession.maUser);
                             cmd.CommandType = CommandType.StoredProcedure;
 
-                            cmd.Parameters.Add("p_masv", OracleDbType.NVarchar2).Value = UserSession.maSV;
+                            cmd.Parameters.Add("p_masv", OracleDbType.NVarchar2).Value = UserSession.maUser;
                             cmd.Parameters.Add("p_mamm", OracleDbType.NVarchar2).Value = maMm;
 
                             cmd.ExecuteNonQuery();
