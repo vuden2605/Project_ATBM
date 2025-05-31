@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Project_ATBM
 {
@@ -45,7 +46,23 @@ namespace Project_ATBM
                 MessageBox.Show("Lỗi khi tải thông tin: " + ex.Message);
             }
         }
+        public void LoadAllTTNV()
+        {
+            try
+            {
+                string query = "select * from admin_qldh.nhanvien";
+                OracleCommand cmd = new OracleCommand(query, LoginForm.conn);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải thông tin: " + ex.Message);
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -103,11 +120,44 @@ namespace Project_ATBM
             }
             if (tbcThongTin.SelectedIndex == 1)
             {
+                LoadAllTTNV();
             }
             if (tbcThongTin.SelectedIndex == 2)
             {
                 LoadThongBao();
             }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    //string manld = 
+
+                    //string hoten = textBox1.Text;
+                    //string phai = textBox2.Text;
+                    //string ngsinh = textBox3.Text;
+                    //string luong = textBox4.Text;
+                    //string phucap = textBox5.Text;
+                    //string dt = textBox6.Text;
+                    //string vaitro = 
+                    //string madv = 
+                    ThongTinNhanVien ttnv = new ThongTinNhanVien();
+                    ttnv.Show();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

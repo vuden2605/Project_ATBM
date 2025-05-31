@@ -126,7 +126,7 @@
             tabPage1.Controls.Add(label1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3, 3, 3, 3);
+            tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(979, 542);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Thông tin cá nhân";
@@ -138,7 +138,7 @@
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Location = new Point(774, 476);
-            button4.Margin = new Padding(2, 2, 2, 2);
+            button4.Margin = new Padding(2);
             button4.Name = "button4";
             button4.Size = new Size(164, 45);
             button4.TabIndex = 6;
@@ -436,7 +436,7 @@
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3, 3, 3, 3);
+            tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(979, 542);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Thông tin nhân viên";
@@ -448,7 +448,7 @@
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Location = new Point(774, 476);
-            button3.Margin = new Padding(2, 2, 2, 2);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
             button3.Size = new Size(164, 45);
             button3.TabIndex = 6;
@@ -461,7 +461,7 @@
             panel12.Controls.Add(button9);
             panel12.Controls.Add(button10);
             panel12.Location = new Point(691, 49);
-            panel12.Margin = new Padding(2, 2, 2, 2);
+            panel12.Margin = new Padding(2);
             panel12.Name = "panel12";
             panel12.Size = new Size(262, 274);
             panel12.TabIndex = 8;
@@ -472,7 +472,7 @@
             button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button8.ForeColor = SystemColors.ButtonHighlight;
             button8.Location = new Point(51, 111);
-            button8.Margin = new Padding(2, 2, 2, 2);
+            button8.Margin = new Padding(2);
             button8.Name = "button8";
             button8.Size = new Size(164, 45);
             button8.TabIndex = 4;
@@ -485,7 +485,7 @@
             button9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button9.ForeColor = SystemColors.ButtonHighlight;
             button9.Location = new Point(51, 195);
-            button9.Margin = new Padding(2, 2, 2, 2);
+            button9.Margin = new Padding(2);
             button9.Name = "button9";
             button9.Size = new Size(164, 45);
             button9.TabIndex = 3;
@@ -498,12 +498,13 @@
             button10.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button10.ForeColor = SystemColors.ButtonHighlight;
             button10.Location = new Point(51, 30);
-            button10.Margin = new Padding(2, 2, 2, 2);
+            button10.Margin = new Padding(2);
             button10.Name = "button10";
             button10.Size = new Size(164, 45);
             button10.TabIndex = 2;
             button10.Text = "Thêm nhân viên";
             button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
             // 
             // panel11
             // 
@@ -511,7 +512,7 @@
             panel11.Controls.Add(textBox11);
             panel11.Controls.Add(label14);
             panel11.Location = new Point(691, 338);
-            panel11.Margin = new Padding(2, 2, 2, 2);
+            panel11.Margin = new Padding(2);
             panel11.Name = "panel11";
             panel11.Size = new Size(262, 120);
             panel11.TabIndex = 7;
@@ -522,7 +523,7 @@
             button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button6.ForeColor = SystemColors.ButtonHighlight;
             button6.Location = new Point(168, 76);
-            button6.Margin = new Padding(2, 2, 2, 2);
+            button6.Margin = new Padding(2);
             button6.Name = "button6";
             button6.Size = new Size(92, 35);
             button6.TabIndex = 2;
@@ -532,7 +533,7 @@
             // textBox11
             // 
             textBox11.Location = new Point(7, 45);
-            textBox11.Margin = new Padding(2, 2, 2, 2);
+            textBox11.Margin = new Padding(2);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(253, 27);
             textBox11.TabIndex = 1;
@@ -565,6 +566,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(667, 409);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // tabPage4
             // 

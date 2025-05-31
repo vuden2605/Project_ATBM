@@ -208,6 +208,7 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(190, 27);
             textBox9.TabIndex = 1;
+            textBox9.TextChanged += textBox9_TextChanged;
             // 
             // label10
             // 
@@ -291,6 +292,7 @@
             button2.TabIndex = 10;
             button2.Text = "Lưu";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // panel8
             // 

@@ -133,7 +133,7 @@ namespace Project_ATBM
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
