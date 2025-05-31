@@ -168,7 +168,6 @@ namespace Project_ATBM
             string diemTH = row.Cells["DIEMTH"].Value?.ToString();
             string diemTK = row.Cells["DIEMTK"].Value?.ToString();
 
-            // Truyền dữ liệu sang form ThongTinDangKy (giả sử có constructor phù hợp)
             ThongTinDangKy form = new ThongTinDangKy(mssv, mamon, diemQT, diemCK, diemTH, diemTK);
             form.DangKyUpdated += (s, args) => LoadDangKy();
 
