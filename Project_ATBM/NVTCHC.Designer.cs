@@ -487,6 +487,7 @@
             button3.TabIndex = 6;
             button3.Text = "Đăng xuất";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // panel12
             // 

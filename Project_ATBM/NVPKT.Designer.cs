@@ -486,6 +486,7 @@
             button18.TabIndex = 15;
             button18.Text = "Đăng xuất";
             button18.UseVisualStyleBackColor = false;
+            button18.Click += button18_Click;
             // 
             // panel15
             // 
