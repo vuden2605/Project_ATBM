@@ -31,12 +31,12 @@ namespace Project_ATBM
                     cmd.Parameters.Add("p_nam", Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2).Value = textBox8.Text.Trim();
 
                     // Xử lý ngày bắt đầu
-                    DateTime ngaybd;
-                    if (!DateTime.TryParseExact(textBox4.Text.Trim(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out ngaybd))
+                    if (!DateTime.TryParseExact(textBox4.Text.Trim(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime ngaybd))
                     {
                         MessageBox.Show("Ngày bắt đầu không hợp lệ. Định dạng đúng: dd/MM/yyyy", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                     cmd.Parameters.Add("p_ngaybd", Oracle.ManagedDataAccess.Client.OracleDbType.Date).Value = ngaybd;
 
                     cmd.ExecuteNonQuery();
@@ -47,13 +47,14 @@ namespace Project_ATBM
             }
             catch (Oracle.ManagedDataAccess.Client.OracleException ex)
             {
-                MessageBox.Show("Lỗi khi thêm mở môn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi Oracle: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi không xác định: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         private void button1_Click(object sender, EventArgs e)

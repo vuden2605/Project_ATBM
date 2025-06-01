@@ -58,9 +58,6 @@ BEGIN
     INSERT INTO admin_qldh.MOMON (mamm, mahp, magv, hk, nam, ngaybd)
     VALUES (p_mamm, p_mahp, p_magv, v_hk, p_nam, p_ngaybd);
 
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Lỗi: ' || SQLERRM);
 END;
 /
 
